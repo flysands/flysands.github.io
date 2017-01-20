@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>搭建私有registry | Flysands Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1 背景
+
+
+2 选型
+
+
+3 Portus
+
+
+3.1 下载
+
+
+
+git clone https://github.com/SUSE/Portus.git
+
+
+
+
+
+3.2 初次运行
+
+
+Portus提供了一个体验版本.compose-setup.sh.简单运行即可.
+
+
+
+compose-setup.sh -e external-ip
+
+
+
+
+脚本很简单,做了一下几件事情.
+
+
+检查参数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建私有registry">
+<meta property="og:url" content="http://flysands.github.com/blog/2017-01-20-2016-03-03-private-registry.html">
+<meta property="og:site_name" content="Flysands Blog">
+<meta property="og:description" content="1 背景
+
+
+2 选型
+
+
+3 Portus
+
+
+3.1 下载
+
+
+
+git clone https://github.com/SUSE/Portus.git
+
+
+
+
+
+3.2 初次运行
+
+
+Portus提供了一个体验版本.compose-setup.sh.简单运行即可.
+
+
+
+compose-setup.sh -e external-ip
+
+
+
+
+脚本很简单,做了一下几件事情.
+
+
+检查参数">
+<meta property="og:updated_time" content="2017-01-20T09:24:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="搭建私有registry">
+<meta name="twitter:description" content="1 背景
+
+
+2 选型
+
+
+3 Portus
+
+
+3.1 下载
+
+
+
+git clone https://github.com/SUSE/Portus.git
+
+
+
+
+
+3.2 初次运行
+
+
+Portus提供了一个体验版本.compose-setup.sh.简单运行即可.
+
+
+
+compose-setup.sh -e external-ip
+
+
+
+
+脚本很简单,做了一下几件事情.
+
+
+检查参数">
+  
+  
+    <link rel="icon" href="favicon.png">
+  
+  
+ <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">Flysands Blog</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/mylogo.jpg"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://flysands.github.com"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/">首页</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">归档</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://flysands.github.com"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/css/images/mylogo.jpg">
+      <h2 id="name">Flysands</h2>
+      <h3 id="title">Programmer &amp; Emacser</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Chengdu, China</span>
+      <a id="follow" href="https://github.com/flysands/">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        7
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        7
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/chenxs110" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="http://weibo.com/u/2339432710" target="_blank" title="weibo"><i class="fa fa-weibo"></i></a></td>
+          
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-2016-03-03-private-registry" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      搭建私有registry
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/blog/2017-01-20-2016-03-03-private-registry.html">
+      <time datetime="2017-01-20T09:24:59.000Z" itemprop="datePublished">2017-01-20</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/docker/">docker</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> 背景</h2>
+</div>
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> 选型</h2>
+</div>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">3</span> Portus</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">3.1</span> 下载</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="org-src-container">
+
+<pre class="src src-shell">git clone https://github.com/SUSE/Portus.git
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">3.2</span> 初次运行</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Portus提供了一个体验版本.compose-setup.sh.简单运行即可.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">compose-setup.sh -e external-ip
+</pre>
+</div>
+
+<p>
+脚本很简单,做了一下几件事情.
+</p>
+<ol class="org-ol">
+<li>检查参数和版本</li>
+<li>生成两个config文件(根据template文件生成docker-compose.yml和./compose/registry/config.yml)</li>
+<li>docker-compose启动数据库,portus_web,crono以及registry</li>
+<li>初始化数据库</li>
+<li>进入external-ip:3000端口 enjoy it!</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">3.3</span> Warning</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+shell提示warning.原来用compose-setup部署的版本只能用于开发或者测试.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #2aa1ae; background-color: #292e34;">###########</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">WARNING #</span>
+<span style="color: #2aa1ae; background-color: #292e34;">###########</span>
+
+This deployment method is intended for testing/development purposes.
+To deploy Portus on production please take a look at: http://port.us.org/documentation.html
+</pre>
+</div>
+<p>
+总结起来有一下几个问题.
+</p>
+<ol class="org-ol">
+<li>registry不支持ssl</li>
+<li>没有使用ca机构颁发的证书</li>
+<li>数据库以及registry data没有持久化</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-2">
+<h2 id="orgheadline15"><span class="section-number-2">4</span> Production部署</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+部署生产环境的私有registry,需要以下三个模块相辅相成.主要是设置证书和registry以及持久化.
+</p>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">4.1</span> 替换证书</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+docker-compose.yml指定了registry使用的证书.该证书存放于容器中/etc/docker/registry/目录下.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> Portus
+mkdir certs
+cp your-ca.crt xxxx.crt
+cp your-ca.key xxxx.key
+</pre>
+</div>
+<p>
+<span class="underline">xxxx替换为你自己想要定义的名字.</span>
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">4.2</span> 生成挂载文件夹</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> Portus
+<span style="color: #4f97d7;">cd</span> ..
+mkdir portusdb
+mkdir registry_data
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">4.3</span> Portus web</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+由于替换了registry使用的证书.所以Portus web也要使用配对的key文件.
+在docker-compose.yml中添加环境变量 PORTUS_KEY_PATH.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">4.4</span> Registry</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+测试版本的部署,没有使用持久化以及tls.持久化需要在docker-compose.yml中配置,
+tls在./compose/registry/config.yml中配置.配置好的config.yml如下.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #7590db;">version</span>: 0.1
+<span style="color: #7590db;">storage</span>:
+  <span style="color: #7590db;">filesystem</span>:
+    <span style="color: #7590db;">rootdirectory</span>: /registry_data
+  <span style="color: #7590db;">delete</span>:
+    <span style="color: #7590db;">enabled</span>: <span style="color: #a45bad;">true</span>
+<span style="color: #7590db;">http</span>:
+  <span style="color: #7590db;">addr</span>: 0.0.0.0:5000
+  <span style="color: #7590db;">debug</span>:
+    <span style="color: #7590db;">addr</span>: 0.0.0.0:5001
+  <span style="color: #7590db;">tls</span>:
+    <span style="color: #7590db;">certificate</span>: /certs/xxxx.crt
+    <span style="color: #7590db;">key</span>: /certs/xxxx.key
+<span style="color: #7590db;">auth</span>:
+  <span style="color: #7590db;">token</span>:
+    <span style="color: #7590db;">realm</span>: http:/your-host/registry.testbird.com:3000/v2/token
+    <span style="color: #7590db;">service</span>: your-host:5000
+    <span style="color: #7590db;">issuer</span>: your-host
+    <span style="color: #7590db;">rootcertbundle</span>: /etc/docker/registry/xxxx.crt
+<span style="color: #7590db;">notifications</span>:
+  <span style="color: #7590db;">endpoints</span>:
+    - <span style="color: #7590db;">name</span>: portus
+      <span style="color: #7590db;">url</span>: http://your-host:3000/v2/webhooks/events
+      <span style="color: #7590db;">timeout</span>: 500ms
+      <span style="color: #7590db;">threshold</span>: 5
+      <span style="color: #7590db;">backoff</span>: 1s
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">4.5</span> Database</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+数据库使用mariadb.根据官方文档,持久化储存只需要挂载一个文件夹到容器的/var/lib/mysql
+文件夹即可./var/lib/mysql为mariadb的默认db路径.参见docker-compose.yml.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">4.6</span> docker-compose.yml</h3>
+<div class="outline-text-3" id="text-4-6">
+<div class="org-src-container">
+
+<pre class="src src-yaml"><span style="color: #7590db;">web</span>:
+  <span style="color: #7590db;">image</span>: portus_web
+  <span style="color: #7590db;">command</span>: puma -b tcp://0.0.0.0:3000 -w 3
+  <span style="color: #7590db;">environment</span>:
+    - PORTUS_MACHINE_FQDN_VALUE=your-host
+    - PORTUS_DB_HOST=portus_db_1
+    - PORTUS_KEY_PATH=certs/xxxx.key
+  <span style="color: #7590db;">volumes</span>:
+    - .:/portus
+  <span style="color: #7590db;">ports</span>:
+    - 3000:3000
+  <span style="color: #7590db;">links</span>:
+    - db
+<span style="color: #7590db;">crono</span>:
+  <span style="color: #7590db;">image</span>: portus_web
+  <span style="color: #7590db;">entrypoint</span>: bin/crono
+  <span style="color: #7590db;">environment</span>:
+    - PORTUS_MACHINE_FQDN=your-host
+    - PORTUS_DB_HOST=portus_db_1
+  <span style="color: #7590db;">volumes</span>:
+    - .:/portus
+  <span style="color: #7590db;">links</span>:
+    - db
+<span style="color: #7590db;">db</span>:
+  <span style="color: #7590db;">image</span>: library/mariadb:10.0.23
+  <span style="color: #7590db;">environment</span>:
+    <span style="color: #7590db;">MYSQL_ROOT_PASSWORD</span>: portus
+  <span style="color: #7590db;">volumes</span>:
+    - ../portusdb:/var/lib/mysql
+<span style="color: #7590db;">registry</span>:
+  <span style="color: #7590db;">image</span>: library/registry:2.1.1
+  <span style="color: #7590db;">volumes</span>:
+    - ./certs:/certs
+    - ../registry_data:/registry_data
+    - ./certs/xxxx.crt:/etc/docker/registry/xxxx.crt:ro
+    - ./compose/registry/config.yml:/etc/docker/registry/config.yml:ro
+  <span style="color: #7590db;">ports</span>:
+    - 5000:5000
+    - 5001:5001 <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">required to access debug service</span>
+  <span style="color: #7590db;">links</span>:
+    - web
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">4.7</span> 相关命令</h3>
+<div class="outline-text-3" id="text-4-7">
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">&#21551;&#21160;</span>
+<span style="color: #4f97d7;">cd</span> Portus
+docker-compose up -d
+<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">&#20572;&#27490;</span>
+docker-compose kill
+<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">&#21024;&#38500;</span>
+docker-compose rm -fv
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">4.8</span> 初始化数据库</h3>
+<div class="outline-text-3" id="text-4-8">
+<p>
+第一次启动后,需要执行两个rake命令初始化数据库.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">&#36827;&#20837;web&#23481;&#22120;</span>
+docker exec -it xxx /bin/sh
+docker-compose run --rm web rake db:migrate:reset &gt; /dev/null
+docker-compose run --rm web rake db:seed &gt; /dev/null
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flysands.github.com/blog/2017-01-20-2016-03-03-private-registry.html" data-id="ciy5m6mvm0005oredbu6g5w8p" class="article-share-link">分享到</a>
+      
+        <a href="http://flysands.github.com/blog/2017-01-20-2016-03-03-private-registry.html#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017-01-20-2016-03-08-testbird-ci-env.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Testbird ci 2.0
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017-01-20-2016-03-16-malawi-cichlids.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">malawi-cichlids</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://flysands.github.com/blog/2017-01-20-2016-03-03-private-registry.html" data-title="搭建私有registry" data-url="http://flysands.github.com/blog/2017-01-20-2016-03-03-private-registry.html">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
+      </div>
+  </section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/hexo/">hexo</a></p>
+              <p class="item-title"><a href="/blog/2017-01-20-2015-12-21-buildblogwithhexo.html" class="title">用hexo搭建个人blog</a></p>
+              <p class="item-date"><time datetime="2017-01-20T09:25:10.000Z" itemprop="datePublished">2017-01-20</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/react/">react</a></p>
+              <p class="item-title"><a href="/blog/2017-01-20-2015-12-25-react-first.html" class="title">react-native开发跨平台应用</a></p>
+              <p class="item-date"><time datetime="2017-01-20T09:25:10.000Z" itemprop="datePublished">2017-01-20</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/docker/">docker</a></p>
+              <p class="item-title"><a href="/blog/2017-01-20-2016-01-07-docker-compose.html" class="title">docker compose</a></p>
+              <p class="item-date"><time datetime="2017-01-20T09:25:09.000Z" itemprop="datePublished">2017-01-20</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/android/">android</a></p>
+              <p class="item-title"><a href="/blog/2017-01-20-2016-01-08-android-fingerprint-module.html" class="title">android指纹模块</a></p>
+              <p class="item-date"><time datetime="2017-01-20T09:25:09.000Z" itemprop="datePublished">2017-01-20</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/devops/">devops</a></p>
+              <p class="item-title"><a href="/blog/2017-01-20-2016-03-08-testbird-ci-env.html" class="title">Testbird ci 2.0</a></p>
+              <p class="item-date"><time datetime="2017-01-20T09:24:59.000Z" itemprop="datePublished">2017-01-20</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cichlid/">cichlid</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cichlid/">cichlid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross-platform/">cross-platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/">devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pet/">pet</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/cichlid/" style="font-size: 10px;">cichlid</a> <a href="/tags/cross-platform/" style="font-size: 10px;">cross-platform</a> <a href="/tags/devops/" style="font-size: 10px;">devops</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/pet/" style="font-size: 10px;">pet</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 - 2017 Flysands<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"flysands"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+ <script src="//ajax.useso.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
