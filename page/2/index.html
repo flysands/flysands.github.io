@@ -85,7 +85,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        9
+        10
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -114,6 +114,337 @@
 
       
       <section id="main">
+      <article id="post-2016-01-08-android-fingerprint-module" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016-01-08-android-fingerprint-module.html">android指纹模块</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/blog/2016-01-08-android-fingerprint-module.html">
+      <time datetime="2017-01-20T09:25:09.000Z" itemprop="datePublished">2017-01-20</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/android/">android</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. android指纹模块流程图</a></li>
+<li><a href="#orgheadline2">2. android setting指纹模块入口</a></li>
+<li><a href="#orgheadline3">3. nexus 6p无法启用finger问题原因</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> android指纹模块流程图</h2>
+<div class="outline-text-2" id="text-1">
+
+<div class="figure">
+<p><img src="http://7xia6k.com1.z0.glb.clouddn.com/android_finger_module_seq.png" alt="android_finger_module_seq.png">
+</p>
+</div>
+
+<ul class="org-ul">
+<li>Tee : trusted excution env</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> android setting指纹模块入口</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+主要涉及到一下几个文件
+</p>
+<ul class="org-ul">
+<li>packages/apps/Settings/src/com/android/settings/SecuritySettings.java</li>
+<li>frameworks/base/core/java/android/hardware/fingerprint/FingerprintManager.java</li>
+<li>frameworks/base/services/core/java/com/android/server/fingerprint/FingerprintService.java</li>
+<li>frameworks/base/core/java/android/hardware/fingerprint/IFingerprintDaemon.aidl</li>
+<li>system/core/fingerprintd/IFingerprintDaemon.cpp</li>
+<li>system/core/fingerprintd/FingerprintDaemonProxy.cpp</li>
+<li>hardware/libhardware/hardware.c</li>
+<li>hardware/libhardware/modules/fingerprint/fingerprint.c</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="http://7xia6k.com1.z0.glb.clouddn.com/android_finger_setting_load.png" alt="android_finger_setting_load.png">
+</p>
+</div>
+
+<p>
+具体流程如下:
+</p>
+
+<ol class="org-ol">
+<li>Settings在做页面展示的时候会调用maybeAddFingerprintPreference函数判断是否
+添加fingerprint preference.</li>
+<li>maybeAddFingerprintPreference内部调用FingerprintManager的isHardwareDetected
+函数.</li>
+<li>FingerprintManager调用FingerprintService中的isHardwareDetected函数.</li>
+<li>FingerprintService中的isHardwareDetected函数首先进行权限检查,然后如果
+mDeviceHalId等于0返回false,表示没有检测到指纹相关的硬件.否则返回ture.
+mDeviceHalId为底层openHal的返回值.</li>
+<li><p>
+openHal函数的实现非常简单,代码片段如下.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">int64_t</span> <span style="color: #a45bad;">FingerprintDaemonProxy</span>::<span style="color: #bc6ec5; font-weight: bold;">openHal</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
+  ALOG<span style="color: #bc6ec5;">(</span>LOG_VERBOSE, LOG_TAG, <span style="color: #2d9574;">"nativeOpenHal()\n"</span><span style="color: #bc6ec5;">)</span>;
+  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">err</span>;
+  <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">hw_module_t</span> *<span style="color: #7590db;">hw_module</span> = <span style="color: #a45bad;">NULL</span>;
+  <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">0</span> != <span style="color: #2d9574;">(</span>err = hw_get_module<span style="color: #67b11d;">(</span>FINGERPRINT_HARDWARE_MODULE_ID, &amp;hw_module<span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+    ALOGE<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Can't open fingerprint HW Module, error: %d"</span>, err<span style="color: #2d9574;">)</span>;
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>;
+  <span style="color: #bc6ec5;">}</span>
+  <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">NULL</span> == hw_module<span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+    ALOGE<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"No valid fingerprint module"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>;
+  <span style="color: #bc6ec5;">}</span>
+
+  mModule = <span style="color: #4f97d7; font-weight: bold;">reinterpret_cast</span>&lt;<span style="color: #4f97d7; font-weight: bold;">const</span> fingerprint_module_t *&gt;<span style="color: #bc6ec5;">(</span>hw_module<span style="color: #bc6ec5;">)</span>;
+
+  <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>mModule-&gt;common.methods-&gt;open == <span style="color: #a45bad;">NULL</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+    ALOGE<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"No valid open method"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>;
+  <span style="color: #bc6ec5;">}</span>
+
+  <span style="color: #ce537a; font-weight: bold;">hw_device_t</span> *<span style="color: #7590db;">device</span> = <span style="color: #a45bad;">NULL</span>;
+
+  <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">0</span> != <span style="color: #2d9574;">(</span>err = mModule-&gt;common.methods-&gt;open<span style="color: #67b11d;">(</span>hw_module, <span style="color: #a45bad;">NULL</span>, &amp;device<span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+    ALOGE<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Can't open fingerprint methods, error: %d"</span>, err<span style="color: #2d9574;">)</span>;
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>;
+  <span style="color: #bc6ec5;">}</span>
+
+  <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>kVersion != device-&gt;version<span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+    ALOGE<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Wrong fp version. Expected %d, got %d"</span>, kVersion, device-&gt;version<span style="color: #2d9574;">)</span>;
+    <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">return 0; // </span><span style="color: #cc9393;">FIXME</span>
+  <span style="color: #bc6ec5;">}</span>
+
+  mDevice = <span style="color: #4f97d7; font-weight: bold;">reinterpret_cast</span>&lt;fingerprint_device_t *&gt;<span style="color: #bc6ec5;">(</span>device<span style="color: #bc6ec5;">)</span>;
+  err = mDevice-&gt;set_notify<span style="color: #bc6ec5;">(</span>mDevice, hal_notify_callback<span style="color: #bc6ec5;">)</span>;
+  <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>err &lt; <span style="color: #a45bad;">0</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+    ALOGE<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Failed in call to set_notify(), err=%d"</span>, err<span style="color: #2d9574;">)</span>;
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>;
+  <span style="color: #bc6ec5;">}</span>
+
+  <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">Sanity check - remove</span>
+  <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>mDevice-&gt;notify != hal_notify_callback<span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+    ALOGE<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"NOTIFY not set properly: %p != %p"</span>, mDevice-&gt;notify,
+          hal_notify_callback<span style="color: #2d9574;">)</span>;
+  <span style="color: #bc6ec5;">}</span>
+
+  ALOG<span style="color: #bc6ec5;">(</span>LOG_VERBOSE, LOG_TAG, <span style="color: #2d9574;">"fingerprint HAL successfully initialized"</span><span style="color: #bc6ec5;">)</span>;
+  <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7; font-weight: bold;">reinterpret_cast</span>&lt;int64_t&gt;<span style="color: #bc6ec5;">(</span>mDevice<span style="color: #bc6ec5;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">This is just a handle</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+openHal函数主要实现以下3个功能
+</p>
+
+<ul class="org-ul">
+<li>调用hw_get_module加载对应的库文件</li>
+
+<li><p>
+调用module结构体的common.methods-&gt;open指向的函数
+module结构体定义如下
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">hw_module_methods_t</span> <span style="color: #7590db;">fingerprint_module_methods</span> = <span style="color: #4f97d7;">{</span>
+    .open = fingerprint_open,
+<span style="color: #4f97d7;">}</span>;
+
+<span style="color: #ce537a; font-weight: bold;">fingerprint_module_t</span> <span style="color: #7590db;">HAL_MODULE_INFO_SYM</span> = <span style="color: #4f97d7;">{</span>
+    .common =
+        <span style="color: #bc6ec5;">{</span>
+            .tag = HARDWARE_MODULE_TAG,
+            .module_api_version = FINGERPRINT_MODULE_API_VERSION_2_0,
+            .hal_api_version = HARDWARE_HAL_API_VERSION,
+            .id = FINGERPRINT_HARDWARE_MODULE_ID,
+            .name = <span style="color: #2d9574;">"Emulator Fingerprint HAL"</span>,
+            .author = <span style="color: #2d9574;">"The Android Open Source Project"</span>,
+            .methods = &amp;fingerprint_module_methods,
+        <span style="color: #bc6ec5;">}</span>,
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+<p>
+fingerprint_open函数定义如下
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">fingerprint_open</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">hw_module_t</span> *<span style="color: #7590db;">module</span>, <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span> <span style="color: #7590db;">__unused</span> *id,
+                            <span style="color: #ce537a; font-weight: bold;">hw_device_t</span> **<span style="color: #7590db;">device</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>device == <span style="color: #a45bad;">NULL</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+    ALOGE<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"NULL device on open"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #4f97d7; font-weight: bold;">return</span> -EINVAL;
+  <span style="color: #bc6ec5;">}</span>
+
+  <span style="color: #ce537a; font-weight: bold;">fingerprint_device_t</span> *<span style="color: #7590db;">dev</span> = malloc<span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">sizeof</span><span style="color: #2d9574;">(</span>fingerprint_device_t<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span>;
+  memset<span style="color: #bc6ec5;">(</span>dev, <span style="color: #a45bad;">0</span>, <span style="color: #4f97d7; font-weight: bold;">sizeof</span><span style="color: #2d9574;">(</span>fingerprint_device_t<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span>;
+
+  dev-&gt;common.tag = HARDWARE_DEVICE_TAG;
+  dev-&gt;common.version = FINGERPRINT_MODULE_API_VERSION_2_0;
+  dev-&gt;common.module = <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">hw_module_t</span> *<span style="color: #bc6ec5;">)</span>module;
+  dev-&gt;common.close = fingerprint_close;
+
+  dev-&gt;pre_enroll = fingerprint_pre_enroll;
+  dev-&gt;enroll = fingerprint_enroll;
+  dev-&gt;get_authenticator_id = fingerprint_get_auth_id;
+  dev-&gt;cancel = fingerprint_cancel;
+  dev-&gt;remove = fingerprint_remove;
+  dev-&gt;set_active_group = fingerprint_set_active_group;
+  dev-&gt;authenticate = fingerprint_authenticate;
+  dev-&gt;set_notify = set_notify_callback;
+  dev-&gt;notify = <span style="color: #a45bad;">NULL</span>;
+
+  *device = <span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">hw_device_t</span> *<span style="color: #bc6ec5;">)</span>dev;
+  <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>;
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div></li>
+
+<li>调用set_notify设置回调函数</li>
+</ul></li>
+<li>hw_get_module函数主要实现底层so库加载
+   具体加载过程可以参考<a href="http://www.embedu.org/Column/Column733.htm" target="_blank" rel="external">android hw_get_module 分析</a></li>
+<li><p>
+hw_get_module内部调用hw_get_module_by_class实现加载过程
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #2aa1ae; background-color: #292e34;">/** </span><span style="color: #2aa1ae; background-color: #292e34;">Base path of the hal modules */</span>
+<span style="color: #bc6ec5;">#if</span> <span style="color: #bc6ec5;">defined</span><span style="color: #4f97d7;">(</span>__LP64__<span style="color: #4f97d7;">)</span>
+<span style="color: #bc6ec5;">#define</span> <span style="color: #7590db;">HAL_LIBRARY_PATH1</span> <span style="color: #2d9574;">"/system/lib64/hw"</span>
+<span style="color: #bc6ec5;">#define</span> <span style="color: #7590db;">HAL_LIBRARY_PATH2</span> <span style="color: #2d9574;">"/vendor/lib64/hw"</span>
+<span style="color: #bc6ec5;">#else</span>
+<span style="color: #bc6ec5;">#define</span> <span style="color: #7590db;">HAL_LIBRARY_PATH1</span> <span style="color: #2d9574;">"/system/lib/hw"</span>
+<span style="color: #bc6ec5;">#define</span> <span style="color: #7590db;">HAL_LIBRARY_PATH2</span> <span style="color: #2d9574;">"/vendor/lib/hw"</span>
+<span style="color: #bc6ec5;">#endif</span>
+
+<span style="color: #2aa1ae; background-color: #292e34;">/**</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * There are a set of variant filename for modules. The form of the filename</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * is "&lt;MODULE_ID&gt;.variant.so" so for the led module the Dream variants</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * of base "ro.product.board", "ro.board.platform" and "ro.arch" would be:</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> *</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * led.trout.so</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * led.msm7k.so</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * led.ARMV6.so</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * led.default.so</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> */</span>
+
+<span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span> *<span style="color: #7590db;">variant_keys</span><span style="color: #4f97d7;">[]</span> = <span style="color: #4f97d7;">{</span>
+    <span style="color: #2d9574;">"ro.hardware"</span>, <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">This goes first so that it can pick up a different</span>
+<span style="color: #2aa1ae; background-color: #292e34;">                      file on the emulator. */</span>
+    <span style="color: #2d9574;">"ro.product.board"</span>,
+    <span style="color: #2d9574;">"ro.board.platform"</span>,
+    <span style="color: #2d9574;">"ro.arch"</span><span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+<p>
+hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由两部分构成.
+第一部分为模块名,第二部分为类型.其中模块名固定,第二部分优先级顺序为:
+硬件 &gt; 产品 &gt; cpu &gt; arch &gt; default.
+</p>
+
+<p>
+如果以上函数都执行成功,那么fingerprint module则加载完成.
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> nexus 6p无法启用finger问题原因</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>清华镜像的源码选择angler product,编译出来的system.img里没有fingerprintd可执行文件.</li>
+<li>没有加载fingerprint module对应的库文件.</li>
+<li>hardware so库加载顺序有误.</li>
+<li>解决方法
+以移植goldfish为例
+<ol class="org-ol">
+<li>拷贝device/generic/goldfish/fingerprint目录到device/huawei/angler目录下</li>
+<li><p>
+修改device/huawei/angler/device.mk文件,添加fingerprint模块
+</p>
+<div class="org-src-container">
+
+<pre class="src src-makefile"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Fingerprint</span>
+<span style="color: #7590db;">PRODUCT_PACKAGES</span> += \
+                 fingerprintd \
+                 fingerprint.msm8994
+</pre>
+</div></li>
+<li><p>
+修改模块加载顺序
+由于源码编译出来的image文件,在system/vendor/lib64下含有fingerprint.angler.so.
+所以在hw_get_module会加载fingerprint.angler.so而忽略fingerprint.msm8994.so.
+所以修改hardware.c文件中的默认搜索顺序,把ro.board.platform放到第一即可.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span> *<span style="color: #7590db;">variant_keys</span><span style="color: #4f97d7;">[]</span> = <span style="color: #4f97d7;">{</span>
+    <span style="color: #2d9574;">"ro.board.platform"</span>,
+    <span style="color: #2d9574;">"ro.hardware"</span>, <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">This goes first so that it can pick up a different</span>
+<span style="color: #2aa1ae; background-color: #292e34;">                      file on the emulator. */</span>
+    <span style="color: #2d9574;">"ro.product.board"</span>,
+    <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">"ro.board.platform",</span>
+    <span style="color: #2d9574;">"ro.arch"</span><span style="color: #4f97d7;">}</span>;
+</pre>
+</div></li>
+</ol></li>
+</ol>
+</div>
+</div>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flysands.github.com/blog/2016-01-08-android-fingerprint-module.html" data-id="ciy5mh2ii0006zb8j7yijx1ao" class="article-share-link">分享到</a>
+      
+        <a href="http://flysands.github.com/blog/2016-01-08-android-fingerprint-module.html#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-2016-03-03-private-registry" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1180,6 +1511,15 @@ Kubernetes
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/lisp/">lisp</a></p>
+              <p class="item-title"><a href="/blog/2017-01-29-理解lisp闭包.html" class="title">理解闭包</a></p>
+              <p class="item-date"><time datetime="2017-01-29T03:04:03.000Z" itemprop="datePublished">2017-01-29</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/lisp/">lisp</a></p>
               <p class="item-title"><a href="/blog/2017-01-29-停机问题.html" class="title">停机问题</a></p>
               <p class="item-date"><time datetime="2017-01-29T02:58:33.000Z" itemprop="datePublished">2017-01-29</time></p>
             </div>
@@ -1212,15 +1552,6 @@ Kubernetes
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/docker/">docker</a></p>
-              <p class="item-title"><a href="/blog/2016-01-07-docker-compose.html" class="title">docker compose</a></p>
-              <p class="item-date"><time datetime="2017-01-20T09:25:09.000Z" itemprop="datePublished">2017-01-20</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1230,7 +1561,7 @@ Kubernetes
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cichlid/">cichlid</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/lisp/">lisp</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cichlid/">cichlid</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/lisp/">lisp</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1239,7 +1570,7 @@ Kubernetes
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cichlid/">cichlid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross-platform/">cross-platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/">devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lisp/">lisp</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pet/">pet</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cichlid/">cichlid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross-platform/">cross-platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/">devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lisp/">lisp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pet/">pet</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1248,7 +1579,7 @@ Kubernetes
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cichlid/" style="font-size: 10px;">cichlid</a> <a href="/tags/cross-platform/" style="font-size: 10px;">cross-platform</a> <a href="/tags/devops/" style="font-size: 10px;">devops</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/lisp/" style="font-size: 10px;">lisp</a> <a href="/tags/pet/" style="font-size: 10px;">pet</a>
+      <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cichlid/" style="font-size: 10px;">cichlid</a> <a href="/tags/cross-platform/" style="font-size: 10px;">cross-platform</a> <a href="/tags/devops/" style="font-size: 10px;">devops</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/lisp/" style="font-size: 15px;">lisp</a> <a href="/tags/pet/" style="font-size: 10px;">pet</a>
     </div>
   </div>
 
@@ -1257,7 +1588,7 @@ Kubernetes
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">10</span></li></ul>
     </div>
   </div>
 
