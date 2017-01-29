@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Flysands Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1 TODO 排序算法&amp;#xa0;&amp;#xa0;&amp;#xa0;@home&amp;#xa0;ALGORITHM
+
+
+1.1 性能指标
+
+
+效率从高到低
+
+常数级
+对数级
+次线性级
+线性级
+n log(n)
+平方级
+指数级
+
+
+
+
+
+1.2 排序算法
+
+
+使用环境
+
+小规模数据(因为复杂度为O(n平法))
+原本几乎有序(原本几乎有序,在理想状况下,算法复杂度为O(n))
+
+
+
+
+
+1.3 代码实现
+
+
+
+de">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flysands Blog">
+<meta property="og:url" content="http://flysands.github.com/blog/2017-01-29-排序算法.html">
+<meta property="og:site_name" content="Flysands Blog">
+<meta property="og:description" content="1 TODO 排序算法&amp;#xa0;&amp;#xa0;&amp;#xa0;@home&amp;#xa0;ALGORITHM
+
+
+1.1 性能指标
+
+
+效率从高到低
+
+常数级
+对数级
+次线性级
+线性级
+n log(n)
+平方级
+指数级
+
+
+
+
+
+1.2 排序算法
+
+
+使用环境
+
+小规模数据(因为复杂度为O(n平法))
+原本几乎有序(原本几乎有序,在理想状况下,算法复杂度为O(n))
+
+
+
+
+
+1.3 代码实现
+
+
+
+de">
+<meta property="og:updated_time" content="2017-01-29T04:55:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flysands Blog">
+<meta name="twitter:description" content="1 TODO 排序算法&amp;#xa0;&amp;#xa0;&amp;#xa0;@home&amp;#xa0;ALGORITHM
+
+
+1.1 性能指标
+
+
+效率从高到低
+
+常数级
+对数级
+次线性级
+线性级
+n log(n)
+平方级
+指数级
+
+
+
+
+
+1.2 排序算法
+
+
+使用环境
+
+小规模数据(因为复杂度为O(n平法))
+原本几乎有序(原本几乎有序,在理想状况下,算法复杂度为O(n))
+
+
+
+
+
+1.3 代码实现
+
+
+
+de">
+  
+  
+    <link rel="icon" href="favicon.png">
+  
+  
+ <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">Flysands Blog</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/mylogo.jpg"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://flysands.github.com"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/">首页</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">归档</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://flysands.github.com"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="/css/images/mylogo.jpg">
+      <h2 id="name">Flysands</h2>
+      <h3 id="title">Programmer &amp; Emacser</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Chengdu, China</span>
+      <a id="follow" href="https://github.com/flysands/">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        12
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        9
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/flysands" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="http://weibo.com/u/2339432710" target="_blank" title="weibo"><i class="fa fa-weibo"></i></a></td>
+          
+          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-2017-01-29-排序算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> 排序算法&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_home">@home</span>&#xa0;<span class="ALGORITHM">ALGORITHM</span></span></h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> 性能指标</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>效率从高到低
+<ol class="org-ol">
+<li>常数级</li>
+<li>对数级</li>
+<li>次线性级</li>
+<li>线性级</li>
+<li>n log(n)</li>
+<li>平方级</li>
+<li>指数级</li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> 排序算法</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>使用环境
+<ol class="org-ol">
+<li>小规模数据(因为复杂度为O(n平法))</li>
+<li>原本几乎有序(原本几乎有序,在理想状况下,算法复杂度为O(n))</li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> 代码实现</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">insert_sort</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#25554;&#20837;&#27861;&#25490;&#24207; """</span>
+    <span style="color: #2d9574;">""" &#31639;&#27861;&#22797;&#26434;&#24230;O(n&#24179;&#26041;)"""</span>
+    <span style="color: #2d9574;">""" &#22987;&#32456;&#20445;&#35777;A[0,i]&#26159;&#26377;&#24207;&#30340; """</span>
+    <span style="color: #2d9574;">""" &#20381;&#27425;&#25554;&#20837;&#20540;,&#22914;&#26524;&#25554;&#20837;&#30340;&#20540;&#27604;&#24038;&#36793;&#30340;&#23567;,&#20381;&#27425;&#24448;&#24038;&#31227;&#21160;&#30452;&#33267;&#21512;&#36866;&#20301;&#32622; """</span>
+    <span style="color: #7590db;">sort_ary</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span> <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #bc6ec5;">(</span><span style="color: #4f97d7;">len</span><span style="color: #2d9574;">(</span>ary<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">]</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #7590db;">sort_ary</span><span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> = ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
+        <span style="color: #4f97d7; font-weight: bold;">for</span> j <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span>i, <span style="color: #a45bad;">0</span>, -<span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>:
+            <span style="color: #4f97d7; font-weight: bold;">if</span> sort_ary<span style="color: #4f97d7;">[</span>j<span style="color: #4f97d7;">]</span> &lt; sort_ary<span style="color: #4f97d7;">[</span>j - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span>:
+                <span style="color: #7590db;">tmp</span> = sort_ary<span style="color: #4f97d7;">[</span>j - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span>
+                <span style="color: #7590db;">sort_ary</span><span style="color: #4f97d7;">[</span>j - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span> = sort_ary<span style="color: #4f97d7;">[</span>j<span style="color: #4f97d7;">]</span>
+                <span style="color: #7590db;">sort_ary</span><span style="color: #4f97d7;">[</span>j<span style="color: #4f97d7;">]</span> = tmp
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>sort_ary<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> = sort_ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">median_sort</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#20013;&#20540;&#27861;&#25490;&#24207; """</span>
+    <span style="color: #2d9574;">""" &#31639;&#27861;&#22797;&#26434;&#24230;O(nlog(n)) """</span>
+    <span style="color: #2d9574;">""" &#36882;&#24402;,&#20998;&#27835;&#24605;&#24819; """</span>
+    <span style="color: #2d9574;">""" &#25214;&#21040;&#20013;&#20540;&#20803;&#32032;,&#27604;&#20013;&#20540;&#23567;&#30340;&#25918;&#24038;&#36793;,&#22823;&#20110;&#25110;&#32773;&#31561;&#20110;&#20013;&#20540;&#30340;&#25918;&#21491;&#36793; """</span>
+    <span style="color: #2d9574;">""" &#36882;&#24402;&#20013;&#20540;&#24038;&#21491;&#23376;&#25968;&#32452; """</span>
+    median_sort_internal<span style="color: #4f97d7;">(</span>ary, <span style="color: #a45bad;">0</span>, <span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span> - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">median_sort_internal</span><span style="color: #4f97d7;">(</span>ary, left, right<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#36882;&#24402;&#20989;&#25968; """</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> right &lt;= left:
+        <span style="color: #4f97d7; font-weight: bold;">return</span>
+    <span style="color: #4f97d7; font-weight: bold;">else</span>:
+        <span style="color: #7590db;">mid</span> = <span style="color: #4f97d7;">(</span>right - left + <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span> / <span style="color: #a45bad;">2</span>
+        select_kth<span style="color: #4f97d7;">(</span>ary, left, right, mid<span style="color: #4f97d7;">)</span>
+        median_sort_internal<span style="color: #4f97d7;">(</span>ary, left, left + mid - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>
+        median_sort_internal<span style="color: #4f97d7;">(</span>ary, left + mid + <span style="color: #a45bad;">1</span>, right<span style="color: #4f97d7;">)</span>
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">select_kth</span><span style="color: #4f97d7;">(</span>ary, left, right, k<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#36873;&#25321;&#31532;k&#22823;&#30340;&#20803;&#32032;,&#24182;&#20998;&#21306; """</span>
+    <span style="color: #7590db;">idx</span> = left
+    <span style="color: #7590db;">index</span> = partition<span style="color: #4f97d7;">(</span>ary, left, right, idx<span style="color: #4f97d7;">)</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">(</span>left + k<span style="color: #4f97d7;">)</span> - <span style="color: #a45bad;">1</span> == index:
+        <span style="color: #4f97d7; font-weight: bold;">return</span> index
+    <span style="color: #4f97d7; font-weight: bold;">else</span>:
+        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">(</span>left + k - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span> &lt; index:
+            <span style="color: #4f97d7; font-weight: bold;">return</span> select_kth<span style="color: #4f97d7;">(</span>ary, left, index - <span style="color: #a45bad;">1</span>, k<span style="color: #4f97d7;">)</span>
+        <span style="color: #4f97d7; font-weight: bold;">else</span>:
+            <span style="color: #4f97d7; font-weight: bold;">return</span> select_kth<span style="color: #4f97d7;">(</span>ary, index + <span style="color: #a45bad;">1</span>, right, k - <span style="color: #bc6ec5;">(</span>index - left + <span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">partition</span><span style="color: #4f97d7;">(</span>ary, left, right, index<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#20998;&#22359;&#20989;&#25968;,&#24182;&#36820;&#22238;index&#23545;&#24212;&#20540;&#22312;&#20998;&#22359;&#23436;&#25104;&#30340;&#19979;&#26631; """</span>
+    <span style="color: #7590db;">store</span> = left
+    <span style="color: #7590db;">value</span> = ary<span style="color: #4f97d7;">[</span>index<span style="color: #4f97d7;">]</span>
+    <span style="color: #7590db;">tmp</span> = ary<span style="color: #4f97d7;">[</span>right<span style="color: #4f97d7;">]</span>
+    <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>right<span style="color: #4f97d7;">]</span> = value
+    <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>index<span style="color: #4f97d7;">]</span> = tmp
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span>left, right, +<span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">if</span> ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> &lt; value:
+            <span style="color: #7590db;">tmp</span> = ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
+            <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> = ary<span style="color: #4f97d7;">[</span>store<span style="color: #4f97d7;">]</span>
+            <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>store<span style="color: #4f97d7;">]</span> = tmp
+            <span style="color: #7590db;">store</span> = store + <span style="color: #a45bad;">1</span>
+            <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>right<span style="color: #4f97d7;">]</span> = ary<span style="color: #4f97d7;">[</span>store<span style="color: #4f97d7;">]</span>
+            <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>store<span style="color: #4f97d7;">]</span> = value
+    <span style="color: #4f97d7; font-weight: bold;">return</span> store
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">quick_sort</span><span style="color: #4f97d7;">(</span>ary, left, right<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#24555;&#36895;&#25490;&#24207; """</span>
+    <span style="color: #2d9574;">""" &#24555;&#36895;&#25490;&#24207;&#21644;&#20013;&#20540;&#25490;&#24207;&#30340;&#26041;&#27861;&#20960;&#20046;&#19968;&#26679;,&#21306;&#21035;&#22312;&#20110;&#24555;&#36895;&#25490;&#24207;&#21487;&#20197;&#38543;&#26426;&#36873;&#25321;&#26530;&#32445;&#20540;,&#32780;&#19981;&#26159;&#36873;&#25321;&#20013;&#20540; """</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">(</span>left &gt;= right<span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">return</span>
+    <span style="color: #2d9574;">""" &#36873;&#25321;&#26368;&#21491;&#36793;&#30340;&#20026;&#26530;&#32445;&#20540; """</span>
+    <span style="color: #7590db;">key</span> = ary<span style="color: #4f97d7;">[</span>right<span style="color: #4f97d7;">]</span>
+    <span style="color: #7590db;">i</span> = left
+    <span style="color: #7590db;">j</span> = left
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">xrange</span><span style="color: #4f97d7;">(</span>left, right<span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">(</span>ary<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span> &lt; key<span style="color: #4f97d7;">)</span>:
+            <span style="color: #7590db;">tmp</span> = ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
+            <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> = ary<span style="color: #4f97d7;">[</span>j<span style="color: #4f97d7;">]</span>
+            <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>j<span style="color: #4f97d7;">]</span> = tmp
+            <span style="color: #7590db;">j</span> = j + <span style="color: #a45bad;">1</span>
+            <span style="color: #7590db;">tmp</span> = ary<span style="color: #4f97d7;">[</span>j<span style="color: #4f97d7;">]</span>
+            <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>j<span style="color: #4f97d7;">]</span> = key
+            <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>right<span style="color: #4f97d7;">]</span> = tmp
+            quick_sort<span style="color: #4f97d7;">(</span>ary, left, j - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>
+            quick_sort<span style="color: #4f97d7;">(</span>ary, j + <span style="color: #a45bad;">1</span>, right<span style="color: #4f97d7;">)</span>
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">bubble_sort</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#20882;&#27873;&#25490;&#24207; """</span>
+    <span style="color: #2d9574;">""" &#26102;&#38388;&#22797;&#26434;&#24230;O(n&#24179;&#26041;) """</span>
+    <span style="color: #2d9574;">""" &#22914;&#20854;&#21517;,&#20687;&#27668;&#27873;&#19968;&#26679;&#32593;&#19978;&#20882; """</span>
+    <span style="color: #2d9574;">""" &#22914;&#26524;a[i]&#22823;&#20110;a[i+1],&#21017;&#20132;&#25442;.&#38656;&#35201;&#36827;&#34892;n-1&#27425;&#25195;&#25551;. """</span>
+    <span style="color: #2d9574;">""" &#31532;&#19968;&#27425;&#25195;&#25551;&#25226;&#26368;&#22823;&#20540;&#25918;&#21040;&#26368;&#21518;,&#31532;&#20108;&#27425;&#25226;&#31532;&#20108;&#22823;&#30340;&#20540;&#25918;&#21040;&#26368;&#22823;&#20540;&#21069;&#38376;,&#20381;&#27425;&#31867;&#25512; """</span>
+    <span style="color: #7590db;">length</span> = <span style="color: #4f97d7;">len</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span>length - <span style="color: #a45bad;">1</span>, -<span style="color: #a45bad;">1</span>, -<span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">for</span> j <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span>i<span style="color: #4f97d7;">)</span>:
+            <span style="color: #4f97d7; font-weight: bold;">if</span> ary<span style="color: #4f97d7;">[</span>j<span style="color: #4f97d7;">]</span> &gt; ary<span style="color: #4f97d7;">[</span>j + <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span>:
+                <span style="color: #7590db;">tmp</span> = ary<span style="color: #4f97d7;">[</span>j<span style="color: #4f97d7;">]</span>
+                <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>j<span style="color: #4f97d7;">]</span> = ary<span style="color: #4f97d7;">[</span>j + <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span>
+                <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>j + <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span> = tmp
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">select_sort</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#36873;&#25321;&#25490;&#24207; """</span>
+    <span style="color: #2d9574;">""" &#26102;&#38388;&#22797;&#26434;&#24230;O(n&#24179;&#26041;) """</span>
+    <span style="color: #2d9574;">""" &#19981;&#20572;&#36873;&#25321;&#26368;&#22823;&#20540;&#24448;&#26368;&#21518;&#25918;,&#20808;&#36873;&#23436;&#20877;&#20132;&#25442; """</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #7590db;">index</span> = select_max<span style="color: #4f97d7;">(</span>ary, <span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span> - i<span style="color: #4f97d7;">)</span>
+        <span style="color: #7590db;">tmp</span> = ary<span style="color: #4f97d7;">[</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span> - i - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span>
+        <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span> - i - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span> = ary<span style="color: #4f97d7;">[</span>index<span style="color: #4f97d7;">]</span>
+        <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>index<span style="color: #4f97d7;">]</span> = tmp
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">select_max</span><span style="color: #4f97d7;">(</span>ary, length<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#36873;&#25321;&#26368;&#22823;&#20540;,&#36820;&#22238;&#19979;&#26631; """</span>
+    <span style="color: #4f97d7;">max</span> = ary<span style="color: #4f97d7;">[</span>length - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span>
+    <span style="color: #7590db;">index</span> = length - <span style="color: #a45bad;">1</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span>length<span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7;">max</span> &lt; ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>:
+            <span style="color: #4f97d7;">max</span> = ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
+            <span style="color: #7590db;">index</span> = i
+    <span style="color: #4f97d7; font-weight: bold;">return</span> index
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">heap_sort</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#22534;&#25490;&#24207; """</span>
+    <span style="color: #2d9574;">""" &#26102;&#38388;&#22797;&#26434;&#24230;O(nlogn),&#26368;&#22351;&#24773;&#20917;&#20063;&#26159;n(nlogn) """</span>
+    <span style="color: #2d9574;">""" &#21487;&#20197;&#25226;&#22534;&#24403;&#20570;&#23436;&#20840;&#20108;&#21449;&#26641; """</span>
+    <span style="color: #2d9574;">""" &#21033;&#29992;&#22534;&#30340;&#24615;&#36136;,&#19981;&#20572;&#28155;&#21152;&#26377;&#24207;&#21306;&#22495;,&#30452;&#33267;&#20840;&#37096;&#26377;&#24207;. """</span>
+    <span style="color: #2d9574;">""" 1. &#26500;&#36896;&#22823;&#39030;&#22534; """</span>
+    <span style="color: #2d9574;">""" 2. &#21462;&#20986;&#26681;&#20803;&#32032;&#21644;&#26368;&#21518;&#19968;&#20010;&#20803;&#32032;&#20114;&#25442;. """</span>
+    <span style="color: #2d9574;">""" 3. &#37325;&#22797;&#25191;&#34892;&#20197;&#19978;&#36807;&#31243; """</span>
+    build_heap<span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>
+    <span style="color: #7590db;">length</span> = <span style="color: #4f97d7;">len</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span>length - <span style="color: #a45bad;">1</span>, -<span style="color: #a45bad;">1</span>, -<span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #7590db;">tmp</span> = ary<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span><span style="color: #4f97d7;">]</span>
+        <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span><span style="color: #4f97d7;">]</span> = ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
+        <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> = tmp
+        <span style="color: #2d9574;">""" &#22823;&#26681;&#22534;&#26681;&#39030;&#20803;&#32032;&#20114;&#25442;,&#28982;&#21518;&#37325;&#26032;&#26500;&#36896;&#22823;&#26681;&#22534; """</span>
+        heapify<span style="color: #4f97d7;">(</span>ary, <span style="color: #a45bad;">0</span>, i<span style="color: #4f97d7;">)</span>
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">build_heap</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#21021;&#22987;&#21270;&#22534;,&#20174;&#26080;&#24207;&#22534;&#21040;&#22823;&#26681;&#22534; """</span>
+    <span style="color: #2d9574;">""" &#20551;&#35774;&#23436;&#20840;&#20108;&#21449;&#26641;&#30340;&#23618;&#32423;&#20026;n,&#20174;n-1&#23618;&#24320;&#22987;&#26500;&#36896;&#23376;&#22823;&#26681;&#22534;,&#36880;&#28176;&#36882;&#20943;n.&#30452;&#21040;n&#20026;0. """</span>
+    <span style="color: #7590db;">length</span> = <span style="color: #4f97d7;">len</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span> / <span style="color: #a45bad;">2</span> - <span style="color: #a45bad;">1</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span>length, -<span style="color: #a45bad;">1</span>, -<span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>:
+        heapify<span style="color: #4f97d7;">(</span>ary, i, <span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">heapify</span><span style="color: #4f97d7;">(</span>ary, idx, max_len<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#35843;&#25972;&#22534; """</span>
+    <span style="color: #7590db;">left</span> = <span style="color: #a45bad;">2</span> * idx + <span style="color: #a45bad;">1</span>
+    <span style="color: #7590db;">right</span> = <span style="color: #a45bad;">2</span> * idx + <span style="color: #a45bad;">2</span>
+    <span style="color: #7590db;">largest</span> = idx
+    <span style="color: #4f97d7; font-weight: bold;">if</span> left &lt; max_len <span style="color: #4f97d7; font-weight: bold;">and</span> ary<span style="color: #4f97d7;">[</span>left<span style="color: #4f97d7;">]</span> &gt; ary<span style="color: #4f97d7;">[</span>idx<span style="color: #4f97d7;">]</span>:
+        <span style="color: #7590db;">largest</span> = left
+    <span style="color: #4f97d7; font-weight: bold;">if</span> right &lt; max_len <span style="color: #4f97d7; font-weight: bold;">and</span> ary<span style="color: #4f97d7;">[</span>right<span style="color: #4f97d7;">]</span> &gt; ary<span style="color: #4f97d7;">[</span>largest<span style="color: #4f97d7;">]</span>:
+        <span style="color: #7590db;">largest</span> = right
+    <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #4f97d7; font-weight: bold;">not</span> largest == idx:
+        <span style="color: #7590db;">tmp</span> = ary<span style="color: #4f97d7;">[</span>idx<span style="color: #4f97d7;">]</span>
+        <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>idx<span style="color: #4f97d7;">]</span> = ary<span style="color: #4f97d7;">[</span>largest<span style="color: #4f97d7;">]</span>
+        <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>largest<span style="color: #4f97d7;">]</span> = tmp
+        heapify<span style="color: #4f97d7;">(</span>ary, largest, max_len<span style="color: #4f97d7;">)</span>
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">counting_sort</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#35745;&#25968;&#25490;&#24207; """</span>
+    <span style="color: #2d9574;">""" &#38750;&#27604;&#36739;&#25490;&#24207;,&#26102;&#38388;&#22797;&#26434;&#24230;&#20026;&#32447;&#24615;. """</span>
+    <span style="color: #2d9574;">""" &#36866;&#21512;&#20110;&#25490;&#24207;n&#20010;&#20803;&#32032;,&#20803;&#32032;&#30340;&#21462;&#20540;&#20026;[0, k],n&#36828;&#22823;&#20110;k """</span>
+    <span style="color: #7590db;">k</span> = ary<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span><span style="color: #4f97d7;">]</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">if</span> ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> &gt; k:
+            <span style="color: #7590db;">k</span> = ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
+            <span style="color: #7590db;">k_ary</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span> <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #bc6ec5;">(</span>k + <span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">]</span>
+            <span style="color: #7590db;">tmp</span> = <span style="color: #a45bad;">0</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+        k_ary<span style="color: #4f97d7;">[</span>ary<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">]</span> += <span style="color: #a45bad;">1</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>k_ary<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">if</span> k_ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> &gt; <span style="color: #a45bad;">0</span>:
+            <span style="color: #4f97d7; font-weight: bold;">for</span> j <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span>k_ary<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>:
+                <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>tmp<span style="color: #4f97d7;">]</span> = i
+                <span style="color: #7590db;">tmp</span> += <span style="color: #a45bad;">1</span>
+
+
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">bucket_sort</span><span style="color: #4f97d7;">(</span>ary<span style="color: #4f97d7;">)</span>:
+    <span style="color: #2d9574;">""" &#26742;&#25490;&#24207; """</span>
+    <span style="color: #2d9574;">""" &#36319;&#35745;&#25968;&#25490;&#24207;&#31867;&#20284; """</span>
+    <span style="color: #2d9574;">""" &#20351;&#29992;hash&#20989;&#25968;&#22343;&#21248;&#30340;&#23558;n&#20010;&#20803;&#32032;&#20998;&#25955;&#21040;k&#20010;&#26742;&#20013;,&#26742;&#24517;&#39035;&#26159;&#26377;&#24207;&#30340;,i-1&#26742;&#20013;&#30340;&#20803;&#32032;&#19968;&#23450;&#37117;&#35201;&#27604;i&#26742;&#20013;&#30340;&#20803;&#32032;&#23567; """</span>
+    <span style="color: #2d9574;">""" &#27599;&#20010;&#26742;&#20351;&#29992;&#25554;&#20837;&#25490;&#24207; """</span>
+    <span style="color: #7590db;">k</span> = ary<span style="color: #4f97d7;">[</span><span style="color: #a45bad;">0</span><span style="color: #4f97d7;">]</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #4f97d7; font-weight: bold;">if</span> ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> &gt; k:
+            <span style="color: #7590db;">k</span> = ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span>
+            <span style="color: #2d9574;">""" hash(x) = x / 3 """</span>
+            <span style="color: #7590db;">bucket_ary</span> = <span style="color: #4f97d7;">[</span><span style="color: #bc6ec5;">[]</span> <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #bc6ec5;">(</span>k / <span style="color: #a45bad;">3</span> + <span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">]</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ary<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+        <span style="color: #7590db;">index</span> = ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> / <span style="color: #a45bad;">3</span>
+        bucket_ary<span style="color: #4f97d7;">[</span>index<span style="color: #4f97d7;">]</span>.append<span style="color: #4f97d7;">(</span>ary<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>
+        <span style="color: #7590db;">tmp</span> = <span style="color: #a45bad;">0</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> i <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>bucket_ary<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+        insert_sort<span style="color: #4f97d7;">(</span>bucket_ary<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>
+        <span style="color: #4f97d7; font-weight: bold;">for</span> j <span style="color: #4f97d7; font-weight: bold;">in</span> <span style="color: #4f97d7;">range</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>bucket_ary<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>:
+            <span style="color: #7590db;">ary</span><span style="color: #4f97d7;">[</span>tmp<span style="color: #4f97d7;">]</span> = bucket_ary<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">][</span>j<span style="color: #4f97d7;">]</span>
+            <span style="color: #7590db;">tmp</span> += <span style="color: #a45bad;">1</span>
+
+
+<span style="color: #7590db;">ARRAY</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">8</span>, <span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">9</span>, <span style="color: #a45bad;">7</span><span style="color: #4f97d7;">]</span>
+insert_sort<span style="color: #4f97d7;">(</span>ARRAY<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span> ARRAY
+<span style="color: #7590db;">ARRAY</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">8</span>, <span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">9</span>, <span style="color: #a45bad;">7</span><span style="color: #4f97d7;">]</span>
+quick_sort<span style="color: #4f97d7;">(</span>ARRAY, <span style="color: #a45bad;">0</span>, <span style="color: #4f97d7;">len</span><span style="color: #bc6ec5;">(</span>ARRAY<span style="color: #bc6ec5;">)</span> - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span> ARRAY
+<span style="color: #7590db;">ARRAY</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">8</span>, <span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">9</span>, <span style="color: #a45bad;">7</span><span style="color: #4f97d7;">]</span>
+median_sort<span style="color: #4f97d7;">(</span>ARRAY<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span> ARRAY
+<span style="color: #7590db;">ARRAY</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">8</span>, <span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">9</span>, <span style="color: #a45bad;">7</span><span style="color: #4f97d7;">]</span>
+select_sort<span style="color: #4f97d7;">(</span>ARRAY<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span> ARRAY
+<span style="color: #7590db;">ARRAY</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">8</span>, <span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">9</span>, <span style="color: #a45bad;">7</span><span style="color: #4f97d7;">]</span>
+bubble_sort<span style="color: #4f97d7;">(</span>ARRAY<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span> ARRAY
+<span style="color: #7590db;">ARRAY</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">8</span>, <span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">9</span>, <span style="color: #a45bad;">7</span><span style="color: #4f97d7;">]</span>
+heap_sort<span style="color: #4f97d7;">(</span>ARRAY<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span> ARRAY
+<span style="color: #7590db;">ARRAY</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">8</span>, <span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">9</span>, <span style="color: #a45bad;">7</span><span style="color: #4f97d7;">]</span>
+counting_sort<span style="color: #4f97d7;">(</span>ARRAY<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span> ARRAY
+<span style="color: #7590db;">ARRAY</span> = <span style="color: #4f97d7;">[</span><span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">5</span>, <span style="color: #a45bad;">6</span>, <span style="color: #a45bad;">8</span>, <span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span>, <span style="color: #a45bad;">2</span>, <span style="color: #a45bad;">9</span>, <span style="color: #a45bad;">7</span><span style="color: #4f97d7;">]</span>
+bucket_sort<span style="color: #4f97d7;">(</span>ARRAY<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7; font-weight: bold;">print</span> ARRAY
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flysands.github.com/blog/2017-01-29-排序算法.html" data-id="ciyi71jhl000015ed8krwuce3" class="article-share-link">分享到</a>
+      
+        <a href="http://flysands.github.com/blog/2017-01-29-排序算法.html#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm/">algorithm</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2017-01-29-九宫格问题.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://flysands.github.com/blog/2017-01-29-排序算法.html" data-title="" data-url="http://flysands.github.com/blog/2017-01-29-排序算法.html">
+      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
+      </div>
+  </section>
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
+              <p class="item-title"><a href="/blog/2017-01-29-排序算法.html" class="title"></a></p>
+              <p class="item-date"><time datetime="2017-01-29T04:55:46.000Z" itemprop="datePublished">2017-01-29</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
+              <p class="item-title"><a href="/blog/2017-01-29-九宫格问题.html" class="title"></a></p>
+              <p class="item-date"><time datetime="2017-01-29T04:48:12.000Z" itemprop="datePublished">2017-01-29</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/lisp/">lisp</a></p>
+              <p class="item-title"><a href="/blog/2017-01-29-理解lisp闭包.html" class="title">理解闭包</a></p>
+              <p class="item-date"><time datetime="2017-01-29T03:04:03.000Z" itemprop="datePublished">2017-01-29</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/lisp/">lisp</a></p>
+              <p class="item-title"><a href="/blog/2017-01-29-停机问题.html" class="title">停机问题</a></p>
+              <p class="item-date"><time datetime="2017-01-29T02:58:33.000Z" itemprop="datePublished">2017-01-29</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/hexo/">hexo</a></p>
+              <p class="item-title"><a href="/blog/2017-01-24-androidlib.html" class="title">Android UI 库</a></p>
+              <p class="item-date"><time datetime="2017-01-24T05:38:58.000Z" itemprop="datePublished">2017-01-24</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cichlid/">cichlid</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/lisp/">lisp</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cichlid/">cichlid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross-platform/">cross-platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/">devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lisp/">lisp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pet/">pet</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cichlid/" style="font-size: 10px;">cichlid</a> <a href="/tags/cross-platform/" style="font-size: 10px;">cross-platform</a> <a href="/tags/devops/" style="font-size: 10px;">devops</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/lisp/" style="font-size: 15px;">lisp</a> <a href="/tags/pet/" style="font-size: 10px;">pet</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">12</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 - 2017 Flysands<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"flysands"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+ <script src="//ajax.useso.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

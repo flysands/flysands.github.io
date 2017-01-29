@@ -85,7 +85,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        11
+        12
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -114,6 +114,328 @@
 
       
       <section id="main">
+      <article id="post-2015-12-25-react-first" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2015-12-25-react-first.html">react-native开发跨平台应用</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/blog/2015-12-25-react-first.html">
+      <time datetime="2017-01-20T09:25:10.000Z" itemprop="datePublished">2017-01-20</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/react/">react</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> react-native背景</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+React Native 结合了 Web 应用和 Native 应用的优势,可以使用 JavaScript 来开发
+iOS 和 Android 原生应.在 JavaScript 中用 React 抽象操作系统原生的 UI 组件,
+代替 DOM 元素来渲染等.
+</p>
+
+<p>
+React Native 使你能够使用基于 JavaScript 和 React 一致的开发体验在本地平台
+上构建世界一流的应用程序体验.React Native 把重点放在所有开发人员关心的平台
+的开发效率上.所以开发者只需学习一种语言就能轻易为任何平台高效地编写代码.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> 安装工具集</h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col class="org-left">
+
+<col class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">requirement</th>
+<th scope="col" class="org-left">version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">xcode</td>
+<td class="org-left">ios 7以上</td>
+</tr>
+
+<tr>
+<td class="org-left">android</td>
+<td class="org-left">android build tool 23.0.1以上</td>
+</tr>
+
+<tr>
+<td class="org-left">nodejs</td>
+<td class="org-left">4.0以上</td>
+</tr>
+
+<tr>
+<td class="org-left">react-native</td>
+<td class="org-left">0.1.7</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+我的机器是osx,所以整个安装过程都用brew进行.安装之前建议先更新一下brew.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">brew update
+brew upgrade
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><p>
+安装nodejs
+</p>
+
+<p>
+mac用户直接去官网下载pkg文件安装.注意nodejs版本要高于4.0.
+</p></li>
+<li><p>
+安装watchman
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">brew install watchman
+</pre>
+</div></li>
+<li><p>
+安装flow
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">brew install flow
+</pre>
+</div></li>
+<li><p>
+安装react-native
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">npm install -g react-native-cli
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> 第一个跨平台应用</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+创建过程可以参考帮助文档<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.
+所有工具集安装完毕后,创建第一个project吧.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">react-native init your-project-dir
+</pre>
+</div>
+<p>
+project创建成功后会生成ios和android的project目录,以及两个平台的index入口js
+文件.
+</p>
+
+<ul class="org-ul">
+<li><p>
+run android device
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> your-project
+react-native run-android
+</pre>
+</div>
+
+<p>
+查看日志
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">adb logcat *:S ReactNative:V ReactNativeJS:V
+</pre>
+</div>
+<p>
+启动成功
+<img src="http://7xia6k.com1.z0.glb.clouddn.com/react-native.png" alt="react-native.png">
+</p></li>
+<li>run ios
+打开ios目录中的xcodeproj文件.点击run按钮即可.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">4</span> 使用组件</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+react-native提供了丰富的native组件.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">React</span> = require<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'react-native'</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #4f97d7;">{</span>
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,<span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">add text input component</span>
+<span style="color: #4f97d7;">}</span> = React;
+
+
+<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">TestProject</span> = React.createClass<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">{</span>
+  <span style="color: #bc6ec5; font-weight: bold;">render</span>: <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #67b11d;">(</span>
+      &lt;View style=<span style="color: #b1951d;">{</span>styles.container<span style="color: #b1951d;">}</span>&gt;
+        &lt;Text style=<span style="color: #b1951d;">{</span>styles.welcome<span style="color: #b1951d;">}</span>&gt;
+          Welcome to React Native!
+        &lt;/Text&gt;
+        &lt;Text style=<span style="color: #b1951d;">{</span>styles.instructions<span style="color: #b1951d;">}</span>&gt;
+          To get started, edit index.android.js
+        &lt;/Text&gt;
+        &lt;Text style=<span style="color: #b1951d;">{</span>styles.instructions<span style="color: #b1951d;">}</span>&gt;
+          Shake or press menu button <span style="color: #4f97d7; font-weight: bold;">for</span> dev menu
+        &lt;/Text&gt;
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">add text input</span>
+        &lt;TextInput
+        style=<span style="color: #b1951d;">{</span><span style="color: #4f97d7;">{</span>height: <span style="color: #a45bad;">40</span>, borderColor: <span style="color: #2d9574;">'gray'</span>, borderWidth: <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">}</span><span style="color: #b1951d;">}</span>
+        onChangeText=<span style="color: #b1951d;">{</span><span style="color: #4f97d7;">(</span>text<span style="color: #4f97d7;">)</span> =&gt; <span style="color: #a45bad;">this</span>.setState<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">{</span>text<span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">}</span>
+        /&gt;
+      &lt;/View&gt;
+    <span style="color: #67b11d;">)</span>;
+  <span style="color: #2d9574;">}</span>
+<span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="http://7xia6k.com1.z0.glb.clouddn.com/react-native-input.png" alt="react-native-input.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">5</span> 问题</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li><p>
+安装react-native报警
+</p>
+
+<p>
+如果用nvm管理多个node版本.并且安装提示node版本过低.重新下载pkg安装包.安装
+</p></li>
+</ol>
+<p>
+即可.
+</p>
+<ol class="org-ol">
+<li><p>
+run-android报错
+</p>
+
+<p>
+react-native android打包工具要23.0.1以上的版本.解决方法是在sdk manager中
+</p></li>
+</ol>
+<p>
+安装高版本android build tool.
+</p>
+<ol class="org-ol">
+<li><p>
+启动报错
+</p>
+
+<p>
+stackoverflow<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>上有讨论,我在模拟器上执行adb reverse命令做端口映射即可.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-shell">adb reverse tcp:8081 tcp:8081
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">6</span> 总结</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+总的来说开发方式还是便捷许多.但是存在一个普遍问题.跨平台应用开发的通病-性能.
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+react-native doc <a href="https://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">https://facebook.github.io/react-native/docs/getting-started.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+stackoverflow <a href="http://stackoverflow.com/questions/32572399/react-native-android-failed-to-load-js-bundle" target="_blank" rel="external">http://stackoverflow.com/questions/32572399/react-native-android-failed-to-load-js-bundle</a>
+</p></div></div>
+
+
+</div>
+</div>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flysands.github.com/blog/2015-12-25-react-first.html" data-id="ciy5mh2ib0004zb8ja89xe0n9" class="article-share-link">分享到</a>
+      
+        <a href="http://flysands.github.com/blog/2015-12-25-react-first.html#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cross-platform/">cross-platform</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-2016-01-07-docker-compose" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -509,6 +831,120 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
 
 
     
+      <article id="post-2016-03-08-testbird-ci-env" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/blog/2016-03-08-testbird-ci-env.html">Testbird ci 2.0</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/blog/2016-03-08-testbird-ci-env.html">
+      <time datetime="2017-01-20T09:24:59.000Z" itemprop="datePublished">2017-01-20</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/devops/">devops</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Testbird ci 2.0 流程图</h2>
+<div class="outline-text-2" id="text-1">
+
+<div class="figure">
+<p><img src="http://7xia6k.com1.z0.glb.clouddn.com/testbirc_ci_arch.png" alt="testbirc_ci_arch.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> 参与者</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li><p>
+TbCli
+</p>
+
+<p>
+testbird devops开发用于ci过程的项目代码.
+</p></li>
+<li><p>
+Gitlab
+</p>
+
+<p>
+不多介绍.
+</p></li>
+<li><p>
+Jenkins
+</p>
+
+<p>
+不多介绍.
+</p></li>
+<li><p>
+Registry
+</p>
+
+<p>
+testbird自建docker registry.
+</p></li>
+<li><p>
+Ansible
+</p>
+
+<p>
+运维发布工具.
+</p></li>
+<li><p>
+Kubernetes
+</p>
+
+<p>
+容器编排工具.
+</p></li>
+</ol>
+</div>
+</div>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flysands.github.com/blog/2016-03-08-testbird-ci-env.html" data-id="ciy5mh2ik000azb8jzjt0qrdv" class="article-share-link">分享到</a>
+      
+        <a href="http://flysands.github.com/blog/2016-03-08-testbird-ci-env.html#ds-thread" class="article-comment-link">评论</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/">devops</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-2016-03-03-private-registry" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -807,120 +1243,6 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-    
-      <article id="post-2016-03-08-testbird-ci-env" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016-03-08-testbird-ci-env.html">Testbird ci 2.0</a>
-    </h1>
-  
-
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/blog/2016-03-08-testbird-ci-env.html">
-      <time datetime="2017-01-20T09:24:59.000Z" itemprop="datePublished">2017-01-20</time>
-    </a>
-  </div>
-
-
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/devops/">devops</a>
-  </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-                
-        <div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Testbird ci 2.0 流程图</h2>
-<div class="outline-text-2" id="text-1">
-
-<div class="figure">
-<p><img src="http://7xia6k.com1.z0.glb.clouddn.com/testbirc_ci_arch.png" alt="testbirc_ci_arch.png">
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> 参与者</h2>
-<div class="outline-text-2" id="text-2">
-<ol class="org-ol">
-<li><p>
-TbCli
-</p>
-
-<p>
-testbird devops开发用于ci过程的项目代码.
-</p></li>
-<li><p>
-Gitlab
-</p>
-
-<p>
-不多介绍.
-</p></li>
-<li><p>
-Jenkins
-</p>
-
-<p>
-不多介绍.
-</p></li>
-<li><p>
-Registry
-</p>
-
-<p>
-testbird自建docker registry.
-</p></li>
-<li><p>
-Ansible
-</p>
-
-<p>
-运维发布工具.
-</p></li>
-<li><p>
-Kubernetes
-</p>
-
-<p>
-容器编排工具.
-</p></li>
-</ol>
-</div>
-</div>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flysands.github.com/blog/2016-03-08-testbird-ci-env.html" data-id="ciy5mh2ik000azb8jzjt0qrdv" class="article-share-link">分享到</a>
-      
-        <a href="http://flysands.github.com/blog/2016-03-08-testbird-ci-env.html#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/">devops</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
 
     </footer>
   </div>
@@ -1575,6 +1897,15 @@ Kubernetes
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
+              <p class="item-title"><a href="/blog/2017-01-29-排序算法.html" class="title"></a></p>
+              <p class="item-date"><time datetime="2017-01-29T04:55:46.000Z" itemprop="datePublished">2017-01-29</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
               <p class="item-title"><a href="/blog/2017-01-29-九宫格问题.html" class="title"></a></p>
               <p class="item-date"><time datetime="2017-01-29T04:48:12.000Z" itemprop="datePublished">2017-01-29</time></p>
             </div>
@@ -1607,15 +1938,6 @@ Kubernetes
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/react/">react</a></p>
-              <p class="item-title"><a href="/blog/2015-12-25-react-first.html" class="title">react-native开发跨平台应用</a></p>
-              <p class="item-date"><time datetime="2017-01-20T09:25:10.000Z" itemprop="datePublished">2017-01-20</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1625,7 +1947,7 @@ Kubernetes
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cichlid/">cichlid</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/lisp/">lisp</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cichlid/">cichlid</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/lisp/">lisp</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1634,7 +1956,7 @@ Kubernetes
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cichlid/">cichlid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross-platform/">cross-platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/">devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lisp/">lisp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pet/">pet</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cichlid/">cichlid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross-platform/">cross-platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/">devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lisp/">lisp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pet/">pet</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1643,7 +1965,7 @@ Kubernetes
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cichlid/" style="font-size: 10px;">cichlid</a> <a href="/tags/cross-platform/" style="font-size: 10px;">cross-platform</a> <a href="/tags/devops/" style="font-size: 10px;">devops</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/lisp/" style="font-size: 15px;">lisp</a> <a href="/tags/pet/" style="font-size: 10px;">pet</a>
+      <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/cichlid/" style="font-size: 10px;">cichlid</a> <a href="/tags/cross-platform/" style="font-size: 10px;">cross-platform</a> <a href="/tags/devops/" style="font-size: 10px;">devops</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/lisp/" style="font-size: 15px;">lisp</a> <a href="/tags/pet/" style="font-size: 10px;">pet</a>
     </div>
   </div>
 
@@ -1652,7 +1974,7 @@ Kubernetes
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">11</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">12</span></li></ul>
     </div>
   </div>
 
