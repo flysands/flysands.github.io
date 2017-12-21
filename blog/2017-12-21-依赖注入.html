@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android,dagger2," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1 DONE DI依赖注入&amp;#xa0;&amp;#xa0;&amp;#xa0;ANDROID
+
+
+
+1.1 前言
+
+
+这里讨论的目的一直是 解耦 ，实现 高内聚，低耦合 。从最开始的例子一步步抽丝剥茧，逐渐解耦。直至符合 对新增开发，对修改封闭 这一软件设计原则。
+
+
+
+这里有几个名词要先预热一下：
+
+
+
+依赖倒置原则（DIP）
+
+
+
+依赖倒置是面向对象开发领域中的软件设计原则，它倡导上层模块不依赖于底层模块，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flysands Blog">
+<meta property="og:url" content="http://flysands.github.com/blog/2017-12-21-依赖注入.html">
+<meta property="og:site_name" content="Flysands Blog">
+<meta property="og:description" content="1 DONE DI依赖注入&amp;#xa0;&amp;#xa0;&amp;#xa0;ANDROID
+
+
+
+1.1 前言
+
+
+这里讨论的目的一直是 解耦 ，实现 高内聚，低耦合 。从最开始的例子一步步抽丝剥茧，逐渐解耦。直至符合 对新增开发，对修改封闭 这一软件设计原则。
+
+
+
+这里有几个名词要先预热一下：
+
+
+
+依赖倒置原则（DIP）
+
+
+
+依赖倒置是面向对象开发领域中的软件设计原则，它倡导上层模块不依赖于底层模块，">
+<meta property="og:image" content="http://7xia6k.com1.z0.glb.clouddn.com/dependency-1.png">
+<meta property="og:image" content="http://7xia6k.com1.z0.glb.clouddn.com/dependency-2.png">
+<meta property="og:updated_time" content="2017-12-21T06:06:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flysands Blog">
+<meta name="twitter:description" content="1 DONE DI依赖注入&amp;#xa0;&amp;#xa0;&amp;#xa0;ANDROID
+
+
+
+1.1 前言
+
+
+这里讨论的目的一直是 解耦 ，实现 高内聚，低耦合 。从最开始的例子一步步抽丝剥茧，逐渐解耦。直至符合 对新增开发，对修改封闭 这一软件设计原则。
+
+
+
+这里有几个名词要先预热一下：
+
+
+
+依赖倒置原则（DIP）
+
+
+
+依赖倒置是面向对象开发领域中的软件设计原则，它倡导上层模块不依赖于底层模块，">
+<meta name="twitter:image" content="http://7xia6k.com1.z0.glb.clouddn.com/dependency-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://flysands.github.com/blog/2017-12-21-依赖注入.html"/>
+
+
+
+
+
+  <title> | Flysands Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Flysands Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2017-12-21-依赖注入.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flysands">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/css/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flysands Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T14:06:10+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2017-12-21-依赖注入.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2017-12-21-依赖注入.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="outline-container-orgac725fc" class="outline-2">
+<h2 id="orgac725fc"><span class="section-number-2">1</span> <span class="done DONE">DONE</span> DI依赖注入&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ANDROID">ANDROID</span></span></h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgf111136" class="outline-3">
+<h3 id="orgf111136"><span class="section-number-3">1.1</span> 前言</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+这里讨论的目的一直是 <b>解耦</b> ，实现 <b>高内聚，低耦合</b> 。从最开始的例子一步步抽丝剥茧，逐渐解耦。直至符合 <b>对新增开发，对修改封闭</b> 这一软件设计原则。
+</p>
+
+<p>
+这里有几个名词要先预热一下：
+</p>
+<ol class="org-ol">
+<li><p>
+依赖倒置原则（DIP）
+</p>
+
+<p>
+依赖倒置是面向对象开发领域中的软件设计原则，它倡导上层模块不依赖于底层模块，抽象不依赖细节。良好的面向对象代码设计都要遵从这一原则。
+</p></li>
+<li><p>
+控制反转（Ioc）
+</p>
+
+<p>
+依赖反转是遵守依赖倒置这个原则而提出来的一种设计模式，它引入了IoC容器的概念。早在2004年，Martin Fowler就提出了“哪些方面的控制被反转了？”这个问题。他总结出是依赖对象的获得被反转了，因为大多数应用程序都是由两个或是更多的类通过彼此的合作来实现企业逻辑，这使得每个对象都需要获取与其合作的对象（也就是它所依赖的对象）的引用。如果这个获取过程要靠自身实现，那么这将导致代码高度耦合并且难以维护和调试。
+</p></li>
+<li><p>
+依赖注入（DI）
+</p>
+
+<p>
+依赖注入是为了实现控制反转的一种手段之一。另外一种是依赖查找。
+</p></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org442c596" class="outline-3">
+<h3 id="org442c596"><span class="section-number-3">1.2</span> 何为依赖</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+什么是依赖？依赖是一种关系，简单来讲就是需要。比如程序员依赖电脑，电脑被程序员依赖。在面向对象编程中，代码可以这样编写。很简单，就是Coder需要电脑，依赖电脑，有了电脑才能工作。
+</p>
+
+<div class="figure">
+<p><img src="http://7xia6k.com1.z0.glb.clouddn.com/dependency-1.png" alt="dependency-1.png">
+</p>
+</div>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Coder</span> <span style="color: #4f97d7;">{</span>
+
+    <span style="color: #ce537a; font-weight: bold;">Computer</span> <span style="color: #7590db;">mComputer</span>;
+
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">Coder</span> <span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        mComputer = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Computer</span><span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">startWork</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        mComputer.powerOn<span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8bb85ef" class="outline-3">
+<h3 id="org8bb85ef"><span class="section-number-3">1.3</span> 依赖倒置原则</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+依赖倒置（Dependency inversion principle）是面向对象设计领域的一种软件设计原则。具体描述为 <b>上层模块不应该依赖底层模块，他们都应该依赖于抽象。抽象不应该依赖于细节，细节应该依赖于抽象</b> 。总结起来就是要面向接口编程。
+</p>
+
+<p>
+回到之前Coder和Computer的例子，假如Coder的公司赚钱了，要给所有Coder的电脑都升级为MacComputer。最直接的方案是新增一个MacComputer类。然后在Coder中new MacComputer。
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Coder</span> <span style="color: #4f97d7;">{</span>
+
+    <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">Computer mComputer;</span>
+    <span style="color: #ce537a; font-weight: bold;">MacComputer</span> <span style="color: #7590db;">mMacComputer</span>;
+
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">Coder</span> <span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">mComputer = new Computer();</span>
+        mMacComputer = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">MacComputer</span><span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">startWork</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">mComputer.powerOn();</span>
+        mMacComputer.powerOn<span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+新增一个MacComputer，改动了三处。明显不符合 <b>对新增开放，对修改关闭</b> 。从划分模块的角度看，这种做法也不符合 <b>依赖倒置原则</b> 。因为Coder属于MacComputer的上层模块。MacComputer为底层模块。存在 <b>上层模块依赖于底层模块</b> 这种情况。
+</p>
+
+<p>
+这次，我们对代码做一下改进。新增一个Computable借口，让MacComputer实现Computable接口。Coder中持有一个Computable的实例引用。
+</p>
+
+<div class="figure">
+<p><img src="http://7xia6k.com1.z0.glb.clouddn.com/dependency-2.png" alt="dependency-2.png">
+</p>
+</div>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">interface</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span>&#65307;
+        <span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Coder</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #7590db;">mComputer</span>;
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">Coder</span> <span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        mComputer = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">MacComputer</span><span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">startWork</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        mComputer.powerOn<span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MacComputer</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">@Override</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Mac power on"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+再看看改版后的代码，比上一版有所改善。假如当公司又上了一个台阶，要给每个Coder配最新版的MacPro。我们只需要新增一个MacProComputer。并且修改实例化代码mComputer = new MacProComputer即可。改动次数由之前的三次，改为一次。虽然很少，仅有一次。并且这一次只体现为 <b>对象实例化</b> 。
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">interface</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span>&#65307;
+        <span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Coder</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #7590db;">mComputer</span>;
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">Coder</span> <span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">&#21807;&#19968;&#25913;&#21160;&#30340;&#19968;&#22788;</span>
+        mComputer = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">MacProComputer</span><span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">startWork</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        mComputer.powerOn<span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MacComputer</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">@Override</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Mac power on"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MacProComputer</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">@Override</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"MacPro power on"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+这次，我们消灭掉对象获取的这一处依赖。通过构造函数传参的方式，获取对象实例。不主动new生成实例。当我们要新增一种电脑类型的时候，并不需要改动Coder类中的任何代码。高层模块和底层模块都依赖于抽象接口Computable。所以，这一版设计符合 <b>开闭原则，依赖倒置原则</b> 。
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">interface</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span>&#65307;
+        <span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Coder</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #7590db;">mComputer</span>;
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">Coder</span> <span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #7590db;">computable</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        mComputer = computable;
+    <span style="color: #bc6ec5;">}</span>
+
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">startWork</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        mComputer.powerOn<span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MacComputer</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">@Override</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Mac power on"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MacProComputer</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">@Override</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"MacPro power on"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Company</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">init</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #ce537a; font-weight: bold;">Coder</span> <span style="color: #7590db;">coder</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Coder</span><span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">MacProComputer</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+上面的设计称之为 <b>控制反转</b> 。很难理解的一个名词。为什么是反转，对比上一版代码。Coder对于mComputer成员的初始化享有绝对的控制权。因为在Coder中直接new了一个MacProComputer对象，是主动获取。再看看上面的代码，mComputer的获取途径是由构造函数传递进来的参数。Coder是被动获取。所以称之为 <b>控制反转</b> 。丧失了主动控制权。外部负责实例化MacProComputer的类称之为控制反转容器。 <b>事实上，上面的代码展示了基于构造函数的依赖注入达到控制反转的目的。</b> 
+</p>
+
+<p>
+所以控制反转IoC(Inversion of Control)是说创建对象的控制权进行转移，以前创建对象的主动权和创建时机是由自己把控的，而现在这种权力转移到第三方，比如转移交给了IoC容器，它就是一个专门用来创建对象的工厂，你要什么对象，它就给你什么对象，有了IoC容器，依赖关系就变了，原先的依赖关系就没了，它们都依赖IoC容器了，通过IoC容器来建立它们之间的关系。
+</p>
+</div>
+</div>
+<div id="outline-container-org8d18f19" class="outline-3">
+<h3 id="org8d18f19"><span class="section-number-3">1.4</span> 依赖注入</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Dependency Injection，即“依赖注入”：组件之间依赖关系由容器在运行期决定，形象的说，即由容器动态的将某个依赖关系注入到组件之中。依赖注入的目的并非为软件系统带来更多功能，而是为了提升组件重用的频率，并为系统搭建一个灵活、可扩展的平台。通过依赖注入机制，我们只需要通过简单的配置，而无需任何代码就可指定目标需要的资源，完成自身的业务逻辑，而不需要关心具体的资源来自何处，由谁实现。
+</p>
+</div>
+<div id="outline-container-org8834bea" class="outline-4">
+<h4 id="org8834bea"><span class="section-number-4">1.4.1</span> 基于构造函数的依赖注入</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+上面的例子已经展示过基于构造函数注入依赖。
+</p>
+</div>
+</div>
+<div id="outline-container-org82d0d19" class="outline-4">
+<h4 id="org82d0d19"><span class="section-number-4">1.4.2</span> 基于set方法的依赖注入</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">interface</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span>&#65307;
+        <span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Coder</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #7590db;">mComputer</span>;
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">Coder</span> <span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+    <span style="color: #bc6ec5;">}</span>
+
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">setComputer</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #7590db;">computable</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        mComputer = computable;
+    <span style="color: #bc6ec5;">}</span>
+
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">startWork</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        mComputer.powerOn<span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MacComputer</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">@Override</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Mac power on"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MacProComputer</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">@Override</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"MacPro power on"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Company</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">init</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #ce537a; font-weight: bold;">Coder</span> <span style="color: #7590db;">coder</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Coder</span><span style="color: #2d9574;">()</span>;
+        coder.setComputer<span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">MacProComputer</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbe85af3" class="outline-4">
+<h4 id="orgbe85af3"><span class="section-number-4">1.4.3</span> 基于接口的依赖注入</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">interface</span> <span style="color: #ce537a; font-weight: bold;">ComputerSetter</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">set</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #7590db;">computable</span><span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">interface</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span>&#65307;
+        <span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Coder</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">ComputerSetter</span><span style="color: #4f97d7;">{</span>
+    <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #7590db;">mComputer</span>;
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">Coder</span> <span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+    <span style="color: #bc6ec5;">}</span>
+
+    <span style="color: #a45bad;">@Override</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">set</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #7590db;">computable</span><span style="color: #bc6ec5;">){</span>
+        mComputer = computable;
+    <span style="color: #bc6ec5;">}</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">setComputer</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #7590db;">computable</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        mComputer = computable;
+    <span style="color: #bc6ec5;">}</span>
+
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">startWork</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        mComputer.powerOn<span style="color: #2d9574;">()</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MacComputer</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">@Override</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Mac power on"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MacProComputer</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Computable</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #a45bad;">@Override</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">powerOn</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"MacPro power on"</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Company</span> <span style="color: #4f97d7;">{</span>
+    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">init</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #ce537a; font-weight: bold;">Coder</span> <span style="color: #7590db;">coder</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Coder</span><span style="color: #2d9574;">()</span>;
+        coder.set<span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">MacProComputer</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9fc757a" class="outline-4">
+<h4 id="org9fc757a"><span class="section-number-4">1.4.4</span> 基于注解的依赖注入</h4>
+<div class="outline-text-4" id="text-1-4-4">
+<p>
+参考Dagger2。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5df42fd" class="outline-3">
+<h3 id="org5df42fd"><span class="section-number-3">1.5</span> Dagger2</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+为什么会有Dagger2？当我们的代码遵循 <b>开闭原则，依赖倒置等原则之后</b> 。并把对象实例化的权力移交到外部之后，总归有一处地方（称之为注射器，参考以下代码）是要来实例化对象。更为复杂的是注射器中的实例初始化还要依照一定的先后顺序生成对象。Dagger2的出现进一步解放了我们的双手，让我们不必自己去编写注射器代码，只需要依照Dagger2的约定配置。Dagger2会自动生成相应的注射器。会在适当的时候注入。 <b>所以Dagger2本质上是一个依赖注入框架，依赖注入的目的就是为了给需求方在合适的时候注入依赖。</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #ce537a; font-weight: bold;">B</span> <span style="color: #7590db;">b</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">B</span><span style="color: #4f97d7;">(</span><span style="color: #a45bad;">5</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">C</span> <span style="color: #7590db;">c</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">C</span><span style="color: #4f97d7;">(</span><span style="color: #a45bad;">110</span>,<span style="color: #2d9574;">"110"</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">D</span> <span style="color: #7590db;">d</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">D</span><span style="color: #4f97d7;">(</span><span style="color: #a45bad;">110</span>, c<span style="color: #4f97d7;">)</span>;
+<span style="color: #ce537a; font-weight: bold;">A</span> <span style="color: #7590db;">a</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">A</span><span style="color: #4f97d7;">()</span>;
+a.setB<span style="color: #4f97d7;">(</span>b<span style="color: #4f97d7;">)</span>;
+a.setC<span style="color: #4f97d7;">(</span>c<span style="color: #4f97d7;">)</span>;
+a.setD<span style="color: #4f97d7;">(</span>d<span style="color: #4f97d7;">)</span>;
+</pre>
+</div>
+<p>
+前门提到过Dagger2是 <b>基于注解</b> 来实现依赖注入。所以，在使用Dagger2之前，我们需要了解这些注解的含义，如果对注解是什么还不清楚的可以自行Google一下。Dagger2中主要有6种注解。前四种通俗易懂，后两种理解起来就有一定难度了。
+</p>
+</div>
+<div id="outline-container-orgaa7df60" class="outline-4">
+<h4 id="orgaa7df60"><span class="section-number-4">1.5.1</span> @Inject</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+用来修饰构造函数的时候，表示提供依赖。用来修饰成员变量，表示需要依赖。该变量由注入框架负责实例化。
+</p>
+</div>
+</div>
+<div id="outline-container-orgbd61812" class="outline-4">
+<h4 id="orgbd61812"><span class="section-number-4">1.5.2</span> @Module</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+带有此注解的类，用来提供依赖，里面定义一些用@Provides注解的以provide开头的方法，这些方法就是所提供的依赖，Dagger2会在该类中寻找实例化某个类所需要的依赖。
+</p>
+</div>
+</div>
+<div id="outline-container-orge230f98" class="outline-4">
+<h4 id="orge230f98"><span class="section-number-4">1.5.3</span> @Component</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+它是一个桥梁，一端是目标类@Inject，另一端是目标类所依赖类的实例@Module，它也是注入器负责把目标类所依赖类的实例注入到目标类中，同时它也管理Module。
+</p>
+</div>
+</div>
+<div id="outline-container-org3795728" class="outline-4">
+<h4 id="org3795728"><span class="section-number-4">1.5.4</span> @Provides</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<p>
+修饰方法，表示该方法提供依赖。
+</p>
+</div>
+</div>
+<div id="outline-container-org2043900" class="outline-4">
+<h4 id="org2043900"><span class="section-number-4">1.5.5</span> @Qulifier</h4>
+<div class="outline-text-4" id="text-1-5-5">
+<p>
+当某个对象需要注入依赖时，Dagger2就会根据Module中标记了@Provide的方法的返回值来确定由谁为这个变量提供实例。那问题来了，如果有两个一样的返回类型，该用谁呢。我们把这种场景叫做依赖迷失，见名知意，Dagger这时候就不知道用谁来提供依赖，自然就迷失了。所以我们引入了@Qulifier这个东西，通过自定义Qulifier，可以告诉Dagger2去需找具体的依赖提供者。
+</p>
+</div>
+</div>
+<div id="outline-container-org780bbf7" class="outline-4">
+<h4 id="org780bbf7"><span class="section-number-4">1.5.6</span> @Scope</h4>
+<div class="outline-text-4" id="text-1-5-6">
+<p>
+Dagger2可以通过自定义Scope注解，来限定通过Module和Inject方式创建的类的实例的生命周期能够与目标类的生命周期相同。或者可以这样理解：通过自定义Scope注解可以更好的管理创建的类实例的生命周期。（需要自己手动控制，并不是加了@Scope就可以自动与目标类的生命周期一致。比如在Activity的OnCreate和OnDestroy中加入Component的创建和销毁代码，就能实现和Activity目标类生命周期一致。另外@Scope还可以用来实现Component中的局部单例。）
+</p>
+</div>
+</div>
+<div id="outline-container-org95a1d11" class="outline-4">
+<h4 id="org95a1d11"><span class="section-number-4">1.5.7</span> 小结</h4>
+<div class="outline-text-4" id="text-1-5-7">
+<p>
+@Inject和@Module（其中的@Provides）都是属于依赖提供方，含有@Inject标注的成员变量的类属于依赖需求方。@Component属于一个桥梁，把依赖需求方和依赖提供方联系起来。@Qulifier用来解决依赖提供方的依赖迷失，@Scope用来解决实例的创建和声明生命周期。
+</p>
+</div>
+</div>
+<div id="outline-container-org60073d2" class="outline-4">
+<h4 id="org60073d2"><span class="section-number-4">1.5.8</span> 注入步骤</h4>
+<div class="outline-text-4" id="text-1-5-8">
+<ol class="org-ol">
+<li>查找Module中是否存在创建该类的方法</li>
+<li>若存在创建类方法，查看该方法是否存在参数。
+<ol class="org-ol">
+<li>若存在参数，则按从 <b>步骤1</b> 开始依次初始化每个参数。</li>
+<li>若不存在参数，则直接初始化该类实例，一次依赖注入到此结束。</li>
+</ol></li>
+<li>若不存在创建类方法，则查找Inject注解的构造函数，看构造函数是否存在参数。
+<ol class="org-ol">
+<li>若存在参数，则从 <b>步骤1</b> 开始依次初始化每个参数。</li>
+<li>若不存在参数，则直接初始化该类实例，一次依赖注入到此结束。</li>
+</ol></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org80ea7a6" class="outline-4">
+<h4 id="org80ea7a6"><span class="section-number-4">1.5.9</span> Component组织方式</h4>
+<div class="outline-text-4" id="text-1-5-9">
+</div><ol class="org-ol"><li><a id="orgf905f05"></a>为何要划分<br><div class="outline-text-5" id="text-1-5-9-1">
+<p>
+假如一个app（app指的是Android app）中只有一个Component，那这个Component是很难维护、并且变化率是很高，很庞大的，就是因为Component的职责太多了导致的。所以就有必要把这个庞大的Component进行划分，划分为粒度小的Component。
+</p>
+</div></li>
+<li><a id="org97956c5"></a>以何种粒度划分<br><div class="outline-text-5" id="text-1-5-9-2">
+<ul class="org-ul">
+<li>要有一个全局的Component(可以叫ApplicationComponent),负责管理整个app的全局类实例（全局类实例整个app都要用到的类的实例，这些类基本都是单例的，后面会用此词代替）。</li>
+<li>每个页面对应一个Component，比如一个Activity页面定义一个Component，一个Fragment定义一个Component。当然这不是必须的，有些页面之间的依赖的类是一样的，可以公用一个Component。</li>
+</ul>
+</div></li>
+<li><a id="orgdc31a74"></a>为什么需要页面粒度划分<br><div class="outline-text-5" id="text-1-5-9-3">
+<ul class="org-ul">
+<li>一个app是由很多个页面组成的，从组成app的角度来看一个页面就是一个完整的最小粒度了。</li>
+<li>一个页面的实现其实是要依赖各种类的，可以理解成一个页面把各种依赖的类组织起来共同实现一个大的功能，每个页面都组织着自己的需要依赖的类，一个页面就是一堆类的组织者。</li>
+<li>划分粒度不能太小了。假如使用mvp架构搭建app，划分粒度是基于每个页面的m、v、p各自定义Component的，那Component的粒度就太小了，定义这么多的Component，管理、维护就很非常困难。</li>
+</ul>
+</div></li>
+<li><a id="orge59bf1a"></a>组织Component<br><ol class="org-ol"><li><a id="orga955233"></a>依赖方式<br><div class="outline-text-6" id="text-1-5-9-4-1">
+<p>
+一个Component是依赖于一个或多个Component，Component中的dependencies属性就是依赖方式的具体实现。视角在子Component，表明子Component依赖父Component。Component依赖方式只能访问通过Component接口暴露的对象。不能访问父Component的依赖图表。
+</p>
+</div></li>
+<li><a id="org85a5a0c"></a>包含方式<br><div class="outline-text-6" id="text-1-5-9-4-2">
+<p>
+一个Component是包含一个或多个Component的，被包含的Component还可以继续包含其他的Component。这种方式特别像Activity与Fragment的关系。SubComponent就是包含方式的具体实现。视角在父Component，表明父Component包含子Component。SubComponent可以访问父Component的所有依赖图表。
+</p>
+</div></li>
+<li><a id="org7436d9d"></a>继承方式<br><div class="outline-text-6" id="text-1-5-9-4-3">
+<p>
+官网没有提到该方式，具体没有提到的原因我觉得应该是，该方式不是解决类实例共享的问题，而是从更好的管理、维护Component的角度，把一些Component共有的方法抽象到一个父类中，然后子Component继承。
+</p>
+</div></li></ol></li></ol>
+</div>
+</div>
+</div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+            <a href="/tags/dagger2/" rel="tag"># dagger2</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017-01-29-排序算法.html" rel="next" title="基本排序算法">
+                <i class="fa fa-chevron-left"></i> 基本排序算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="blog/2017-12-21-依赖注入.html"
+           data-title="" data-url="http://flysands.github.com/blog/2017-12-21-依赖注入.html">
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/css/images/mylogo.jpg"
+                alt="Flysands" />
+            
+              <p class="site-author-name" itemprop="name">Flysands</p>
+              <p class="site-description motion-element" itemprop="description">Keep life stayreal</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/flysands" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:cqupt_chen@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/flysands" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgac725fc"><span class="nav-number">1.</span> <span class="nav-text">1 DONE DI依赖注入   ANDROID</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orgf111136"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org442c596"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 何为依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org8bb85ef"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 依赖倒置原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org8d18f19"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org8834bea"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.4.1 基于构造函数的依赖注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org82d0d19"><span class="nav-number">1.4.2.</span> <span class="nav-text">1.4.2 基于set方法的依赖注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgbe85af3"><span class="nav-number">1.4.3.</span> <span class="nav-text">1.4.3 基于接口的依赖注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org9fc757a"><span class="nav-number">1.4.4.</span> <span class="nav-text">1.4.4 基于注解的依赖注入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org5df42fd"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 Dagger2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orgaa7df60"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.5.1 @Inject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgbd61812"><span class="nav-number">1.5.2.</span> <span class="nav-text">1.5.2 @Module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orge230f98"><span class="nav-number">1.5.3.</span> <span class="nav-text">1.5.3 @Component</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org3795728"><span class="nav-number">1.5.4.</span> <span class="nav-text">1.5.4 @Provides</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org2043900"><span class="nav-number">1.5.5.</span> <span class="nav-text">1.5.5 @Qulifier</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org780bbf7"><span class="nav-number">1.5.6.</span> <span class="nav-text">1.5.6 @Scope</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org95a1d11"><span class="nav-number">1.5.7.</span> <span class="nav-text">1.5.7 小结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org60073d2"><span class="nav-number">1.5.8.</span> <span class="nav-text">1.5.8 注入步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org80ea7a6"><span class="nav-number">1.5.9.</span> <span class="nav-text">1.5.9 Component组织方式</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Flysands</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"flysands"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
