@@ -1,11 +1,85 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
+
+
+
   
-  <title>Flysands Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Keep life stayreal">
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Keep life stayreal">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Flysands Blog">
 <meta property="og:url" content="http://flysands.github.com/page/2/index.html">
@@ -14,144 +88,285 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flysands Blog">
 <meta name="twitter:description" content="Keep life stayreal">
-  
-  
-    <link rel="icon" href="favicon.png">
-  
-  
- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
- <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
 
 
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://flysands.github.com/page/2/"/>
+
+
+
+
+
+  <title>Flysands Blog</title>
   
 
-  
 
-  
+
+
+
+
+
+
 </head>
-<body>
-  <div id="container">
-    <header id="header">
-  <div id="header-main" class="header-inner">
-    <div class="outer">
-      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">Flysands Blog</span></a>
-      <nav id="main-nav">
-        
-          <a class="main-nav-link" href="/">首页</a>
-        
-          <a class="main-nav-link" href="/archives">归档</a>
-        
-      </nav>
-      
-        <nav id="sub-nav">
-          <div class="profile" id="profile-nav">
-            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="/css/images/mylogo.jpg"><i class="fa fa-caret-down"></i></a>
-          </div>
-        </nav>
-      
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://flysands.github.com"></form>
-      </div>
-    </div>
-  </div>
-  <div id="main-nav-mobile" class="header-sub header-inner">
-    <table class="menu outer">
-      <tr>
-        
-          <td><a class="main-nav-link" href="/">首页</a></td>
-        
-          <td><a class="main-nav-link" href="/archives">归档</a></td>
-        
-        <td>
-          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://flysands.github.com"></form>
-        </td>
-      </tr>
-    </table>
-  </div>
-</header>
 
-    <div class="outer">
-      
-        <aside id="profile">
-  <div class="inner profile-inner">
-    <div class="base-info profile-block">
-      <img id="avatar" src="/css/images/mylogo.jpg">
-      <h2 id="name">Flysands</h2>
-      <h3 id="title">Programmer &amp; Emacser</h3>
-      <span id="location"><i class="fa fa-map-marker"></i>Chengdu, China</span>
-      <a id="follow" href="https://github.com/flysands/">关注我</a>
-    </div>
-    <div class="article-info profile-block">
-      <div class="article-info-block">
-        12
-        <span>文章</span>
-      </div>
-      <div class="article-info-block">
-        10
-        <span>标签</span>
-      </div>
-    </div>
-    
-    <div class="contact-info profile-block">
-      <table class="contact-list">
-        <tr>
-          
-          <td><a href="http://github.com/flysands" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
-          
-          <td><a href="http://weibo.com/u/2339432710" target="_blank" title="weibo"><i class="fa fa-weibo"></i></a></td>
-          
-          <td><a href="/atom.xml" target="_blank" title="rss"><i class="fa fa-rss"></i></a></td>
-          
-        </tr>
-      </table>
-    </div>
-    
-    
-  </div>
-</aside>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-      
-      <section id="main">
-      <article id="post-2015-12-25-react-first" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2015-12-25-react-first.html">react-native开发跨平台应用</a>
-    </h1>
+  
+    
   
 
-        <div class="article-meta">
-          
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/blog/2015-12-25-react-first.html">
-      <time datetime="2017-01-20T09:25:10.000Z" itemprop="datePublished">2017-01-20</time>
-    </a>
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Flysands Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
   </div>
 
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2015-12-25-react-first.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flysands">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/css/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flysands Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2015-12-25-react-first.html" itemprop="url">react-native开发跨平台应用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T17:25:10+08:00">
+                2017-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/react/">react</a>
-  </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/react/" itemprop="url" rel="index">
+                    <span itemprop="name">react</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2015-12-25-react-first.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2015-12-25-react-first.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
 
         </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-                
+      
+
+      
         
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> react-native背景</h2>
+          
+            
+<div id="outline-container-org83a2ed2" class="outline-2">
+<h2 id="org83a2ed2"><span class="section-number-2">1</span> react-native背景</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 React Native 结合了 Web 应用和 Native 应用的优势,可以使用 JavaScript 来开发
@@ -167,8 +382,8 @@ React Native 使你能够使用基于 JavaScript 和 React 一致的开发体验
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> 安装工具集</h2>
+<div id="outline-container-orgf6745b6" class="outline-2">
+<h2 id="orgf6745b6"><span class="section-number-2">2</span> 安装工具集</h2>
 <div class="outline-text-2" id="text-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -211,7 +426,6 @@ React Native 使你能够使用基于 JavaScript 和 React 一致的开发体验
 我的机器是osx,所以整个安装过程都用brew进行.安装之前建议先更新一下brew.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">brew update
 brew upgrade
 </pre>
@@ -229,7 +443,6 @@ mac用户直接去官网下载pkg文件安装.注意nodejs版本要高于4.0.
 安装watchman
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">brew install watchman
 </pre>
 </div></li>
@@ -237,7 +450,6 @@ mac用户直接去官网下载pkg文件安装.注意nodejs版本要高于4.0.
 安装flow
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">brew install flow
 </pre>
 </div></li>
@@ -245,7 +457,6 @@ mac用户直接去官网下载pkg文件安装.注意nodejs版本要高于4.0.
 安装react-native
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">npm install -g react-native-cli
 </pre>
 </div></li>
@@ -253,15 +464,14 @@ mac用户直接去官网下载pkg文件安装.注意nodejs版本要高于4.0.
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> 第一个跨平台应用</h2>
+<div id="outline-container-org244c56a" class="outline-2">
+<h2 id="org244c56a"><span class="section-number-2">3</span> 第一个跨平台应用</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 创建过程可以参考帮助文档<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.
 所有工具集安装完毕后,创建第一个project吧.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">react-native init your-project-dir
 </pre>
 </div>
@@ -275,7 +485,6 @@ project创建成功后会生成ios和android的project目录,以及两个平台�
 run android device
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell"><span style="color: #4f97d7;">cd</span> your-project
 react-native run-android
 </pre>
@@ -285,7 +494,6 @@ react-native run-android
 查看日志
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">adb logcat *:S ReactNative:V ReactNativeJS:V
 </pre>
 </div>
@@ -299,14 +507,13 @@ react-native run-android
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> 使用组件</h2>
+<div id="outline-container-org3c09b3c" class="outline-2">
+<h2 id="org3c09b3c"><span class="section-number-2">4</span> 使用组件</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 react-native提供了丰富的native组件.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">React</span> = require<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'react-native'</span><span style="color: #4f97d7;">)</span>;
 <span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #4f97d7;">{</span>
   AppRegistry,
@@ -339,6 +546,7 @@ react-native提供了丰富的native组件.
     <span style="color: #67b11d;">)</span>;
   <span style="color: #2d9574;">}</span>
 <span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span>;
+
 </pre>
 </div>
 
@@ -350,8 +558,8 @@ react-native提供了丰富的native组件.
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> 问题</h2>
+<div id="outline-container-org198e8fd" class="outline-2">
+<h2 id="org198e8fd"><span class="section-number-2">5</span> 问题</h2>
 <div class="outline-text-2" id="text-5">
 <ol class="org-ol">
 <li><p>
@@ -386,7 +594,6 @@ react-native android打包工具要23.0.1以上的版本.解决方法是在sdk m
 stackoverflow<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>上有讨论,我在模拟器上执行adb reverse命令做端口映射即可.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">adb reverse tcp:8081 tcp:8081
 </pre>
 </div></li>
@@ -394,8 +601,8 @@ stackoverflow<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>上有�
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> 总结</h2>
+<div id="outline-container-org1e892c7" class="outline-2">
+<h2 id="org1e892c7"><span class="section-number-2">6</span> 总结</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 总的来说开发方式还是便捷许多.但是存在一个普遍问题.跨平台应用开发的通病-性能.
@@ -418,61 +625,158 @@ stackoverflow <a href="http://stackoverflow.com/questions/32572399/react-native-
 </div>
 </div>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://flysands.github.com/blog/2015-12-25-react-first.html" data-id="ciy5mh2ib0004zb8ja89xe0n9" class="article-share-link">分享到</a>
-      
-        <a href="http://flysands.github.com/blog/2015-12-25-react-first.html#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cross-platform/">cross-platform</a></li></ul>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2016-01-07-docker-compose.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flysands">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/css/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flysands Blog">
+    </span>
 
     
-      <article id="post-2016-01-07-docker-compose" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016-01-07-docker-compose.html">docker compose</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2016-01-07-docker-compose.html" itemprop="url">docker compose</a></h1>
+        
 
-        <div class="article-meta">
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T17:25:09+08:00">
+                2017-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/blog/2016-01-07-docker-compose.html">
-      <time datetime="2017-01-20T09:25:09.000Z" itemprop="datePublished">2017-01-20</time>
-    </a>
-  </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
 
+                
+                
+              
+            </span>
+          
 
           
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/docker/">docker</a>
-  </div>
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016-01-07-docker-compose.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2016-01-07-docker-compose.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
 
         </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-                
-        <div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> compose</h2>
+      
+
+      
+        
+          
+            <div id="outline-container-org872e46b" class="outline-2">
+<h2 id="org872e46b"><span class="section-number-2">1</span> compose</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 docke command
@@ -482,72 +786,169 @@ composess tb link
 </div>
 </div>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://flysands.github.com/blog/2016-01-07-docker-compose.html" data-id="ciy5mh2i10001zb8j96se4gr0" class="article-share-link">分享到</a>
-      
-        <a href="http://flysands.github.com/blog/2016-01-07-docker-compose.html#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2016-01-08-android-fingerprint-module.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flysands">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/css/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flysands Blog">
+    </span>
 
     
-      <article id="post-2016-01-08-android-fingerprint-module" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016-01-08-android-fingerprint-module.html">android指纹模块</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2016-01-08-android-fingerprint-module.html" itemprop="url">android指纹模块</a></h1>
+        
 
-        <div class="article-meta">
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T17:25:09+08:00">
+                2017-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/blog/2016-01-08-android-fingerprint-module.html">
-      <time datetime="2017-01-20T09:25:09.000Z" itemprop="datePublished">2017-01-20</time>
-    </a>
-  </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
 
+                
+                
+              
+            </span>
+          
 
           
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/android/">android</a>
-  </div>
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016-01-08-android-fingerprint-module.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2016-01-08-android-fingerprint-module.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
 
         </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-                
-        <div id="table-of-contents">
+      
+
+      
+        
+          
+            <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. android指纹模块流程图</a></li>
-<li><a href="#orgheadline2">2. android setting指纹模块入口</a></li>
-<li><a href="#orgheadline3">3. nexus 6p无法启用finger问题原因</a></li>
+<li><a href="#org94992f3">1. android指纹模块流程图</a></li>
+<li><a href="#org5bbdcb2">2. android setting指纹模块入口</a></li>
+<li><a href="#org7d1f268">3. nexus 6p无法启用finger问题原因</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> android指纹模块流程图</h2>
+<div id="outline-container-org94992f3" class="outline-2">
+<h2 id="org94992f3"><span class="section-number-2">1</span> android指纹模块流程图</h2>
 <div class="outline-text-2" id="text-1">
 
 <div class="figure">
@@ -561,8 +962,8 @@ composess tb link
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> android setting指纹模块入口</h2>
+<div id="outline-container-org5bbdcb2" class="outline-2">
+<h2 id="org5bbdcb2"><span class="section-number-2">2</span> android setting指纹模块入口</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 主要涉及到一下几个文件
@@ -601,7 +1002,6 @@ mDeviceHalId为底层openHal的返回值.</li>
 openHal函数的实现非常简单,代码片段如下.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">int64_t</span> <span style="color: #a45bad;">FingerprintDaemonProxy</span>::<span style="color: #bc6ec5; font-weight: bold;">openHal</span><span style="color: #4f97d7;">()</span> <span style="color: #4f97d7;">{</span>
   ALOG<span style="color: #bc6ec5;">(</span>LOG_VERBOSE, LOG_TAG, <span style="color: #2d9574;">"nativeOpenHal()\n"</span><span style="color: #bc6ec5;">)</span>;
   <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">err</span>;
@@ -664,7 +1064,6 @@ openHal函数主要实现以下3个功能
 module结构体定义如下
 </p>
 <div class="org-src-container">
-
 <pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">struct</span> <span style="color: #ce537a; font-weight: bold;">hw_module_methods_t</span> <span style="color: #7590db;">fingerprint_module_methods</span> = <span style="color: #4f97d7;">{</span>
     .open = fingerprint_open,
 <span style="color: #4f97d7;">}</span>;
@@ -687,7 +1086,6 @@ module结构体定义如下
 fingerprint_open函数定义如下
 </p>
 <div class="org-src-container">
-
 <pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">fingerprint_open</span><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">hw_module_t</span> *<span style="color: #7590db;">module</span>, <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span> <span style="color: #7590db;">__unused</span> *id,
                             <span style="color: #ce537a; font-weight: bold;">hw_device_t</span> **<span style="color: #7590db;">device</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
   <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #bc6ec5;">(</span>device == <span style="color: #a45bad;">NULL</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
@@ -722,12 +1120,11 @@ fingerprint_open函数定义如下
 <li>调用set_notify设置回调函数</li>
 </ul></li>
 <li>hw_get_module函数主要实现底层so库加载
-   具体加载过程可以参考<a href="http://www.embedu.org/Column/Column733.htm" target="_blank" rel="external">android hw_get_module 分析</a></li>
+具体加载过程可以参考<a href="http://www.embedu.org/Column/Column733.htm" target="_blank" rel="external">android hw_get_module 分析</a></li>
 <li><p>
 hw_get_module内部调用hw_get_module_by_class实现加载过程
 </p>
 <div class="org-src-container">
-
 <pre class="src src-c++"><span style="color: #2aa1ae; background-color: #292e34;">/** </span><span style="color: #2aa1ae; background-color: #292e34;">Base path of the hal modules */</span>
 <span style="color: #bc6ec5;">#if</span> <span style="color: #bc6ec5;">defined</span><span style="color: #4f97d7;">(</span>__LP64__<span style="color: #4f97d7;">)</span>
 <span style="color: #bc6ec5;">#define</span> <span style="color: #7590db;">HAL_LIBRARY_PATH1</span> <span style="color: #2d9574;">"/system/lib64/hw"</span>
@@ -769,8 +1166,8 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> nexus 6p无法启用finger问题原因</h2>
+<div id="outline-container-org7d1f268" class="outline-2">
+<h2 id="org7d1f268"><span class="section-number-2">3</span> nexus 6p无法启用finger问题原因</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li>清华镜像的源码选择angler product,编译出来的system.img里没有fingerprintd可执行文件.</li>
@@ -784,7 +1181,6 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
 修改device/huawei/angler/device.mk文件,添加fingerprint模块
 </p>
 <div class="org-src-container">
-
 <pre class="src src-makefile"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">Fingerprint</span>
 <span style="color: #7590db;">PRODUCT_PACKAGES</span> += \
                  fingerprintd \
@@ -798,7 +1194,6 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
 所以修改hardware.c文件中的默认搜索顺序,把ro.board.platform放到第一即可.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #ce537a; font-weight: bold;">char</span> *<span style="color: #7590db;">variant_keys</span><span style="color: #4f97d7;">[]</span> = <span style="color: #4f97d7;">{</span>
     <span style="color: #2d9574;">"ro.board.platform"</span>,
     <span style="color: #2d9574;">"ro.hardware"</span>, <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">This goes first so that it can pick up a different</span>
@@ -813,61 +1208,158 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
 </div>
 </div>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://flysands.github.com/blog/2016-01-08-android-fingerprint-module.html" data-id="ciy5mh2ii0006zb8j7yijx1ao" class="article-share-link">分享到</a>
-      
-        <a href="http://flysands.github.com/blog/2016-01-08-android-fingerprint-module.html#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2016-03-08-testbird-ci-env.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flysands">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/css/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flysands Blog">
+    </span>
 
     
-      <article id="post-2016-03-08-testbird-ci-env" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016-03-08-testbird-ci-env.html">Testbird ci 2.0</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2016-03-08-testbird-ci-env.html" itemprop="url">Testbird ci 2.0</a></h1>
+        
 
-        <div class="article-meta">
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T17:24:59+08:00">
+                2017-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/blog/2016-03-08-testbird-ci-env.html">
-      <time datetime="2017-01-20T09:24:59.000Z" itemprop="datePublished">2017-01-20</time>
-    </a>
-  </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/devops/" itemprop="url" rel="index">
+                    <span itemprop="name">devops</span>
+                  </a>
+                </span>
 
+                
+                
+              
+            </span>
+          
 
           
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/devops/">devops</a>
-  </div>
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016-03-08-testbird-ci-env.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2016-03-08-testbird-ci-env.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
 
         </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-                
-        <div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Testbird ci 2.0 流程图</h2>
+      
+
+      
+        
+          
+            <div id="outline-container-org439c649" class="outline-2">
+<h2 id="org439c649"><span class="section-number-2">1</span> Testbird ci 2.0 流程图</h2>
 <div class="outline-text-2" id="text-1">
 
 <div class="figure">
@@ -877,8 +1369,8 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> 参与者</h2>
+<div id="outline-container-orgb498066" class="outline-2">
+<h2 id="orgb498066"><span class="section-number-2">2</span> 参与者</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><p>
@@ -927,87 +1419,182 @@ Kubernetes
 </div>
 </div>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://flysands.github.com/blog/2016-03-08-testbird-ci-env.html" data-id="ciy5mh2ik000azb8jzjt0qrdv" class="article-share-link">分享到</a>
-      
-        <a href="http://flysands.github.com/blog/2016-03-08-testbird-ci-env.html#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/devops/">devops</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2016-03-03-private-registry.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flysands">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/css/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flysands Blog">
+    </span>
 
     
-      <article id="post-2016-03-03-private-registry" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016-03-03-private-registry.html">搭建私有registry</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2016-03-03-private-registry.html" itemprop="url">搭建私有registry</a></h1>
+        
 
-        <div class="article-meta">
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T17:24:59+08:00">
+                2017-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/blog/2016-03-03-private-registry.html">
-      <time datetime="2017-01-20T09:24:59.000Z" itemprop="datePublished">2017-01-20</time>
-    </a>
-  </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
 
+                
+                
+              
+            </span>
+          
 
           
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/docker/">docker</a>
-  </div>
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016-03-03-private-registry.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2016-03-03-private-registry.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
 
         </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-                
+      
+
+      
         
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> 背景</h2>
+          
+            
+<div id="outline-container-org945d2fe" class="outline-2">
+<h2 id="org945d2fe"><span class="section-number-2">1</span> 背景</h2>
 </div>
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> 选型</h2>
+<div id="outline-container-orgea1d419" class="outline-2">
+<h2 id="orgea1d419"><span class="section-number-2">2</span> 选型</h2>
 </div>
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">3</span> Portus</h2>
+<div id="outline-container-org7921413" class="outline-2">
+<h2 id="org7921413"><span class="section-number-2">3</span> Portus</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">3.1</span> 下载</h3>
+</div><div id="outline-container-org2325c52" class="outline-3">
+<h3 id="org2325c52"><span class="section-number-3">3.1</span> 下载</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
-
 <pre class="src src-shell">git clone https://github.com/SUSE/Portus.git
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">3.2</span> 初次运行</h3>
+<div id="outline-container-orgf766999" class="outline-3">
+<h3 id="orgf766999"><span class="section-number-3">3.2</span> 初次运行</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Portus提供了一个体验版本.compose-setup.sh.简单运行即可.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">compose-setup.sh -e external-ip
 </pre>
 </div>
@@ -1025,14 +1612,13 @@ Portus提供了一个体验版本.compose-setup.sh.简单运行即可.
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">3.3</span> Warning</h3>
+<div id="outline-container-orged52b1e" class="outline-3">
+<h3 id="orged52b1e"><span class="section-number-3">3.3</span> Warning</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 shell提示warning.原来用compose-setup部署的版本只能用于开发或者测试.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell"><span style="color: #2aa1ae; background-color: #292e34;">###########</span>
 <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">WARNING #</span>
 <span style="color: #2aa1ae; background-color: #292e34;">###########</span>
@@ -1053,22 +1639,21 @@ To deploy Portus on production please take a look at: http://port.us.org/documen
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">4</span> Production部署</h2>
+<div id="outline-container-org14179b4" class="outline-2">
+<h2 id="org14179b4"><span class="section-number-2">4</span> Production部署</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 部署生产环境的私有registry,需要以下三个模块相辅相成.主要是设置证书和registry以及持久化.
 </p>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">4.1</span> 替换证书</h3>
+<div id="outline-container-org0ab5871" class="outline-3">
+<h3 id="org0ab5871"><span class="section-number-3">4.1</span> 替换证书</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 docker-compose.yml指定了registry使用的证书.该证书存放于容器中/etc/docker/registry/目录下.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell"><span style="color: #4f97d7;">cd</span> Portus
 mkdir certs
 cp your-ca.crt xxxx.crt
@@ -1080,11 +1665,10 @@ cp your-ca.key xxxx.key
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline8" class="outline-3">
-<h3 id="orgheadline8"><span class="section-number-3">4.2</span> 生成挂载文件夹</h3>
+<div id="outline-container-org08d7554" class="outline-3">
+<h3 id="org08d7554"><span class="section-number-3">4.2</span> 生成挂载文件夹</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
-
 <pre class="src src-shell"><span style="color: #4f97d7;">cd</span> Portus
 <span style="color: #4f97d7;">cd</span> ..
 mkdir portusdb
@@ -1093,8 +1677,8 @@ mkdir registry_data
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">4.3</span> Portus web</h3>
+<div id="outline-container-org12525d5" class="outline-3">
+<h3 id="org12525d5"><span class="section-number-3">4.3</span> Portus web</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 由于替换了registry使用的证书.所以Portus web也要使用配对的key文件.
@@ -1102,15 +1686,14 @@ mkdir registry_data
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">4.4</span> Registry</h3>
+<div id="outline-container-org8be712e" class="outline-3">
+<h3 id="org8be712e"><span class="section-number-3">4.4</span> Registry</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 测试版本的部署,没有使用持久化以及tls.持久化需要在docker-compose.yml中配置,
 tls在./compose/registry/config.yml中配置.配置好的config.yml如下.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-yaml"><span style="color: #7590db;">version</span>: 0.1
 <span style="color: #7590db;">storage</span>:
   <span style="color: #7590db;">filesystem</span>:
@@ -1141,8 +1724,8 @@ tls在./compose/registry/config.yml中配置.配置好的config.yml如下.
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">4.5</span> Database</h3>
+<div id="outline-container-org543c179" class="outline-3">
+<h3 id="org543c179"><span class="section-number-3">4.5</span> Database</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 数据库使用mariadb.根据官方文档,持久化储存只需要挂载一个文件夹到容器的/var/lib/mysql
@@ -1150,11 +1733,10 @@ tls在./compose/registry/config.yml中配置.配置好的config.yml如下.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">4.6</span> docker-compose.yml</h3>
+<div id="outline-container-org067a556" class="outline-3">
+<h3 id="org067a556"><span class="section-number-3">4.6</span> docker-compose.yml</h3>
 <div class="outline-text-3" id="text-4-6">
 <div class="org-src-container">
-
 <pre class="src src-yaml"><span style="color: #7590db;">web</span>:
   <span style="color: #7590db;">image</span>: portus_web
   <span style="color: #7590db;">command</span>: puma -b tcp://0.0.0.0:3000 -w 3
@@ -1200,11 +1782,10 @@ tls在./compose/registry/config.yml中配置.配置好的config.yml如下.
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">4.7</span> 相关命令</h3>
+<div id="outline-container-orgfc83272" class="outline-3">
+<h3 id="orgfc83272"><span class="section-number-3">4.7</span> 相关命令</h3>
 <div class="outline-text-3" id="text-4-7">
 <div class="org-src-container">
-
 <pre class="src src-shell"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">&#21551;&#21160;</span>
 <span style="color: #4f97d7;">cd</span> Portus
 docker-compose up -d
@@ -1216,14 +1797,13 @@ docker-compose rm -fv
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">4.8</span> 初始化数据库</h3>
+<div id="outline-container-org2ee1123" class="outline-3">
+<h3 id="org2ee1123"><span class="section-number-3">4.8</span> 初始化数据库</h3>
 <div class="outline-text-3" id="text-4-8">
 <p>
 第一次启动后,需要执行两个rake命令初始化数据库.
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell"><span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">&#36827;&#20837;web&#23481;&#22120;</span>
 docker exec -it xxx /bin/sh
 docker-compose run --rm web rake db:migrate:reset &gt; /dev/null
@@ -1234,128 +1814,225 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://flysands.github.com/blog/2016-03-03-private-registry.html" data-id="ciy5mh2ie0005zb8jhjoq4wu4" class="article-share-link">分享到</a>
-      
-        <a href="http://flysands.github.com/blog/2016-03-03-private-registry.html#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
+  
+  
+  </article>
 
 
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2016-03-16-malawi-cichlids.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flysands">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/css/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flysands Blog">
+    </span>
 
     
-      <article id="post-2016-03-16-malawi-cichlids" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-    
-      <header class="article-header">
+      <header class="post-header">
+
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2016-03-16-malawi-cichlids.html">malawi-cichlids</a>
-    </h1>
-  
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2016-03-16-malawi-cichlids.html" itemprop="url">malawi-cichlids</a></h1>
+        
 
-        <div class="article-meta">
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T17:24:58+08:00">
+                2017-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-  <div class="article-date">
-    <i class="fa fa-calendar"></i>
-    <a href="/blog/2016-03-16-malawi-cichlids.html">
-      <time datetime="2017-01-20T09:24:58.000Z" itemprop="datePublished">2017-01-20</time>
-    </a>
-  </div>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cichlid/" itemprop="url" rel="index">
+                    <span itemprop="name">cichlid</span>
+                  </a>
+                </span>
 
+                
+                
+              
+            </span>
+          
 
           
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/cichlid/">cichlid</a>
-  </div>
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016-03-16-malawi-cichlids.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2016-03-16-malawi-cichlids.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
 
         </div>
       </header>
     
-    <div class="article-entry" itemprop="articleBody">
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-                
-        <div id="table-of-contents">
+      
+
+      
+        
+          
+            <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline2">1. Buccochromis</a>
+<li><a href="#org7328a41">1. Buccochromis</a>
 <ul>
-<li><a href="#orgheadline1">1.1. Buccochromis spectabilis (新马头)</a></li>
+<li><a href="#org6be1602">1.1. Buccochromis spectabilis (新马头)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline4">2. Champsochromis</a>
+<li><a href="#org69cc390">2. Champsochromis</a>
 <ul>
-<li><a href="#orgheadline3">2.1. Champsochromis caeruleus (酷斯拉)</a></li>
+<li><a href="#org9908e36">2.1. Champsochromis caeruleus (酷斯拉)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline6">3. Ctenopharynx</a>
+<li><a href="#orgf97d0ca">3. Ctenopharynx</a>
 <ul>
-<li><a href="#orgheadline5">3.1. Ctenopharynx nitidus (金三角)</a></li>
+<li><a href="#org8d4f8ad">3.1. Ctenopharynx nitidus (金三角)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline8">4. Dimidiochromis</a>
+<li><a href="#org43e2080">4. Dimidiochromis</a>
 <ul>
-<li><a href="#orgheadline7">4.1. Dimidiochromis compressiceps (蓝马面)</a></li>
+<li><a href="#org82e2036">4.1. Dimidiochromis compressiceps (蓝马面)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline10">5. Fossorochromis</a>
+<li><a href="#org53ce71f">5. Fossorochromis</a>
 <ul>
-<li><a href="#orgheadline9">5.1. Fossorochromis rostratus (雪花豹)</a></li>
+<li><a href="#org7de104e">5.1. Fossorochromis rostratus (雪花豹)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">6. Mylochromis</a>
+<li><a href="#org88d727d">6. Mylochromis</a>
 <ul>
-<li><a href="#orgheadline11">6.1. Mylochromis ensatus (1280火箭)</a></li>
-<li><a href="#orgheadline12">6.2. Mylochromis melanotaenia (金斜间)</a></li>
+<li><a href="#orgf9341c9">6.1. Mylochromis ensatus (1280火箭)</a></li>
+<li><a href="#org47635fd">6.2. Mylochromis melanotaenia (金斜间)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline16">7. Otopharynx</a>
+<li><a href="#org29cc011">7. Otopharynx</a>
 <ul>
-<li><a href="#orgheadline14">7.1. Otopharynx heterodon "Tanzanie" (大粒墨)</a></li>
-<li><a href="#orgheadline15">7.2. Otopharynx lithobates (金头蓝孔雀)</a></li>
+<li><a href="#org52a7901">7.1. Otopharynx heterodon "Tanzanie" (大粒墨)</a></li>
+<li><a href="#orgbf77942">7.2. Otopharynx lithobates (金头蓝孔雀)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline19">8. Protomelas</a>
+<li><a href="#orga50a9c3">8. Protomelas</a>
 <ul>
-<li><a href="#orgheadline17">8.1. Protomelas fenestratus "Magunga" (史提芬)</a></li>
-<li><a href="#orgheadline18">8.2. Protomelas taeniolatus (埃及艳后)</a></li>
+<li><a href="#orgaecafcf">8.1. Protomelas fenestratus "Magunga" (史提芬)</a></li>
+<li><a href="#orgfd5e35b">8.2. Protomelas taeniolatus (埃及艳后)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline21">9. Placidochromis</a>
+<li><a href="#org0819112">9. Placidochromis</a>
 <ul>
-<li><a href="#orgheadline20">9.1. Placidochromis phenochilus (白嘴蓝宝石)</a></li>
+<li><a href="#org51dd415">9.1. Placidochromis phenochilus (白嘴蓝宝石)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline23">10. Tyrannochromis</a>
+<li><a href="#orga20f005">10. Tyrannochromis</a>
 <ul>
-<li><a href="#orgheadline22">10.1. Tyrannochromis macrostoma (大口鲷)</a></li>
+<li><a href="#orgc830aa5">10.1. Tyrannochromis macrostoma (大口鲷)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline25">11. Stigmatochromis</a>
+<li><a href="#orgf24face">11. Stigmatochromis</a>
 <ul>
-<li><a href="#orgheadline24">11.1. Stigmatochromis woodi (乌帝鹰)</a></li>
+<li><a href="#orge94f325">11.1. Stigmatochromis woodi (乌帝鹰)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline27">12. Nimbochromis</a>
+<li><a href="#org611cfed">12. Nimbochromis</a>
 <ul>
-<li><a href="#orgheadline26">12.1. Nimbochromis polystigma (芝麻斑)</a></li>
+<li><a href="#orga9bcab9">12.1. Nimbochromis polystigma (芝麻斑)</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline28">13. All</a></li>
-<li><a href="#orgheadline29">14. Reference</a></li>
+<li><a href="#org68514a4">13. All</a></li>
+<li><a href="#org7e8d225">14. Reference</a></li>
 </ul>
 </div>
 </div>
@@ -1404,7 +2081,7 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </tr>
 
 <tr>
-<td class="org-left">Aulonocara steveni Chiwindi</td>
+<td class="org-left">Hemitaeniochromis urotaenia</td>
 <td class="org-left">巨人马面</td>
 <td class="org-left">发色</td>
 <td class="org-right">13-15</td>
@@ -1415,13 +2092,46 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </tr>
 
 <tr>
-<td class="org-left">Hemitaeniochromis urotaenia</td>
+<td class="org-left">Aulonocara steveni Chiwindi</td>
 <td class="org-left">蓝黎明</td>
 <td class="org-left">阵亡</td>
 <td class="org-right">10-12</td>
 <td class="org-right">200</td>
 <td class="org-left">公</td>
 <td class="org-left">野生</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Aulonocara steveni Chiwindi</td>
+<td class="org-left">蓝黎明</td>
+<td class="org-left">阵亡</td>
+<td class="org-right">8-10</td>
+<td class="org-right">60</td>
+<td class="org-left">公</td>
+<td class="org-left">人工</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Aulonocara steveni Chiwindi</td>
+<td class="org-left">蓝黎明</td>
+<td class="org-left">发色</td>
+<td class="org-right">8-10</td>
+<td class="org-right">80</td>
+<td class="org-left">公</td>
+<td class="org-left">人工</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Aulonocara baenschi</td>
+<td class="org-left">金松鼠</td>
+<td class="org-left">发色</td>
+<td class="org-right">10-12</td>
+<td class="org-right">70</td>
+<td class="org-left">公</td>
+<td class="org-left">人工</td>
 <td class="org-right">1</td>
 </tr>
 
@@ -1433,6 +2143,28 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 <td class="org-right">200</td>
 <td class="org-left">公</td>
 <td class="org-left">野生</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Copadichromis trimaculatus</td>
+<td class="org-left">血艳红</td>
+<td class="org-left">发色</td>
+<td class="org-right">8-10</td>
+<td class="org-right">35</td>
+<td class="org-left">公</td>
+<td class="org-left">人工</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Chilotilapia rhoadesii</td>
+<td class="org-left">帝王鲷</td>
+<td class="org-left">发色</td>
+<td class="org-right">8-10</td>
+<td class="org-right">50</td>
+<td class="org-left">公</td>
+<td class="org-left">人工</td>
 <td class="org-right">1</td>
 </tr>
 
@@ -1455,6 +2187,17 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 <td class="org-right">520</td>
 <td class="org-left">公</td>
 <td class="org-left">野生</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Buccochromis spectabilis</td>
+<td class="org-left">新马头</td>
+<td class="org-left">良好</td>
+<td class="org-right">11-13</td>
+<td class="org-right">50</td>
+<td class="org-left">公</td>
+<td class="org-left">人工</td>
 <td class="org-right">1</td>
 </tr>
 
@@ -1536,6 +2279,17 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </tr>
 
 <tr>
+<td class="org-left">Exochochromis anagenys</td>
+<td class="org-left">金鹰</td>
+<td class="org-left">阵亡</td>
+<td class="org-right">6-8</td>
+<td class="org-right">80</td>
+<td class="org-left">公</td>
+<td class="org-left">人工</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
 <td class="org-left">Fossorochromis rostratus</td>
 <td class="org-left">雪花豹</td>
 <td class="org-left">良好</td>
@@ -1558,13 +2312,24 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </tr>
 
 <tr>
+<td class="org-left">Lethrinops Micrentodon Makokola</td>
+<td class="org-left">太阳珍珠</td>
+<td class="org-left">阵亡</td>
+<td class="org-right">5-7</td>
+<td class="org-right">60</td>
+<td class="org-left">公</td>
+<td class="org-left">人工</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
 <td class="org-left">Hemitilapia oxyrhyncha</td>
 <td class="org-left">鸭嘴倒三角</td>
 <td class="org-left">阵亡</td>
 <td class="org-right">13-15</td>
 <td class="org-right">450</td>
 <td class="org-left">公</td>
-<td class="org-left">人工</td>
+<td class="org-left">野生</td>
 <td class="org-right">1</td>
 </tr>
 
@@ -1636,10 +2401,10 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 
 <tr>
 <td class="org-left">Protomelas taeniolatus</td>
-<td class="org-left">金鹰</td>
+<td class="org-left">埃及艳后</td>
 <td class="org-left">良好</td>
-<td class="org-right">6-8</td>
-<td class="org-right">80</td>
+<td class="org-right">13-15</td>
+<td class="org-right">0</td>
 <td class="org-left">公</td>
 <td class="org-left">人工</td>
 <td class="org-right">1</td>
@@ -1659,10 +2424,10 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 <tr>
 <td class="org-left">Placidochromis phenochilus Mdoka white</td>
 <td class="org-left">白嘴蓝宝石</td>
-<td class="org-left">良好</td>
+<td class="org-left">送人</td>
 <td class="org-right">13-15</td>
 <td class="org-right">150</td>
-<td class="org-left">母</td>
+<td class="org-left">公</td>
 <td class="org-left">人工</td>
 <td class="org-right">1</td>
 </tr>
@@ -1684,6 +2449,17 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 <td class="org-left">良好</td>
 <td class="org-right">15-17</td>
 <td class="org-right">300</td>
+<td class="org-left">公</td>
+<td class="org-left">野生</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">Tyrannochromis macrostoma "Likoma"</td>
+<td class="org-left">大口鲷</td>
+<td class="org-left">发色</td>
+<td class="org-right">20-22</td>
+<td class="org-right">0</td>
 <td class="org-left">公</td>
 <td class="org-left">野生</td>
 <td class="org-right">1</td>
@@ -1727,19 +2503,19 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-right">&#xa0;</td>
-<td class="org-right">6696</td>
+<td class="org-right">7021</td>
 <td class="org-left">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-<td class="org-right">30</td>
+<td class="org-right">38</td>
 </tr>
 </tbody>
 </table>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">1</span> Buccochromis</h2>
+<div id="outline-container-org7328a41" class="outline-2">
+<h2 id="org7328a41"><span class="section-number-2">1</span> Buccochromis</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Buccochromis spectabilis (新马头)</h3>
+</div><div id="outline-container-org6be1602" class="outline-3">
+<h3 id="org6be1602"><span class="section-number-3">1.1</span> Buccochromis spectabilis (新马头)</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 <img src="http://7xia6k.com1.z0.glb.clouddn.com/IMG_5384.JPG" alt="IMG_5384.JPG">
@@ -1749,11 +2525,11 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">2</span> Champsochromis</h2>
+<div id="outline-container-org69cc390" class="outline-2">
+<h2 id="org69cc390"><span class="section-number-2">2</span> Champsochromis</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.1</span> Champsochromis caeruleus (酷斯拉)</h3>
+</div><div id="outline-container-org9908e36" class="outline-3">
+<h3 id="org9908e36"><span class="section-number-3">2.1</span> Champsochromis caeruleus (酷斯拉)</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 <img src="http://7xia6k.com1.z0.glb.clouddn.com/IMG_5360.JPG" alt="IMG_5360.JPG">
@@ -1766,11 +2542,11 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">3</span> Ctenopharynx</h2>
+<div id="outline-container-orgf97d0ca" class="outline-2">
+<h2 id="orgf97d0ca"><span class="section-number-2">3</span> Ctenopharynx</h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">3.1</span> Ctenopharynx nitidus (金三角)</h3>
+</div><div id="outline-container-org8d4f8ad" class="outline-3">
+<h3 id="org8d4f8ad"><span class="section-number-3">3.1</span> Ctenopharynx nitidus (金三角)</h3>
 <div class="outline-text-3" id="text-3-1">
 
 <div class="figure">
@@ -1781,11 +2557,11 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">4</span> Dimidiochromis</h2>
+<div id="outline-container-org43e2080" class="outline-2">
+<h2 id="org43e2080"><span class="section-number-2">4</span> Dimidiochromis</h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">4.1</span> Dimidiochromis compressiceps (蓝马面)</h3>
+</div><div id="outline-container-org82e2036" class="outline-3">
+<h3 id="org82e2036"><span class="section-number-3">4.1</span> Dimidiochromis compressiceps (蓝马面)</h3>
 <div class="outline-text-3" id="text-4-1">
 
 <div class="figure">
@@ -1796,19 +2572,19 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">5</span> Fossorochromis</h2>
+<div id="outline-container-org53ce71f" class="outline-2">
+<h2 id="org53ce71f"><span class="section-number-2">5</span> Fossorochromis</h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">5.1</span> Fossorochromis rostratus (雪花豹)</h3>
+</div><div id="outline-container-org7de104e" class="outline-3">
+<h3 id="org7de104e"><span class="section-number-3">5.1</span> Fossorochromis rostratus (雪花豹)</h3>
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">6</span> Mylochromis</h2>
+<div id="outline-container-org88d727d" class="outline-2">
+<h2 id="org88d727d"><span class="section-number-2">6</span> Mylochromis</h2>
 <div class="outline-text-2" id="text-6">
-</div><div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">6.1</span> Mylochromis ensatus (1280火箭)</h3>
+</div><div id="outline-container-orgf9341c9" class="outline-3">
+<h3 id="orgf9341c9"><span class="section-number-3">6.1</span> Mylochromis ensatus (1280火箭)</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 <img src="http://7xia6k.com1.z0.glb.clouddn.com/IMG_5419.JPG" alt="IMG_5419.JPG">
@@ -1817,16 +2593,16 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
-<div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">6.2</span> Mylochromis melanotaenia (金斜间)</h3>
+<div id="outline-container-org47635fd" class="outline-3">
+<h3 id="org47635fd"><span class="section-number-3">6.2</span> Mylochromis melanotaenia (金斜间)</h3>
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">7</span> Otopharynx</h2>
+<div id="outline-container-org29cc011" class="outline-2">
+<h2 id="org29cc011"><span class="section-number-2">7</span> Otopharynx</h2>
 <div class="outline-text-2" id="text-7">
-</div><div id="outline-container-orgheadline14" class="outline-3">
-<h3 id="orgheadline14"><span class="section-number-3">7.1</span> Otopharynx heterodon "Tanzanie" (大粒墨)</h3>
+</div><div id="outline-container-org52a7901" class="outline-3">
+<h3 id="org52a7901"><span class="section-number-3">7.1</span> Otopharynx heterodon "Tanzanie" (大粒墨)</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 <img src="http://7xia6k.com1.z0.glb.clouddn.com/IMG_5416.JPG" alt="IMG_5416.JPG">
@@ -1835,16 +2611,16 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
-<div id="outline-container-orgheadline15" class="outline-3">
-<h3 id="orgheadline15"><span class="section-number-3">7.2</span> Otopharynx lithobates (金头蓝孔雀)</h3>
+<div id="outline-container-orgbf77942" class="outline-3">
+<h3 id="orgbf77942"><span class="section-number-3">7.2</span> Otopharynx lithobates (金头蓝孔雀)</h3>
 </div>
 </div>
 
-<div id="outline-container-orgheadline19" class="outline-2">
-<h2 id="orgheadline19"><span class="section-number-2">8</span> Protomelas</h2>
+<div id="outline-container-orga50a9c3" class="outline-2">
+<h2 id="orga50a9c3"><span class="section-number-2">8</span> Protomelas</h2>
 <div class="outline-text-2" id="text-8">
-</div><div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">8.1</span> Protomelas fenestratus "Magunga" (史提芬)</h3>
+</div><div id="outline-container-orgaecafcf" class="outline-3">
+<h3 id="orgaecafcf"><span class="section-number-3">8.1</span> Protomelas fenestratus "Magunga" (史提芬)</h3>
 <div class="outline-text-3" id="text-8-1">
 
 <div class="figure">
@@ -1854,16 +2630,16 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
-<div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">8.2</span> Protomelas taeniolatus (埃及艳后)</h3>
+<div id="outline-container-orgfd5e35b" class="outline-3">
+<h3 id="orgfd5e35b"><span class="section-number-3">8.2</span> Protomelas taeniolatus (埃及艳后)</h3>
 </div>
 </div>
 
-<div id="outline-container-orgheadline21" class="outline-2">
-<h2 id="orgheadline21"><span class="section-number-2">9</span> Placidochromis</h2>
+<div id="outline-container-org0819112" class="outline-2">
+<h2 id="org0819112"><span class="section-number-2">9</span> Placidochromis</h2>
 <div class="outline-text-2" id="text-9">
-</div><div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">9.1</span> Placidochromis phenochilus (白嘴蓝宝石)</h3>
+</div><div id="outline-container-org51dd415" class="outline-3">
+<h3 id="org51dd415"><span class="section-number-3">9.1</span> Placidochromis phenochilus (白嘴蓝宝石)</h3>
 <div class="outline-text-3" id="text-9-1">
 
 <div class="figure">
@@ -1874,11 +2650,11 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
-<div id="outline-container-orgheadline23" class="outline-2">
-<h2 id="orgheadline23"><span class="section-number-2">10</span> Tyrannochromis</h2>
+<div id="outline-container-orga20f005" class="outline-2">
+<h2 id="orga20f005"><span class="section-number-2">10</span> Tyrannochromis</h2>
 <div class="outline-text-2" id="text-10">
-</div><div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">10.1</span> Tyrannochromis macrostoma (大口鲷)</h3>
+</div><div id="outline-container-orgc830aa5" class="outline-3">
+<h3 id="orgc830aa5"><span class="section-number-3">10.1</span> Tyrannochromis macrostoma (大口鲷)</h3>
 <div class="outline-text-3" id="text-10-1">
 <p>
 <img src="http://7xia6k.com1.z0.glb.clouddn.com/IMG_5420.JPG" alt="IMG_5420.JPG">
@@ -1888,26 +2664,26 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
-<div id="outline-container-orgheadline25" class="outline-2">
-<h2 id="orgheadline25"><span class="section-number-2">11</span> Stigmatochromis</h2>
+<div id="outline-container-orgf24face" class="outline-2">
+<h2 id="orgf24face"><span class="section-number-2">11</span> Stigmatochromis</h2>
 <div class="outline-text-2" id="text-11">
-</div><div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">11.1</span> Stigmatochromis woodi (乌帝鹰)</h3>
+</div><div id="outline-container-orge94f325" class="outline-3">
+<h3 id="orge94f325"><span class="section-number-3">11.1</span> Stigmatochromis woodi (乌帝鹰)</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline27" class="outline-2">
-<h2 id="orgheadline27"><span class="section-number-2">12</span> Nimbochromis</h2>
+<div id="outline-container-org611cfed" class="outline-2">
+<h2 id="org611cfed"><span class="section-number-2">12</span> Nimbochromis</h2>
 <div class="outline-text-2" id="text-12">
-</div><div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">12.1</span> Nimbochromis polystigma (芝麻斑)</h3>
+</div><div id="outline-container-orga9bcab9" class="outline-3">
+<h3 id="orga9bcab9"><span class="section-number-3">12.1</span> Nimbochromis polystigma (芝麻斑)</h3>
 </div>
 </div>
-<div id="outline-container-orgheadline28" class="outline-2">
-<h2 id="orgheadline28"><span class="section-number-2">13</span> All</h2>
+<div id="outline-container-org68514a4" class="outline-2">
+<h2 id="org68514a4"><span class="section-number-2">13</span> All</h2>
 </div>
 
-<div id="outline-container-orgheadline29" class="outline-2">
-<h2 id="orgheadline29"><span class="section-number-2">14</span> Reference</h2>
+<div id="outline-container-org7e8d225" class="outline-2">
+<h2 id="org7e8d225"><span class="section-number-2">14</span> Reference</h2>
 <div class="outline-text-2" id="text-14">
 <ul class="org-ul">
 <li><a href="http://www.onzemalawicichliden.eu/Bestanden%20vissendatabase%20eng/vissendatabase%20eng.html" target="_blank" rel="external">onzemalawicichliden</a></li>
@@ -1917,163 +2693,365 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </div>
 </div>
 
+          
+        
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://flysands.github.com/blog/2016-03-16-malawi-cichlids.html" data-id="ciy5mh2in000czb8ju4z060v9" class="article-share-link">分享到</a>
-      
-        <a href="http://flysands.github.com/blog/2016-03-16-malawi-cichlids.html#ds-thread" class="article-comment-link">评论</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cichlid/">cichlid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pet/">pet</a></li></ul>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
     </footer>
   </div>
   
-</article>
-
+  
+  
+  </article>
 
 
     
-      <nav id="page-nav">
-        <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-      </nav>
-    </section>
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
       
-        <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul id="recent-post" class="no-thumbnail">
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
-              <p class="item-title"><a href="/blog/2017-01-29-排序算法.html" class="title">基本排序算法</a></p>
-              <p class="item-date"><time datetime="2017-01-29T04:55:46.000Z" itemprop="datePublished">2017-01-29</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/algorithm/">algorithm</a></p>
-              <p class="item-title"><a href="/blog/2017-01-29-九宫格问题.html" class="title">九宫格问题</a></p>
-              <p class="item-date"><time datetime="2017-01-29T04:48:12.000Z" itemprop="datePublished">2017-01-29</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/lisp/">lisp</a></p>
-              <p class="item-title"><a href="/blog/2017-01-29-理解lisp闭包.html" class="title">理解闭包</a></p>
-              <p class="item-date"><time datetime="2017-01-29T03:04:03.000Z" itemprop="datePublished">2017-01-29</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/lisp/">lisp</a></p>
-              <p class="item-title"><a href="/blog/2017-01-29-停机问题.html" class="title">停机问题</a></p>
-              <p class="item-date"><time datetime="2017-01-29T02:58:33.000Z" itemprop="datePublished">2017-01-29</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/android/">android</a></p>
-              <p class="item-title"><a href="/blog/2017-01-24-androidlib.html" class="title">Android UI 库</a></p>
-              <p class="item-date"><time datetime="2017-01-24T05:38:58.000Z" itemprop="datePublished">2017-01-24</time></p>
-            </div>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/cichlid/">cichlid</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/devops/">devops</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/lisp/">lisp</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/react/">react</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm/">algorithm</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/">android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cichlid/">cichlid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cross-platform/">cross-platform</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/">devops</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lisp/">lisp</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pet/">pet</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ui/">ui</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/algorithm/" style="font-size: 15px;">algorithm</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/cichlid/" style="font-size: 10px;">cichlid</a> <a href="/tags/cross-platform/" style="font-size: 10px;">cross-platform</a> <a href="/tags/devops/" style="font-size: 10px;">devops</a> <a href="/tags/docker/" style="font-size: 20px;">docker</a> <a href="/tags/lisp/" style="font-size: 15px;">lisp</a> <a href="/tags/pet/" style="font-size: 10px;">pet</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">12</span></li></ul>
-    </div>
-  </div>
-
-  
-  <div id="toTop" class="fa fa-chevron-up"></div>
-</aside>
       
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/css/images/mylogo.jpg"
+                alt="Flysands" />
+            
+              <p class="site-author-name" itemprop="name">Flysands</p>
+              <p class="site-description motion-element" itemprop="description">Keep life stayreal</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/flysands" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:cqupt_chen@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/flysands" target="_blank" title="微博">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
     </div>
-    <footer id="footer">
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Flysands</span>
+
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 - 2017 Flysands<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
-    </div>
-  </div>
-</footer>
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
     
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
 
 <script type="text/javascript">
-  var duoshuoQuery = {short_name:"flysands"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-     || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
+  
 
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"flysands"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
 </body>
 </html>
