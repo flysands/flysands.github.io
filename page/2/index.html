@@ -261,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2015-12-25-react-first.html">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2015-12-21-buildblogwithhexo.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Flysands">
@@ -280,7 +280,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2015-12-25-react-first.html" itemprop="url">react-native开发跨平台应用</a></h1>
+                <a class="post-title-link" href="/blog/2015-12-21-buildblogwithhexo.html" itemprop="url">用hexo搭建个人blog</a></h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/react/" itemprop="url" rel="index">
-                    <span itemprop="name">react</span>
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -333,8 +333,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/blog/2015-12-25-react-first.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2015-12-25-react-first.html" itemprop="commentCount"></span>
+                <a href="/blog/2015-12-21-buildblogwithhexo.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2015-12-21-buildblogwithhexo.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -365,263 +365,445 @@
         
           
             
-<div id="outline-container-org83a2ed2" class="outline-2">
-<h2 id="org83a2ed2"><span class="section-number-2">1</span> react-native背景</h2>
+<div id="outline-container-org626df5c" class="outline-2">
+<h2 id="org626df5c"><span class="section-number-2">1</span> hexo安装</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-React Native 结合了 Web 应用和 Native 应用的优势,可以使用 JavaScript 来开发
-iOS 和 Android 原生应.在 JavaScript 中用 React 抽象操作系统原生的 UI 组件,
-代替 DOM 元素来渲染等.
+  以前陆陆续续用过csdn以及guthub pages写blog.始终没有坚持下来.近两年来一直在
+学习eamcs.其中org-mode让我为之倾倒.在工作生活中也都有使用emacs.用过emacs群友
+的org-page.但是界面不好看.最后还是放弃.直到遇到hexo和org-octopresss的组合.利
+用org-mode进行写作,然后用org-octopress转化成html.搭配hexo的blog框架和漂亮的主
+题.一切轻松简单.
 </p>
 
 <p>
-React Native 使你能够使用基于 JavaScript 和 React 一致的开发体验在本地平台
-上构建世界一流的应用程序体验.React Native 把重点放在所有开发人员关心的平台
-的开发效率上.所以开发者只需学习一种语言就能轻易为任何平台高效地编写代码.
+  关于hexo的介绍可以直接去看文档,开发者是一个台湾人.据说在高中时期就开发了hexo.
+hexo采用nodejs开发,安装过程和配置都比较简单.
 </p>
+<div class="org-src-container">
+<pre class="src src-shell">npm install -g hexo-cli
+hexo init &lt;floder&gt;
+<span style="color: #4f97d7;">cd</span> &lt;floder&gt;
+npm install
+</pre>
+</div>
+
+<p>
+hexo project根目录如下.
+<img src="http://7xia6k.com1.z0.glb.clouddn.com/tree.png" alt="tree.png">
+_config.yml是hexo的站点配置文件,可以配置标题,地区,rss,部署以及评论等功能.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Hexo Configuration</span>
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">Docs: http://hexo.io/docs/configuration.html</span>
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">Source: https://github.com/hexojs/hexo/</span>
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Site</span>
+title: Flysands Blog
+subtitle: Simple is the best
+description: Keep life stayreal
+author: Flysands
+author_title: <span style="color: #2d9574;">'Programmer &amp; Emacser'</span>
+avatar: css/images/mylogo.jpg
+location: <span style="color: #2d9574;">'Chengdu, China'</span>
+follow: https://github.com/chenxs110/
+language: zh-CN
+timezone:
+since: <span style="color: #a45bad;">2015</span> <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">The start year showing in your copyright section.</span>
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">URL</span>
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span>
+url: http://chenxs110.github.com
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">root: /</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">permalink: :year/:month/:day/:title/</span>
+permalink: blog/:year-:month-:day-:title.html
+permalink_defaults:
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Directory</span>
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Writing</span>
+new_post_name: :title.md <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">File name of new posts</span>
+default_layout: post
+titlecase: false <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Transform title into titlecase</span>
+external_link: true <span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Open external links in new tab</span>
+filename_case: <span style="color: #a45bad;">0</span>
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  <span style="color: #4f97d7;">enable</span>: true
+  line_number: true
+  tab_replace:
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Category &amp; Tag</span>
+default_category: uncategorized
+category_map:
+tag_map:
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Date / Time format</span>
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">Hexo uses Moment.js to parse and display date</span>
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">You can customize the date format as defined in</span>
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">http://momentjs.com/docs/#/displaying/format/</span>
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Pagination</span>
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">Set per_page to 0 to disable pagination</span>
+per_page: <span style="color: #a45bad;">6</span>
+pagination_dir: page
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Extensions</span>
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">Plugins: https://github.com/hexojs/hexo/wiki/Plugins</span>
+plugins:
+  hexo-generator-feed
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">Themes: https://github.com/hexojs/hexo/wiki/Themes</span>
+theme: icarus
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Disqus</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">disqus_shortname: hexo-theme-icarus</span>
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">DuoShuo</span>
+duoshuo_shortname: flysands
+
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Deployment</span>
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">Docs: http://hexo.io/docs/deployment.html</span>
+deploy:
+  <span style="color: #4f97d7;">type</span>: git
+  repository: http://github.com/chenxs110/chenxs110.github.io.git
+  branch: master
+</pre>
+</div>
 </div>
 </div>
 
-<div id="outline-container-orgf6745b6" class="outline-2">
-<h2 id="orgf6745b6"><span class="section-number-2">2</span> 安装工具集</h2>
+<div id="outline-container-orge8d0541" class="outline-2">
+<h2 id="orge8d0541"><span class="section-number-2">2</span> 配置主题</h2>
 <div class="outline-text-2" id="text-2">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col class="org-left">
-
-<col class="org-left">
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">requirement</th>
-<th scope="col" class="org-left">version</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">xcode</td>
-<td class="org-left">ios 7以上</td>
-</tr>
-
-<tr>
-<td class="org-left">android</td>
-<td class="org-left">android build tool 23.0.1以上</td>
-</tr>
-
-<tr>
-<td class="org-left">nodejs</td>
-<td class="org-left">4.0以上</td>
-</tr>
-
-<tr>
-<td class="org-left">react-native</td>
-<td class="org-left">0.1.7</td>
-</tr>
-</tbody>
-</table>
-
 <p>
-我的机器是osx,所以整个安装过程都用brew进行.安装之前建议先更新一下brew.
+hexo的一大优点,就是有很多漂亮的主题.我选择了icarus.并配置了评论插件多说.
 </p>
-<div class="org-src-container">
-<pre class="src src-shell">brew update
-brew upgrade
-</pre>
-</div>
-
-<ul class="org-ul">
-<li><p>
-安装nodejs
-</p>
-
-<p>
-mac用户直接去官网下载pkg文件安装.注意nodejs版本要高于4.0.
-</p></li>
-<li><p>
-安装watchman
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">brew install watchman
-</pre>
-</div></li>
-<li><p>
-安装flow
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">brew install flow
-</pre>
-</div></li>
-<li><p>
-安装react-native
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">npm install -g react-native-cli
-</pre>
-</div></li>
-</ul>
 </div>
 </div>
 
-<div id="outline-container-org244c56a" class="outline-2">
-<h2 id="org244c56a"><span class="section-number-2">3</span> 第一个跨平台应用</h2>
+<div id="outline-container-org20885bc" class="outline-2">
+<h2 id="org20885bc"><span class="section-number-2">3</span> github pages搭建静态blog</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-创建过程可以参考帮助文档<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.
-所有工具集安装完毕后,创建第一个project吧.
+可以参考github配置自己的blog.然后修改hexo站点中的deploy.注意要安装相应的deployer.
+我用的是github.所以只需要安装git deployer即可.
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">react-native init your-project-dir
-</pre>
-</div>
-<p>
-project创建成功后会生成ios和android的project目录,以及两个平台的index入口js
-文件.
-</p>
-
-<ul class="org-ul">
-<li><p>
-run android device
-</p>
-<div class="org-src-container">
-<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> your-project
-react-native run-android
+<pre class="src src-shell"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Deployment</span>
+<span style="color: #2aa1ae; background-color: #292e34;">## </span><span style="color: #2aa1ae; background-color: #292e34;">Docs: http://hexo.io/docs/deployment.html</span>
+deploy:
+  <span style="color: #4f97d7;">type</span>: git
+  repository: http://github.com/chenxs110/chenxs110.github.io.git
+  branch: master
 </pre>
 </div>
 
 <p>
-查看日志
+安装deployer.
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">adb logcat *:S ReactNative:V ReactNativeJS:V
+<pre class="src src-shell">npm install hexo-deployer-git --save
+</pre>
+</div>
+
+<p>
+如果需要开启rss订阅,需要安装generate-feed插件.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">npm install hexo-generator-feed --save
 </pre>
 </div>
 <p>
-启动成功
-<img src="http://7xia6k.com1.z0.glb.clouddn.com/react-native.png" alt="react-native.png">
-</p></li>
-<li>run ios
-打开ios目录中的xcodeproj文件.点击run按钮即可.</li>
-</ul>
+并修改<sub>config.yml文件添加generate</sub>-feed插件.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">plugins:
+  hexo-generator-feed
+</pre>
+</div>
+<p>
+在push到仓库之前,需要先执行hexo generate然后再执行hexo deploy进行部署.
+</p>
 </div>
 </div>
-
-<div id="outline-container-org3c09b3c" class="outline-2">
-<h2 id="org3c09b3c"><span class="section-number-2">4</span> 使用组件</h2>
+<div id="outline-container-org0766952" class="outline-2">
+<h2 id="org0766952"><span class="section-number-2">4</span> emacs org-mode写blog</h2>
 <div class="outline-text-2" id="text-4">
+</div><div id="outline-container-org79446eb" class="outline-3">
+<h3 id="org79446eb"><span class="section-number-3">4.1</span> 七牛云存储&amp;hexo交互</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
-react-native提供了丰富的native组件.
+写了几个简单函数用来做文件上传以及hexo交互.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">chenxuesong-qiniu-upload-img</span> <span style="color: #bc6ec5;">(</span>command<span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #2d9574;">(</span><span style="color: #67b11d;">(</span>command-str <span style="color: #b1951d;">(</span>format <span style="color: #2d9574;">"~/Work/dev-tools/qiniu-devtools/qrsync %s"</span>
+                             command<span style="color: #b1951d;">)</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>shell-command-to-string command-str<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">chenxuesong-qiniu-achieve-image</span> <span style="color: #bc6ec5;">()</span>
+  <span style="color: #bc6ec5;">(</span>shell-command-to-string <span style="color: #2d9574;">"cp -rf ~/Work/blog/images/* ~/Work/blog/images-achieve"</span><span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span>shell-command-to-string <span style="color: #2d9574;">"rm -f ~/Work/blog/images/*"</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">chenxuesong-hexo-generate</span> <span style="color: #bc6ec5;">(</span>args<span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span>interactive <span style="color: #2d9574;">"P"</span><span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #2d9574;">(</span><span style="color: #67b11d;">(</span>default-directory chenxueosng-blog-dir<span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>shell-command-to-string <span style="color: #2d9574;">"hexo generate"</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>message <span style="color: #2d9574;">"hexo generate complete."</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">chenxuesong-hexo-deploy</span> <span style="color: #bc6ec5;">(</span>args<span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span>interactive <span style="color: #2d9574;">"P"</span><span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #2d9574;">(</span><span style="color: #67b11d;">(</span>default-directory chenxueosng-blog-dir<span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>chenxuesong-qiniu-upload-img <span style="color: #67b11d;">(</span>concat chenxueosng-blog-dir <span style="color: #2d9574;">"qiniu.json"</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>shell-command-to-string <span style="color: #2d9574;">"hexo deploy"</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>chenxuesong-qiniu-achieve-image<span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>message <span style="color: #2d9574;">"hexo deploy complete."</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">chenxuesong-insert-qiniu-link</span> <span style="color: #bc6ec5;">(</span>imagename<span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span>interactive <span style="color: #2d9574;">"sImage name: "</span><span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span>insert <span style="color: #2d9574;">(</span>concat <span style="color: #67b11d;">(</span>format <span style="color: #2d9574;">"[[%s%s]]"</span> <span style="color: #2d9574;">"http://7xia6k.com1.z0.glb.clouddn.com/"</span>
+                          imagename<span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org98beafa" class="outline-3">
+<h3 id="org98beafa"><span class="section-number-3">4.2</span> org-octopress</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+org-octopress原本是用来把org转化成适合octopress的html文件.由于hexo兼容
+octopress.所以也可以用来生成适用于hexo的html文件.
+配置如下:
 </p>
 <div class="org-src-container">
-<pre class="src src-javascript"><span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">React</span> = require<span style="color: #4f97d7;">(</span><span style="color: #2d9574;">'react-native'</span><span style="color: #4f97d7;">)</span>;
-<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #4f97d7;">{</span>
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  TextInput,<span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">add text input component</span>
-<span style="color: #4f97d7;">}</span> = React;
+<pre class="src src-emacs-lisp"><span style="color: #4f97d7;">(</span>setq org-blog-dir <span style="color: #2d9574;">"~/Work/blog/"</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">(</span>setq org-octopress-directory-top org-blog-dir<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">(</span>setq org-octopress-directory-posts <span style="color: #bc6ec5;">(</span>concat org-blog-dir <span style="color: #2d9574;">"source/_posts"</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">(</span>setq org-octopress-directory-org-top org-blog-dir<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">(</span>setq org-octopress-directory-org-posts <span style="color: #bc6ec5;">(</span>concat org-blog-dir <span style="color: #2d9574;">"blog"</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">(</span>setq org-octopress-setup-file <span style="color: #bc6ec5;">(</span>concat org-blog-dir <span style="color: #2d9574;">"setupfile.org"</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+<p>
+注意org-posts文件夹不能放到source文件中.否则会生成失败.
+</p>
+</div>
+</div>
 
+<div id="outline-container-orgbae1910" class="outline-3">
+<h3 id="orgbae1910"><span class="section-number-3">4.3</span> 快捷键</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+添加了几个用于发布和转换html的快捷键.
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #4f97d7;">(</span>evil-leader/set-key <span style="color: #2d9574;">"oc"</span> 'chenxuesong/org-create-org-blog-file<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">(</span>evil-leader/set-key <span style="color: #2d9574;">"op"</span> 'chenxuesong/org-save-and-export<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">(</span>evil-leader/set-key <span style="color: #2d9574;">"od"</span> 'chenxuesong-hexo-deploy<span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">(</span>evil-leader/set-key <span style="color: #2d9574;">"og"</span> 'chenxuesong-hexo-generate<span style="color: #4f97d7;">)</span>
 
-<span style="color: #4f97d7; font-weight: bold;">var</span> <span style="color: #7590db;">TestProject</span> = React.createClass<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">{</span>
-  <span style="color: #bc6ec5; font-weight: bold;">render</span>: <span style="color: #4f97d7; font-weight: bold;">function</span><span style="color: #2d9574;">()</span> <span style="color: #2d9574;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #67b11d;">(</span>
-      &lt;View style=<span style="color: #b1951d;">{</span>styles.container<span style="color: #b1951d;">}</span>&gt;
-        &lt;Text style=<span style="color: #b1951d;">{</span>styles.welcome<span style="color: #b1951d;">}</span>&gt;
-          Welcome to React Native!
-        &lt;/Text&gt;
-        &lt;Text style=<span style="color: #b1951d;">{</span>styles.instructions<span style="color: #b1951d;">}</span>&gt;
-          To get started, edit index.android.js
-        &lt;/Text&gt;
-        &lt;Text style=<span style="color: #b1951d;">{</span>styles.instructions<span style="color: #b1951d;">}</span>&gt;
-          Shake or press menu button <span style="color: #4f97d7; font-weight: bold;">for</span> dev menu
-        &lt;/Text&gt;
-        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">add text input</span>
-        &lt;TextInput
-        style=<span style="color: #b1951d;">{</span><span style="color: #4f97d7;">{</span>height: <span style="color: #a45bad;">40</span>, borderColor: <span style="color: #2d9574;">'gray'</span>, borderWidth: <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">}</span><span style="color: #b1951d;">}</span>
-        onChangeText=<span style="color: #b1951d;">{</span><span style="color: #4f97d7;">(</span>text<span style="color: #4f97d7;">)</span> =&gt; <span style="color: #a45bad;">this</span>.setState<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">{</span>text<span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">}</span>
-        /&gt;
-      &lt;/View&gt;
-    <span style="color: #67b11d;">)</span>;
-  <span style="color: #2d9574;">}</span>
-<span style="color: #bc6ec5;">}</span><span style="color: #4f97d7;">)</span>;
+<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">chenxuesong-qiniu-upload-img</span> <span style="color: #bc6ec5;">(</span>command<span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #2d9574;">(</span><span style="color: #67b11d;">(</span>command-str <span style="color: #b1951d;">(</span>format <span style="color: #2d9574;">"~/Work/dev-tools/qiniu-devtools/qrsync %s"</span>
+                             command<span style="color: #b1951d;">)</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>shell-command-to-string command-str<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">chenxuesong-qiniu-achieve-image</span> <span style="color: #bc6ec5;">()</span>
+  <span style="color: #bc6ec5;">(</span>shell-command-to-string <span style="color: #2d9574;">"cp -rf ~/Work/blog/images/* ~/Work/blog/images-achieve"</span><span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span>shell-command-to-string <span style="color: #2d9574;">"rm -f ~/Work/blog/images/*"</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">chenxuesong-hexo-generate</span> <span style="color: #bc6ec5;">(</span>args<span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span>interactive <span style="color: #2d9574;">"P"</span><span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #2d9574;">(</span><span style="color: #67b11d;">(</span>default-directory chenxueosng-blog-dir<span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>shell-command-to-string <span style="color: #2d9574;">"hexo generate"</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>message <span style="color: #2d9574;">"hexo generate complete."</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">defun</span> <span style="color: #bc6ec5; font-weight: bold;">chenxuesong-hexo-deploy</span> <span style="color: #bc6ec5;">(</span>args<span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span>interactive <span style="color: #2d9574;">"P"</span><span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">let</span> <span style="color: #2d9574;">(</span><span style="color: #67b11d;">(</span>default-directory chenxueosng-blog-dir<span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>chenxuesong-qiniu-upload-img <span style="color: #67b11d;">(</span>concat chenxueosng-blog-dir <span style="color: #2d9574;">"qiniu.json"</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>shell-command-to-string <span style="color: #2d9574;">"hexo deploy"</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">(</span>message <span style="color: #2d9574;">"hexo deploy complete."</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
 
 </pre>
 </div>
-
-
-<div class="figure">
-<p><img src="http://7xia6k.com1.z0.glb.clouddn.com/react-native-input.png" alt="react-native-input.png">
-</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org198e8fd" class="outline-2">
-<h2 id="org198e8fd"><span class="section-number-2">5</span> 问题</h2>
-<div class="outline-text-2" id="text-5">
-<ol class="org-ol">
-<li><p>
-安装react-native报警
-</p>
+          
+        
+      
+    </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2016-01-07-docker-compose.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flysands">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/css/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flysands Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2016-01-07-docker-compose.html" itemprop="url">docker compose</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T17:25:09+08:00">
+                2017-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2016-01-07-docker-compose.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2016-01-07-docker-compose.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <div id="outline-container-org872e46b" class="outline-2">
+<h2 id="org872e46b"><span class="section-number-2">1</span> compose</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-如果用nvm管理多个node版本.并且安装提示node版本过低.重新下载pkg安装包.安装
-</p></li>
-</ol>
-<p>
-即可.
+docke command
+test command
+composess tb link
 </p>
-<ol class="org-ol">
-<li><p>
-run-android报错
-</p>
-
-<p>
-react-native android打包工具要23.0.1以上的版本.解决方法是在sdk manager中
-</p></li>
-</ol>
-<p>
-安装高版本android build tool.
-</p>
-<ol class="org-ol">
-<li><p>
-启动报错
-</p>
-
-<p>
-stackoverflow<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>上有讨论,我在模拟器上执行adb reverse命令做端口映射即可.
-</p>
-<div class="org-src-container">
-<pre class="src src-shell">adb reverse tcp:8081 tcp:8081
-</pre>
-</div></li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-org1e892c7" class="outline-2">
-<h2 id="org1e892c7"><span class="section-number-2">6</span> 总结</h2>
-<div class="outline-text-2" id="text-6">
-<p>
-总的来说开发方式还是便捷许多.但是存在一个普遍问题.跨平台应用开发的通病-性能.
-</p>
-</div>
-</div>
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
-react-native doc <a href="https://facebook.github.io/react-native/docs/getting-started.html" target="_blank" rel="external">https://facebook.github.io/react-native/docs/getting-started.html</a>
-</p></div></div>
-
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
-stackoverflow <a href="http://stackoverflow.com/questions/32572399/react-native-android-failed-to-load-js-bundle" target="_blank" rel="external">http://stackoverflow.com/questions/32572399/react-native-android-failed-to-load-js-bundle</a>
-</p></div></div>
-
-
 </div>
 </div>
 
@@ -1094,7 +1276,7 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2016-01-07-docker-compose.html">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2016-03-08-testbird-ci-env.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Flysands">
@@ -1113,7 +1295,7 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/blog/2016-01-07-docker-compose.html" itemprop="url">docker compose</a></h1>
+                <a class="post-title-link" href="/blog/2016-03-08-testbird-ci-env.html" itemprop="url">Testbird ci 2.0</a></h1>
         
 
         <div class="post-meta">
@@ -1125,7 +1307,7 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T17:25:09+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T17:24:59+08:00">
                 2017-01-20
               </time>
             
@@ -1148,8 +1330,8 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
+                  <a href="/categories/devops/" itemprop="url" rel="index">
+                    <span itemprop="name">devops</span>
                   </a>
                 </span>
 
@@ -1166,8 +1348,8 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/blog/2016-01-07-docker-compose.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2016-01-07-docker-compose.html" itemprop="commentCount"></span>
+                <a href="/blog/2016-03-08-testbird-ci-env.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2016-03-08-testbird-ci-env.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1197,14 +1379,64 @@ hw_get_module_by_class根据优先级搜索对应的so文件,文件名主要由�
       
         
           
-            <div id="outline-container-org872e46b" class="outline-2">
-<h2 id="org872e46b"><span class="section-number-2">1</span> compose</h2>
+            <div id="outline-container-org439c649" class="outline-2">
+<h2 id="org439c649"><span class="section-number-2">1</span> Testbird ci 2.0 流程图</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-docke command
-test command
-composess tb link
+
+<div class="figure">
+<p><img src="http://7xia6k.com1.z0.glb.clouddn.com/testbirc_ci_arch.png" alt="testbirc_ci_arch.png">
 </p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb498066" class="outline-2">
+<h2 id="orgb498066"><span class="section-number-2">2</span> 参与者</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li><p>
+TbCli
+</p>
+
+<p>
+testbird devops开发用于ci过程的项目代码.
+</p></li>
+<li><p>
+Gitlab
+</p>
+
+<p>
+不多介绍.
+</p></li>
+<li><p>
+Jenkins
+</p>
+
+<p>
+不多介绍.
+</p></li>
+<li><p>
+Registry
+</p>
+
+<p>
+testbird自建docker registry.
+</p></li>
+<li><p>
+Ansible
+</p>
+
+<p>
+运维发布工具.
+</p></li>
+<li><p>
+Kubernetes
+</p>
+
+<p>
+容器编排工具.
+</p></li>
+</ol>
 </div>
 </div>
 
@@ -1600,217 +1832,6 @@ docker-compose run --rm web rake db:seed &gt; /dev/null
 </pre>
 </div>
 </div>
-</div>
-</div>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2016-03-08-testbird-ci-env.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Flysands">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/css/images/mylogo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Flysands Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2016-03-08-testbird-ci-env.html" itemprop="url">Testbird ci 2.0</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T17:24:59+08:00">
-                2017-01-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/blog/2016-03-08-testbird-ci-env.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2016-03-08-testbird-ci-env.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <div id="outline-container-org439c649" class="outline-2">
-<h2 id="org439c649"><span class="section-number-2">1</span> Testbird ci 2.0 流程图</h2>
-<div class="outline-text-2" id="text-1">
-
-<div class="figure">
-<p><img src="http://7xia6k.com1.z0.glb.clouddn.com/testbirc_ci_arch.png" alt="testbirc_ci_arch.png">
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgb498066" class="outline-2">
-<h2 id="orgb498066"><span class="section-number-2">2</span> 参与者</h2>
-<div class="outline-text-2" id="text-2">
-<ol class="org-ol">
-<li><p>
-TbCli
-</p>
-
-<p>
-testbird devops开发用于ci过程的项目代码.
-</p></li>
-<li><p>
-Gitlab
-</p>
-
-<p>
-不多介绍.
-</p></li>
-<li><p>
-Jenkins
-</p>
-
-<p>
-不多介绍.
-</p></li>
-<li><p>
-Registry
-</p>
-
-<p>
-testbird自建docker registry.
-</p></li>
-<li><p>
-Ansible
-</p>
-
-<p>
-运维发布工具.
-</p></li>
-<li><p>
-Kubernetes
-</p>
-
-<p>
-容器编排工具.
-</p></li>
-</ol>
 </div>
 </div>
 
