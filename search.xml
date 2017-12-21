@@ -113,7 +113,7 @@
   <entry>
     <title><![CDATA[Testbird ci 2.0]]></title>
     <url>%2Fblog%2F2016-03-08-testbird-ci-env.html</url>
-    <content type="text"><![CDATA[c]]></content>
+    <content type="text"><![CDATA[1 Testbird ci 2.0 流程图 2 参与者 TbCli testbird devops开发用于ci过程的项目代码. Gitlab 不多介绍. Jenkins 不多介绍. Registry testbird自建docker registry. Ansible 运维发布工具. Kubernetes 容器编排工具.]]></content>
       <categories>
         <category>devops</category>
       </categories>
