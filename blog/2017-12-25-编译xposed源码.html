@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="android,xposed," />
 
 
 
@@ -79,15 +79,46 @@
 
 
 
-<meta name="description" content="Keep life stayreal">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Flysands Blog">
-<meta property="og:url" content="http://flysands.github.com/tags/dagger2/index.html">
+<meta name="description" content="1 DONE Android 5.1.1 编译Xposed框架
+
+
+本文假设你了解android源码编译,git,xposed以及android Native相关知识.有关android源码编译可以参考文章Android 5.1.1源码编译.编译主机环境为ubuntu 16.04 + java 1.8.
+
+
+
+1.1 安装jdk 1.8
+
+
+Ubuntu 16.04默认的的java版本为1.6.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译xposed源码">
+<meta property="og:url" content="http://flysands.github.com/blog/2017-12-25-编译xposed源码.html">
 <meta property="og:site_name" content="Flysands Blog">
-<meta property="og:description" content="Keep life stayreal">
+<meta property="og:description" content="1 DONE Android 5.1.1 编译Xposed框架
+
+
+本文假设你了解android源码编译,git,xposed以及android Native相关知识.有关android源码编译可以参考文章Android 5.1.1源码编译.编译主机环境为ubuntu 16.04 + java 1.8.
+
+
+
+1.1 安装jdk 1.8
+
+
+Ubuntu 16.04默认的的java版本为1.6.">
+<meta property="og:updated_time" content="2017-12-25T05:58:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flysands Blog">
-<meta name="twitter:description" content="Keep life stayreal">
+<meta name="twitter:title" content="编译xposed源码">
+<meta name="twitter:description" content="1 DONE Android 5.1.1 编译Xposed框架
+
+
+本文假设你了解android源码编译,git,xposed以及android Native相关知识.有关android源码编译可以参考文章Android 5.1.1源码编译.编译主机环境为ubuntu 16.04 + java 1.8.
+
+
+
+1.1 安装jdk 1.8
+
+
+Ubuntu 16.04默认的的java版本为1.6.">
 
 
 
@@ -117,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://flysands.github.com/tags/dagger2/"/>
+  <link rel="canonical" href="http://flysands.github.com/blog/2017-12-25-编译xposed源码.html"/>
 
 
 
 
 
-  <title>标签: dagger2 | Flysands Blog</title>
+  <title>编译xposed源码 | Flysands Blog</title>
   
 
 
@@ -142,7 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -280,54 +311,466 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>dagger2<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2017-12-25-编译xposed源码.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flysands">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/css/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flysands Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/blog/2017-12-21-依赖注入.html" itemprop="url">
-              
-                <span itemprop="name">依赖注入</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">编译xposed源码</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-21T14:06:10+08:00"
-              content="2017-12-21" >
-          12-21
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-25T13:58:56+08:00">
+                2017-12-25
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2017-12-25-编译xposed源码.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2017-12-25-编译xposed源码.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="outline-container-orgcf27e0a" class="outline-2">
+<h2 id="orgcf27e0a"><span class="section-number-2">1</span> <span class="done DONE">DONE</span> Android 5.1.1 编译Xposed框架</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+本文假设你了解android源码编译,git,xposed以及android Native相关知识.有关android源码编译可以参考文章<a href="https://mp.weixin.qq.com/s/DH3f2yzL-g1iZEN5E4W2vw" target="_blank" rel="external">Android 5.1.1源码编译</a>.编译主机环境为ubuntu 16.04 + java 1.8.
+</p>
+</div>
+<div id="outline-container-orge3c213e" class="outline-3">
+<h3 id="orge3c213e"><span class="section-number-3">1.1</span> 安装jdk 1.8</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Ubuntu 16.04默认的的java版本为1.6.编译Xposed框架最新版需要java 1.8.所以从官网下载jdk 1.8,文件名为jdk-7u80-linux-x64.tar.gz,然后执行命令进行手动安装.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> /opt/
+tar &#8211;zxvf jdk-8u151-linux-x64.tar.gz
+sudo mkdir /usr/lib/jvm
+sudo mv ./jdk1.8.0_151 /usr/lib/jvm
+</pre>
+</div>
+<p>
+然后再export 4个java相关的环境变量.执行java -version确认版本切换是否成功.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f97d7;">export</span> <span style="color: #7590db;">JAVA_HOME</span>=/usr/lib/jvm/jdk1.8.0_151
+<span style="color: #4f97d7;">export</span> <span style="color: #7590db;">JRE_HOME</span>=$<span style="color: #4f97d7;">{</span><span style="color: #7590db;">JAVA_HOME</span><span style="color: #4f97d7;">}</span>/jre
+<span style="color: #4f97d7;">export</span> <span style="color: #7590db;">CLASSPATH</span>=.:$<span style="color: #4f97d7;">{</span><span style="color: #7590db;">JAVA_HOME</span><span style="color: #4f97d7;">}</span>/lib:$<span style="color: #4f97d7;">{</span><span style="color: #7590db;">JRE_HOME</span><span style="color: #4f97d7;">}</span>/lib
+<span style="color: #4f97d7;">export</span> <span style="color: #7590db;">PATH</span>=$<span style="color: #4f97d7;">{</span><span style="color: #7590db;">JAVA_HOME</span><span style="color: #4f97d7;">}</span>/bin:$<span style="color: #7590db;">PATH</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5a8178c" class="outline-3">
+<h3 id="org5a8178c"><span class="section-number-3">1.2</span> 同步xposed源码</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-orge9c5228" class="outline-4">
+<h4 id="orge9c5228"><span class="section-number-4">1.2.1</span> XposedTools</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<blockquote>
+<p>
+XposedTools是官方提供的一套工具集,方便用来编译和打包Xposed框架.
+</p>
+</blockquote>
+<p>
+直接从官网clone源码备用.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> ~
+git clone https://github.com/rovo89/XposedTools.git
+</pre>
+</div>
+<p>
+XposedTools目录下面有两个重要文件.其中build.pl是编译脚本,该脚本根据build.conf文件里的选项进行编译.build.conf.sample是官方提供的编译选项模板,需要自行修改.首先将build.conf.sample更名为build.conf.然后修改outdir,javadir和AospDir,路径要匹配自己的android源码位置.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f97d7;">[</span>General<span style="color: #4f97d7;">]</span>
+<span style="color: #7590db;">outdir</span> = /home/mobsec/Android/aosp_5.1/out
+<span style="color: #7590db;">javadir</span> = /home/mobsec/Android/aosp_5.1/XposedBridge
+
+<span style="color: #4f97d7;">[</span>Build<span style="color: #4f97d7;">]</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Please keep the base version number and add your custom suffix</span>
+<span style="color: #7590db;">version</span> = <span style="color: #a45bad;">65</span> <span style="color: #4f97d7;">(</span>custom build by xyz / %s<span style="color: #4f97d7;">)</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">makeflags = -j4</span>
+
+<span style="color: #4f97d7;">[</span>GPG<span style="color: #4f97d7;">]</span>
+<span style="color: #7590db;">sign</span> = release
+<span style="color: #7590db;">user</span> = <span style="color: #a45bad;">852109AA!</span>
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Root directories of the AOSP source tree per SDK version</span>
+<span style="color: #4f97d7;">[</span>AospDir<span style="color: #4f97d7;">]</span>
+<span style="color: #a45bad;">22</span> = /home/mobsec/Android/aosp_5.1
+<span style="color: #2aa1ae; background-color: #292e34;">#</span><span style="color: #2aa1ae; background-color: #292e34;">21 = /android/aosp/500</span>
+
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">SDKs to be used for compiling BusyBox</span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Needs https://github.com/rovo89/android_external_busybox</span>
+<span style="color: #4f97d7;">[</span>BusyBox<span style="color: #4f97d7;">]</span>
+<span style="color: #7590db;">arm</span> = <span style="color: #a45bad;">21</span>
+<span style="color: #7590db;">x86</span> = <span style="color: #a45bad;">21</span>
+<span style="color: #7590db;">armv5</span> = <span style="color: #a45bad;">17</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgdb5640a" class="outline-4">
+<h4 id="orgdb5640a"><span class="section-number-4">1.2.2</span> xposed</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+xposed为整个Xposed框架的native部分,主要内容为xposed修改的app<sub>process源码和相关库文件.这里需要提一下,这部分源码有两种同步方式.第一采用修改local</sub><sub>manifests,然后repo</sub> sync的方式.第二种则为手动下载合并.本文采用第二种方式.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> aosp_dir
+<span style="color: #4f97d7;">cd</span> cd frameworks/base/cmds/
+git clone https://github.com/rovo89/Xposed.git xposed
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2a9916e" class="outline-4">
+<h4 id="org2a9916e"><span class="section-number-4">1.2.3</span> android<sub>art</sub></h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+Xposed为了支持新的runtime,修改了art的源码.我们需要把原来的art源码替换成Xposed提供的代码.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> aosp_dir
+rm -rf art
+git clone https://github.com/rovo89/android_art.git art
+<span style="color: #4f97d7;">cd</span> art
+git checkout xposed-lollipop-mr1
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3f10b43" class="outline-4">
+<h4 id="org3f10b43"><span class="section-number-4">1.2.4</span> XposedBridge</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+XposedBridge的代码直接clone即可,没有版本的限制.需要注意与javadir对应.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> aosp_dir
+git clone https://github.com/rovo89/XposedBridge.git
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgca810c9" class="outline-3">
+<h3 id="orgca810c9"><span class="section-number-3">1.3</span> 编译整个框架</h3>
+<div class="outline-text-3" id="text-1-3">
+<blockquote>
+<p>
+编译Native代码的时候需要依赖java层代码的输出文件XposedBridge.jar.可以直接把XposedBridge.jar直接copy到build.conf文件中的outdir/java/路径下进行预编译.也可以手动编译整个XposedBridge.jar.
+</p>
+</blockquote>
+</div>
+<div id="outline-container-org540da6d" class="outline-4">
+<h4 id="org540da6d"><span class="section-number-4">1.3.1</span> 编译java层代码</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+编译Xposed java层代码需要配置好android sdk环境.先下载sdk工具,然后解压.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">wget http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz
+</pre>
+</div>
+<p>
+执行list sdk命令查看可以安装的sdk包.-a选项表示列举所有包.安装source的时候才需要使用-a选项.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">./android list sdk --extended --proxy-host mirrors.neusoft.edu.cn --proxy-port <span style="color: #a45bad;">80</span> -s -a
+</pre>
+</div>
+<p>
+依次安装Android SDK Build-Tools 23.0.3,Android SDK Platform 23.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">./android list sdk --extended --proxy-host mirrors.neusoft.edu.cn --proxy-port <span style="color: #a45bad;">80</span> -s
+./android update sdk --no-ui --filter &#21253;id --proxy-host mirrors.neusoft.edu.cn --proxy-port <span style="color: #a45bad;">80</span> -s
+</pre>
+</div>
+<p>
+使用带-a参数的list命令,安装source包.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">./android list sdk --extended --proxy-host mirrors.neusoft.edu.cn --proxy-port <span style="color: #a45bad;">80</span> -s -a
+./android update sdk --no-ui --filter &#21253;id --proxy-host mirrors.neusoft.edu.cn --proxy-port <span style="color: #a45bad;">80</span> -s
+</pre>
+</div>
+<p>
+然后在Xposed目录下,添加local.properties文件.并在其中填写sdk路径.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">sdk.dir=/home/mobsec/sdk
+</pre>
+</div>
+<blockquote>
+<p>
+XposedBridge采用gradle编译,如果遇到lint error会终止整个编译.我们可以修改lint error或者修改配置忽略lint error.
+</p>
+</blockquote>
+<p>
+在XposedBridge/hiddenapistubs/build.gradle文件中的android段落中,添加lintOptions.这样修改之后,当编译遇到lint error时不会终止编译过程.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">apply plugin: <span style="color: #2d9574;">'com.android.library'</span>
+
+android <span style="color: #4f97d7;">{</span>
+    // Only build the release variant
+    // add fix
+    lintOptions <span style="color: #bc6ec5;">{</span>
+        abortOnError false
+    <span style="color: #bc6ec5;">}</span>
+    variantFilter <span style="color: #bc6ec5;">{</span> variant -&gt;
+        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span>variant.buildType.name != BuilderConstants.RELEASE<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
+            variant.ignore = true
+        <span style="color: #2d9574;">}</span>
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+准备工作完成,直接使用命令编译Xposed java代码.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> XposedTools_dir
+./build.pl -a java
+</pre>
+</div>
+<p>
+编译成功输出以下日志.
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">BUILD SUCCESSFUL
+
+Total time: <span style="color: #a45bad;">0.871</span> secs
+
+Copying APK to XposedBridge.jar...
+Skipping non-existent /home/mobsec/Android/aosp_5.1/XposedBridge/app/build/outputs/apk/app-release.apk
+Skipping non-existent /home/mobsec/Android/aosp_5.1/XposedBridge/app/build/outputs/apk/app-release-unaligned.apk
+/home/mobsec/Android/aosp_5.1/XposedBridge/app/build/outputs/apk/app-release-unsigned.apk =&gt; /home/mobsec/Android/aosp_5.1/out/java/XposedBridge.jar
+
+Done!
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6647330" class="outline-4">
+<h4 id="org6647330"><span class="section-number-4">1.3.2</span> 编译native层代码</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #4f97d7;">cd</span> XposedTools_dir
+./build.pl -t arm:22
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+            <a href="/tags/xposed/" rel="tag"># xposed</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017-12-21-依赖注入.html" rel="next" title="依赖注入">
+                <i class="fa fa-chevron-left"></i> 依赖注入
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017-12-25-编译Android5.1源码.html" rel="prev" title="android 5.1 源码编译">
+                android 5.1 源码编译 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -335,6 +778,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="blog/2017-12-25-编译xposed源码.html"
+           data-title="编译xposed源码" data-url="http://flysands.github.com/blog/2017-12-25-编译xposed源码.html">
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -355,8 +809,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -442,6 +905,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcf27e0a"><span class="nav-number">1.</span> <span class="nav-text">1 DONE Android 5.1.1 编译Xposed框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orge3c213e"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 安装jdk 1.8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org5a8178c"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 同步xposed源码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orge9c5228"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 XposedTools</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgdb5640a"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 xposed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org2a9916e"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 androidart</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org3f10b43"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4 XposedBridge</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgca810c9"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 编译整个框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org540da6d"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 编译java层代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org6647330"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 编译native层代码</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -595,6 +1074,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
