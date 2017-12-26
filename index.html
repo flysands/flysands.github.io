@@ -461,7 +461,7 @@ chmod +x repo
 </pre>
 </div>
 <p>
-在.bashrc中添加export REPO<sub>URL</sub>='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'.然后source ~/.bashrc.
+在.bashrc中添加export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'.然后source ~/.bashrc.
 </p></li>
 <li><p>
 同步特定版本的Android源码
@@ -510,7 +510,7 @@ android 5.1源码在ubuntu 16.04环境下编译存在一个由gcc版本引起的
 </div></li>
 <li><p>
 编译
-所有环境准备完毕之后,直接开编即可.注意lunch的时候要选择对应的手机型号.本文为aosp<sub>hammerhead</sub>-userdebug.
+所有环境准备完毕之后,直接开编即可.注意lunch的时候要选择对应的手机型号.本文为aosp_hammerhead-userdebug.
 </p>
 <div class="org-src-container">
 <pre class="src src-shell"><span style="color: #4f97d7;">source</span> build/envsetup.sh
@@ -760,7 +760,7 @@ XposedTools目录下面有两个重要文件.其中build.pl是编译脚本,该�
 <h4 id="orgdb5640a"><span class="section-number-4">1.2.2</span> xposed</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
-xposed为整个Xposed框架的native部分,主要内容为xposed修改的app<sub>process源码和相关库文件.这里需要提一下,这部分源码有两种同步方式.第一采用修改local</sub><sub>manifests,然后repo</sub> sync的方式.第二种则为手动下载合并.本文采用第二种方式.
+xposed为整个Xposed框架的native部分,主要内容为xposed修改的app_process源码和相关库文件.这里需要提一下,这部分源码有两种同步方式.第一采用修改local_manifests,然后repo sync的方式.第二种则为手动下载合并.本文采用第二种方式.
 </p>
 <div class="org-src-container">
 <pre class="src src-shell"><span style="color: #4f97d7;">cd</span> aosp_dir
@@ -771,7 +771,7 @@ git clone https://github.com/rovo89/Xposed.git xposed
 </div>
 </div>
 <div id="outline-container-org2a9916e" class="outline-4">
-<h4 id="org2a9916e"><span class="section-number-4">1.2.3</span> android<sub>art</sub></h4>
+<h4 id="org2a9916e"><span class="section-number-4">1.2.3</span> android_art</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 Xposed为了支持新的runtime,修改了art的源码.我们需要把原来的art源码替换成Xposed提供的代码.
@@ -1693,8 +1693,8 @@ Dagger2可以通过自定义Scope注解，来限定通过Module和Inject方式�
       
         
           
-            <div id="outline-container-org972b4fe" class="outline-2">
-<h2 id="org972b4fe"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> 排序算法&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_home">@home</span>&#xa0;<span class="ALGORITHM">ALGORITHM</span></span></h2>
+            <div id="outline-container-orgd411e87" class="outline-2">
+<h2 id="orgd411e87"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> 排序算法&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_home">@home</span>&#xa0;<span class="ALGORITHM">ALGORITHM</span></span></h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-org3d11161" class="outline-3">
 <h3 id="org3d11161"><span class="section-number-3">1.1</span> 性能指标</h3>
@@ -1713,8 +1713,8 @@ Dagger2可以通过自定义Scope注解，来限定通过Module和Inject方式�
 </ul>
 </div>
 </div>
-<div id="outline-container-orgee45492" class="outline-3">
-<h3 id="orgee45492"><span class="section-number-3">1.2</span> 排序算法</h3>
+<div id="outline-container-org972b4fe" class="outline-3">
+<h3 id="org972b4fe"><span class="section-number-3">1.2</span> 排序算法</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>使用环境

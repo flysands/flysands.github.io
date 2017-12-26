@@ -105,7 +105,7 @@ Ubuntu 16.04默认的的java版本为1.6.编译Xpo">
 
 
 Ubuntu 16.04默认的的java版本为1.6.编译Xpo">
-<meta property="og:updated_time" content="2017-12-25T06:02:26.000Z">
+<meta property="og:updated_time" content="2017-12-26T07:00:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译xposed源码">
 <meta name="twitter:description" content="1 Android 5.1.1 编译Xposed框架
@@ -516,7 +516,7 @@ XposedTools目录下面有两个重要文件.其中build.pl是编译脚本,该�
 <h4 id="orgdb5640a"><span class="section-number-4">1.2.2</span> xposed</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
-xposed为整个Xposed框架的native部分,主要内容为xposed修改的app<sub>process源码和相关库文件.这里需要提一下,这部分源码有两种同步方式.第一采用修改local</sub><sub>manifests,然后repo</sub> sync的方式.第二种则为手动下载合并.本文采用第二种方式.
+xposed为整个Xposed框架的native部分,主要内容为xposed修改的app_process源码和相关库文件.这里需要提一下,这部分源码有两种同步方式.第一采用修改local_manifests,然后repo sync的方式.第二种则为手动下载合并.本文采用第二种方式.
 </p>
 <div class="org-src-container">
 <pre class="src src-shell"><span style="color: #4f97d7;">cd</span> aosp_dir
@@ -527,7 +527,7 @@ git clone https://github.com/rovo89/Xposed.git xposed
 </div>
 </div>
 <div id="outline-container-org2a9916e" class="outline-4">
-<h4 id="org2a9916e"><span class="section-number-4">1.2.3</span> android<sub>art</sub></h4>
+<h4 id="org2a9916e"><span class="section-number-4">1.2.3</span> android_art</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 Xposed为了支持新的runtime,修改了art的源码.我们需要把原来的art源码替换成Xposed提供的代码.
@@ -915,7 +915,7 @@ Done!
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcf27e0a"><span class="nav-number">1.</span> <span class="nav-text">1 Android 5.1.1 编译Xposed框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orge3c213e"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 安装jdk 1.8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org5a8178c"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 同步xposed源码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orge9c5228"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 XposedTools</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgdb5640a"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 xposed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org2a9916e"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 androidart</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org3f10b43"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4 XposedBridge</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgca810c9"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 编译整个框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org540da6d"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 编译java层代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org6647330"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 编译native层代码</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#orgcf27e0a"><span class="nav-number">1.</span> <span class="nav-text">1 Android 5.1.1 编译Xposed框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#orge3c213e"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 安装jdk 1.8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#org5a8178c"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 同步xposed源码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#orge9c5228"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 XposedTools</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#orgdb5640a"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 xposed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org2a9916e"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.2.3 android_art</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org3f10b43"><span class="nav-number">1.2.4.</span> <span class="nav-text">1.2.4 XposedBridge</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#orgca810c9"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 编译整个框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#org540da6d"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 编译java层代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#org6647330"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 编译native层代码</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
