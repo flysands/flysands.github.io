@@ -295,6 +295,300 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2017-12-27-使用emacs和ledger记账.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Flysands">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/css/images/mylogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Flysands Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog/2017-12-27-使用emacs和ledger记账.html" itemprop="url">使用emcas+ledger记账</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T17:32:30+08:00">
+                2017-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/emacs/" itemprop="url" rel="index">
+                    <span itemprop="name">emacs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/2017-12-27-使用emacs和ledger记账.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2017-12-27-使用emacs和ledger记账.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <div id="outline-container-org95053cd" class="outline-2">
+<h2 id="org95053cd"><span class="section-number-2">1</span> 复式记账法</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+复式簿记是一种把每笔交易都记录到复数个账户中的簿记方法。举个例子，想像你面前有两个桶，分别是「资产」（Assets）和「费用」（Expenses），左边的桶里装满了豆子，右边的桶是空的。你用 1000 元听了一场演唱会，为了记录这笔费用，你把 1000 粒豆子从 Assets 桶里转移到了 Expenses 桶里，代表你的资产减少了 1000 元，而你花在演唱会上的费用增加了 1000 元，在这个过程中，豆子的总量没有变化（资产减少的豆子与费用增加的豆子数量一致），这便是最简单的复式簿记。
+</p>
+</div>
+</div>
+<div id="outline-container-org776d8e4" class="outline-2">
+<h2 id="org776d8e4"><span class="section-number-2">2</span> 分配</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>资产 Assets - 现金、银行存款、有价证券等；</li>
+<li>负债 Liabilities - 信用卡、房贷、车贷等；</li>
+<li>收入 Income - 工资、奖金等；</li>
+<li>费用 Expenses - 外出就餐、购物、旅行等；</li>
+<li>权益 Equity - 用于「存放」某个时间段开始前已有的豆子；</li>
+</ul>
+
+<p>
+<b>复式记账法</b> 有两个入口，并且两个入口相加等于零。借和贷相加等于零。借和贷很好理解，打个比方你向XX借了5000块钱，你的资产增加了5000，你的负债就要加上-5000，相当于从你的负债桶里贷出5000到你的资产桶。另外举一个例子，你买衣服花了2000块钱，这笔交易可以理解成向资产桶里贷出2000块钱，借给你的费用桶，所以你的费用桶增加2000。只需要记住 <b>借增贷减</b> 即可。
+</p>
+
+<ul class="org-ul">
+<li><p>
+借贷记账
+</p>
+
+<p>
+想像成一个装着你一生（过去和未来）所有劳动成果的桶，每次你的收入都是从桶里贷出来。打个比方你发了工资10000块，你的资产桶增加了10000。这10000是收入桶贷给你的。所以资产桶+10000，相应的收入桶-10000。
+</p></li>
+</ul>
+
+<p>
+恒等式： 
+</p>
+<ol class="org-ol">
+<li><b>(Income + Liabilities) + (Assets + Expenses) + Equity = 0</b></li>
+<li><b>每笔交易在不同账户的数字加起来和为 0 是复式簿记的重要特性和原则，也是用来检验账目正确性的重要依据。</b></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgf19e64c" class="outline-2">
+<h2 id="orgf19e64c"><span class="section-number-2">3</span> 使用emacs和ledger记账</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgcb354e3" class="outline-3">
+<h3 id="orgcb354e3"><span class="section-number-3">3.1</span> 开户</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+除开startup代码块之外，另外新建income，liabilities，expenses，assets四个代码块。分别用来记录收入，负债，消费，资产。
+</p>
+<div class="org-src-container">
+<pre class="src src-ledger" id="orgcc1b0b3">2017/12/27 * Opening Balance
+    Assets:&#25307;&#21830;&#38134;&#34892;                                            95198 CNY
+    Assets:&#24494;&#20449;&#38065;&#21253;                                              239 CNY
+    Assets:&#29616;&#37329;                                                    3 CNY
+    Assets:&#25903;&#20184;&#23453;                                                  2 CNY
+    Assets:&#22806;&#20511;                                                80000 CNY
+    Liabilities:&#33457;&#21591;                                           -6526 CNY
+    Equity:&#21021;&#22987;&#24179;&#34913;                                          -168916 CNY
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9648bc3" class="outline-3">
+<h3 id="org9648bc3"><span class="section-number-3">3.2</span> 记账</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+在expenses下记录我们的第一笔消费，比如花了两块钱买菜。相当于从Assets中贷出2元放到Expenses桶中。其中第二行的+2 CNY被省略掉了。
+</p>
+<div class="org-src-container">
+<pre class="src src-ledger" id="org2a5442f">2017/12/27 * &#20080;&#33756;
+    Assets:&#29616;&#37329;                                                   -2 CNY
+    Expenses:&#29983;&#27963;&#28040;&#36153;                                              
+</pre>
+</div>
+<ul class="org-ul">
+<li><p>
+小技巧
+</p>
+
+<p>
+在 org-mode 的 ledger 代码区， 按 <b>C-c '</b> , 可以快速进入一个临时的 ledger-mode buffer。在这个 ledger-mode buffer 中， 可以使用 ledger-mode 的键绑定：
+</p>
+<ul class="org-ul">
+<li><b>M-m m a</b> （spacemacs）添加记录</li>
+<li><b>SPC j =</b> (Spacemacs) 版面调整</li>
+<li><b>, c</b> (Spacemacs) 提交修改并返回 org-mode buffer</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf452745" class="outline-3">
+<h3 id="orgf452745"><span class="section-number-3">3.3</span> 统计</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li><p>
+月度统计
+</p>
+
+<p>
+月度统计每个月的收支状况。
+</p>
+<div class="org-src-container">
+<pre class="src src-ledger" id="orgb7f3afe">2017/12/27 * &#20080;&#33756;
+    Assets:&#29616;&#37329;                                                   -2 CNY
+    Expenses:&#29983;&#27963;&#28040;&#36153;                                              
+</pre>
+</div>
+<p>
+<b>C-c C-c</b> 执行代码块，生成月度报告。
+</p></li>
+<li><p>
+总体统计
+</p>
+
+<p>
+总体统计当前的财务状况。
+</p>
+<div class="org-src-container">
+<pre class="src src-ledger" id="org31a3dc4">2017/12/27 * Opening Balance
+    Assets:&#25307;&#21830;&#38134;&#34892;                                            95198 CNY
+    Assets:&#24494;&#20449;&#38065;&#21253;                                              239 CNY
+    Assets:&#29616;&#37329;                                                    3 CNY
+    Assets:&#25903;&#20184;&#23453;                                                  2 CNY
+    Assets:&#22806;&#20511;                                                80000 CNY
+    Liabilities:&#33457;&#21591;                                           -6526 CNY
+    Equity:&#21021;&#22987;&#24179;&#34913;                                          -168916 CNY
+
+2017/12/27 * &#20080;&#33756;
+    Assets:&#29616;&#37329;                                                   -2 CNY
+    Expenses:&#29983;&#27963;&#28040;&#36153;                                              
+
+
+</pre>
+</div>
+<p>
+<b>C-c C-c</b> 执行代码块，生成总览报告。满足恒等式。
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2017-12-25-编译Android5.1源码.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1693,8 +1987,8 @@ Dagger2可以通过自定义Scope注解，来限定通过Module和Inject方式�
       
         
           
-            <div id="outline-container-org080112f" class="outline-2">
-<h2 id="org080112f"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> 排序算法&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_home">@home</span>&#xa0;<span class="ALGORITHM">ALGORITHM</span></span></h2>
+            <div id="outline-container-org96b23d2" class="outline-2">
+<h2 id="org96b23d2"><span class="section-number-2">1</span> <span class="todo TODO">TODO</span> 排序算法&#xa0;&#xa0;&#xa0;<span class="tag"><span class="_home">@home</span>&#xa0;<span class="ALGORITHM">ALGORITHM</span></span></h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-org3d11161" class="outline-3">
 <h3 id="org3d11161"><span class="section-number-3">1.1</span> 性能指标</h3>
@@ -1713,8 +2007,8 @@ Dagger2可以通过自定义Scope注解，来限定通过Module和Inject方式�
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd411e87" class="outline-3">
-<h3 id="orgd411e87"><span class="section-number-3">1.2</span> 排序算法</h3>
+<div id="outline-container-org080112f" class="outline-3">
+<h3 id="org080112f"><span class="section-number-3">1.2</span> 排序算法</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>使用环境
@@ -2335,327 +2629,6 @@ bucket_sort<span style="color: #4f97d7;">(</span>ARRAY<span style="color: #4f97d
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://flysands.github.com/blog/2017-01-29-理解lisp闭包.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Flysands">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/css/images/mylogo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Flysands Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/2017-01-29-理解lisp闭包.html" itemprop="url">理解闭包</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-29T11:04:03+08:00">
-                2017-01-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/lisp/" itemprop="url" rel="index">
-                    <span itemprop="name">lisp</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/blog/2017-01-29-理解lisp闭包.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="blog/2017-01-29-理解lisp闭包.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-<div id="outline-container-orgb5823c0" class="outline-2">
-<h2 id="orgb5823c0"><span class="section-number-2">1</span> Lambda the Ultimate</h2>
-<div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li><p>
-理解闭包
-闭包定义:如果一个函数返回另一个函数,而被返回函数又需要外层函数的变量时,不会立即释放
-这个变量,而是允许被返回的函数引用这些变量.支持这种机制的语言称为支持闭包机制,而这个内
-部函数连同其自由变量就形成了一个闭包.
-</p>
-<div class="org-src-container">
-<pre class="src src-scheme"><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">define</span> <span style="color: #bc6ec5; font-weight: bold;">eq?-c</span>
-  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #2d9574;">(</span>a<span style="color: #2d9574;">)</span>
-    <span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #67b11d;">(</span>x<span style="color: #67b11d;">)</span>
-      <span style="color: #67b11d;">(</span>eq? x a<span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-</pre>
-</div>
-<p>
-以上eq?-c函数就有一个闭包,首先eq?-c满足一个函数返回另一个函数的条件,eq?-c返回一个lambda函数.
-lambda函数却引用了外部变量a.所以a为自由变量,lambda函数与自由变量a形成了一个闭包.
-再看下面这个例子详细理解一下闭包概念.
-</p>
-<div class="org-src-container">
-<pre class="src src-scheme"><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">define</span> <span style="color: #bc6ec5; font-weight: bold;">add-a</span>
-  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #2d9574;">(</span>a<span style="color: #2d9574;">)</span>
-    <span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #67b11d;">(</span>x<span style="color: #67b11d;">)</span>
-      <span style="color: #67b11d;">(</span>+ x a<span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-</pre>
-</div>
-<p>
-这个lambda函数是不完整的,(+ x a)中的a是多少?有两个方法回答这个问题.
-第一种叫"动态作用域",a的值决定于函数调用时上下文中a的值.
-(define a 1)
-(add-a 1)
-以上输出应该为2.因为调用(add-a 1)时,上下文中存在a,并且值为1.
-动态作用域的问题是,函数每一次调用相同的参数未必返回相同的值,其返回值还取决于上下文的某些值.这样
-的函数具有不确定性.
-第二种是"词法作用域",a的值取决于函数定义时上下文中的值.
-(define fun (add-a 2))
-(define a 1)
-(fun 1)
-输出为3.因为定义(lambda (x) (+ x a))时,add-a函数环境中a = 2.所以fun其实的等价(lambda (x) (+ x 2)).
-因为fun要"记住"自己定义时a的值为2,所以实现时
-(lambda (x) (+ x a))和a = 2 被打包在一块,被称为"闭包",意思是它是完整独立的,仅仅依靠调用时参数求值.
-不再依赖调用时的上下文.
-dynamic scope在每次函数求值的时候都会在这唯一的一个env里查询或更新.而static scope(lexical scope)
-是每次函数求值的时候都创建一个新的env,包含了函数定义时候的所能访问到的各种binding.这个新的env连
-同那个函数一起.俗称闭包Closure.
-词法作用域的函数中遇到既不是形参也不是函数内部定义的局部变量的变量时,去函数定义时的环境中查询.
-动态域的函数中遇到既不是形参也不是函数内部定义的局部变量的变量时,到函数调用时的环境中查.
-</p></li>
-<li><p>
-闭包的好处
-关于闭包的好处可以看看下面这个例子.
-</p>
-<div class="org-src-container">
-<pre class="src src-scheme"><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">define</span> <span style="color: #bc6ec5; font-weight: bold;">multi-delete</span>
-  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #2d9574;">(</span>test-fun<span style="color: #2d9574;">)</span>
-    <span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #67b11d;">(</span>value lat<span style="color: #67b11d;">)</span>
-      <span style="color: #67b11d;">(</span><span style="color: #4f97d7; font-weight: bold;">cond</span>
-       <span style="color: #b1951d;">(</span><span style="color: #4f97d7;">(</span>null? lat<span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">(</span>quote <span style="color: #bc6ec5;">()</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">)</span>
-       <span style="color: #b1951d;">(</span><span style="color: #4f97d7;">(</span>test-fun <span style="color: #bc6ec5;">(</span>car lat<span style="color: #bc6ec5;">)</span> value<span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>multi-delete test-fun<span style="color: #bc6ec5;">)</span> value <span style="color: #bc6ec5;">(</span>cdr lat<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">)</span>
-       <span style="color: #b1951d;">(</span><span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #4f97d7;">(</span>cons <span style="color: #bc6ec5;">(</span>car lat<span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">(</span>multi-delete test-fun<span style="color: #2d9574;">)</span> value <span style="color: #2d9574;">(</span>cdr lat<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">)</span>
-       <span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-
-<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>multi-delete =<span style="color: #bc6ec5;">)</span> <span style="color: #a45bad;">5</span> '<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">3</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">5</span> <span style="color: #a45bad;">5</span> <span style="color: #a45bad;">6</span> <span style="color: #a45bad;">7</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>multi-delete &gt;<span style="color: #bc6ec5;">)</span> <span style="color: #a45bad;">5</span> '<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">3</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">5</span> <span style="color: #a45bad;">5</span> <span style="color: #a45bad;">6</span> <span style="color: #a45bad;">7</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>multi-delete &lt;<span style="color: #bc6ec5;">)</span> <span style="color: #a45bad;">5</span> '<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">3</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">5</span> <span style="color: #a45bad;">5</span> <span style="color: #a45bad;">6</span> <span style="color: #a45bad;">7</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7;">(</span><span style="color: #bc6ec5;">(</span>multi-delete <span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #67b11d;">(</span>x y<span style="color: #67b11d;">)</span> <span style="color: #67b11d;">(</span>= x <span style="color: #b1951d;">(</span>+ y <span style="color: #a45bad;">2</span><span style="color: #b1951d;">)</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span> <span style="color: #a45bad;">5</span> '<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">1</span> <span style="color: #a45bad;">2</span> <span style="color: #a45bad;">3</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">1</span> <span style="color: #a45bad;">5</span> <span style="color: #a45bad;">5</span> <span style="color: #a45bad;">6</span> <span style="color: #a45bad;">7</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-
-<span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">=&gt; (1 2 3 1 1 6 7)</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">=&gt; (1 2 3 1 1 5 5)</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">=&gt; (5 5 6 7)</span>
-</pre>
-</div>
-<p>
-以上函数用来从lat(纯数字list)中删除元素,实现了通用性很强的函数.multi-delete的删除过程
-和删除条件分离.这样我们就可以复用multi-delete实现不同条件的删除.
-</p></li>
-<li><p>
-again
-</p>
-<div class="org-src-container">
-<pre class="src src-scheme"><span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">&#21151;&#33021;</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">&#26597;&#35810;lat&#20013;&#30340;&#21407;&#23376;&#26159;&#21542;&#21644;a&#30456;&#31561;,&#22914;&#26524;&#30456;&#31561;&#21017;&#25918;&#20837;ls2,&#19981;&#30456;&#31561;&#21017;&#25918;&#20837;ls1.</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;; </span><span style="color: #2aa1ae; background-color: #292e34;">&#26368;&#21518;&#21028;&#26029;ls2&#26159;&#21542;&#20026;&#31354;.</span>
-<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">define</span> <span style="color: #bc6ec5; font-weight: bold;">multirember&amp;co</span>
-  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #2d9574;">(</span>a lat col<span style="color: #2d9574;">)</span>
-    <span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">cond</span>
-     <span style="color: #67b11d;">(</span><span style="color: #b1951d;">(</span>null? lat<span style="color: #b1951d;">)</span>
-      <span style="color: #b1951d;">(</span>col <span style="color: #4f97d7;">(</span>quote <span style="color: #bc6ec5;">()</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">(</span>quote <span style="color: #bc6ec5;">()</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">)</span><span style="color: #67b11d;">)</span>
-     <span style="color: #67b11d;">(</span><span style="color: #b1951d;">(</span>eq? <span style="color: #4f97d7;">(</span>car lat<span style="color: #4f97d7;">)</span> a<span style="color: #b1951d;">)</span>
-      <span style="color: #b1951d;">(</span>multirember&amp;co a <span style="color: #4f97d7;">(</span>cdr lat<span style="color: #4f97d7;">)</span>
-                      <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #bc6ec5;">(</span>newlat seen<span style="color: #bc6ec5;">)</span>
-                        <span style="color: #bc6ec5;">(</span>col newlat
-                             <span style="color: #2d9574;">(</span>cons <span style="color: #9cb6ad;">(</span>car lat<span style="color: #9cb6ad;">)</span> seen<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">)</span><span style="color: #67b11d;">)</span>
-     <span style="color: #67b11d;">(</span><span style="color: #4f97d7; font-weight: bold;">else</span>
-      <span style="color: #b1951d;">(</span>multirember&amp;co a <span style="color: #4f97d7;">(</span>cdr lat<span style="color: #4f97d7;">)</span>
-                      <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #bc6ec5;">(</span>newlat seen<span style="color: #bc6ec5;">)</span>
-                        <span style="color: #bc6ec5;">(</span>col <span style="color: #2d9574;">(</span>cons <span style="color: #9cb6ad;">(</span>car lat<span style="color: #9cb6ad;">)</span> newlat<span style="color: #2d9574;">)</span> seen<span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">)</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">define</span> <span style="color: #bc6ec5; font-weight: bold;">a-friend</span>
-  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #2d9574;">(</span>x y<span style="color: #2d9574;">)</span>
-    <span style="color: #2d9574;">(</span>null? y<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-</pre>
-</div>
-<p>
-为了便于理解,对以上代码做以下修改.
-</p>
-<div class="org-src-container">
-<pre class="src src-scheme"><span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">define</span> <span style="color: #bc6ec5; font-weight: bold;">multirember&amp;co</span>
-  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #2d9574;">(</span>a lat col<span style="color: #2d9574;">)</span>
-    <span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">begin</span>
-      <span style="color: #67b11d;">(</span>display col<span style="color: #67b11d;">)</span>
-      <span style="color: #67b11d;">(</span>display <span style="color: #2d9574;">"chen\n"</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>
-    <span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">cond</span>
-     <span style="color: #67b11d;">(</span><span style="color: #b1951d;">(</span>null? lat<span style="color: #b1951d;">)</span>
-      <span style="color: #b1951d;">(</span>col <span style="color: #4f97d7;">(</span>quote <span style="color: #bc6ec5;">()</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">(</span>quote <span style="color: #bc6ec5;">()</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">)</span><span style="color: #67b11d;">)</span>
-     <span style="color: #67b11d;">(</span><span style="color: #b1951d;">(</span>eq? <span style="color: #4f97d7;">(</span>car lat<span style="color: #4f97d7;">)</span> a<span style="color: #b1951d;">)</span>
-      <span style="color: #b1951d;">(</span>multirember&amp;co a <span style="color: #4f97d7;">(</span>cdr lat<span style="color: #4f97d7;">)</span>
-                      <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #bc6ec5;">(</span>newlat seen<span style="color: #bc6ec5;">)</span>
-                        <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">begin</span>
-                          <span style="color: #2d9574;">(</span>display newlat<span style="color: #2d9574;">)</span>
-                          <span style="color: #2d9574;">(</span>display seen<span style="color: #2d9574;">)</span>
-                          <span style="color: #2d9574;">(</span>display <span style="color: #2d9574;">"\n"</span><span style="color: #2d9574;">)</span>
-                          <span style="color: #2d9574;">(</span>col newlat
-                               <span style="color: #9cb6ad;">(</span>cons <span style="color: #4f97d7;">(</span>car lat<span style="color: #4f97d7;">)</span> seen<span style="color: #9cb6ad;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">)</span><span style="color: #67b11d;">)</span>
-     <span style="color: #67b11d;">(</span><span style="color: #4f97d7; font-weight: bold;">else</span>
-      <span style="color: #b1951d;">(</span>multirember&amp;co a <span style="color: #4f97d7;">(</span>cdr lat<span style="color: #4f97d7;">)</span>
-                      <span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #bc6ec5;">(</span>newlat seen<span style="color: #bc6ec5;">)</span>
-                        <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">begin</span>
-                          <span style="color: #2d9574;">(</span>display <span style="color: #2d9574;">"&lt;"</span><span style="color: #2d9574;">)</span>
-                          <span style="color: #2d9574;">(</span>display newlat<span style="color: #2d9574;">)</span>
-                          <span style="color: #2d9574;">(</span>display seen<span style="color: #2d9574;">)</span>
-                          <span style="color: #2d9574;">(</span>display <span style="color: #2d9574;">"&gt;\n"</span><span style="color: #2d9574;">)</span>
-                          <span style="color: #2d9574;">(</span>col <span style="color: #9cb6ad;">(</span>cons <span style="color: #4f97d7;">(</span>car lat<span style="color: #4f97d7;">)</span> newlat<span style="color: #9cb6ad;">)</span> seen<span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span><span style="color: #b1951d;">)</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-
-<span style="color: #4f97d7;">(</span><span style="color: #4f97d7; font-weight: bold;">define</span> <span style="color: #bc6ec5; font-weight: bold;">a-friend</span>
-  <span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold;">lambda</span> <span style="color: #2d9574;">(</span>x y<span style="color: #2d9574;">)</span>
-    <span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">begin</span>
-      <span style="color: #67b11d;">(</span>display <span style="color: #2d9574;">"["</span><span style="color: #67b11d;">)</span>
-      <span style="color: #67b11d;">(</span>display x<span style="color: #67b11d;">)</span>
-      <span style="color: #67b11d;">(</span>display y<span style="color: #67b11d;">)</span>
-      <span style="color: #67b11d;">(</span>display <span style="color: #2d9574;">"]\n"</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>
-<span style="color: #4f97d7;">(</span>multirember&amp;co 'tuna '<span style="color: #bc6ec5;">(</span>strawberries tuna and swordifish<span style="color: #bc6ec5;">)</span> a-friend<span style="color: #4f97d7;">)</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">&#36755;&#20986;</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">#&lt;procedure (a-friend x y)&gt;chen</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">#&lt;procedure (? newlat seen)&gt;chen</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">#&lt;procedure (? newlat seen)&gt;chen</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">#&lt;procedure (? newlat seen)&gt;chen</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">#&lt;procedure (? newlat seen)&gt;chen</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">&lt;()()&gt;</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">&lt;(swordifish)()&gt;</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">(and swordifish)()</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">&lt;(and swordifish)(tuna)&gt;</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">[(strawberries and swordifish)(tuna)]</span>
-<span style="color: #2aa1ae; background-color: #292e34;">;;</span><span style="color: #2aa1ae; background-color: #292e34;">(multirember&amp;co 'tuna '(strawberries tuna and swordifish) a-friend)</span>
-</pre>
-</div>
-<p>
-lisp递归可以理解成不停地代换至终止条件,然后执行.通过display输出分析,multirember&amp;co
-调用了五次,其中第一次为a-friend函数,其余都为lambda表达式.其中lambda是一个闭包,依赖了
-外部col参数,所以col为自由变量.参考闭包定义和词法作用域,"词法作用域的函数中遇到既不是
-形参也不是函数内部定义的局部变量的变量时,去函数定义时的环境中查询".所以第一次定义
-(lambda (newlat seen))时的col为,a-friend函数.第二次以及之后的(lambda (newlat seen))
-中的col同为(lambda (newlat seen)).
-</p></li>
-</ul>
-</div>
-</div>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2710,7 +2683,7 @@ lisp递归可以理解成不停地代换至终止条件,然后执行.通过displ
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2721,7 +2694,7 @@ lisp递归可以理解成不停地代换至终止条件,然后执行.通过displ
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2732,7 +2705,7 @@ lisp递归可以理解成不停地代换至终止条件,然后执行.通过displ
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
